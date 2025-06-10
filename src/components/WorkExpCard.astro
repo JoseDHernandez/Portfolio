@@ -1,0 +1,17 @@
+---
+const { Information } = Astro.props;
+const { Role, Where, Duration, Description, Functions } = Information;
+---
+
+<article>
+  <h3>{Role}</h3>
+  <p>
+    <strong>{Where}</strong> &nbsp;
+    {Duration}
+  </p>
+  <p>{Description}</p>
+  <p>
+    Funciones:
+    <ul>{Functions.map((f: string) => <li>{f}</li>)}</ul>
+  </p>
+</article>

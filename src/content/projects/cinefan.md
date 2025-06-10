@@ -1,0 +1,15 @@
+---
+Title: "CineFan"
+Date: 2025-05-03
+Short_description: "Página de reseñas de mis películas favoritas"
+Description: "Este proyecto es una página de películas con un sistema de reseñas, en el cual utilice.."
+Cover_path: "cinefan_cover.webp"
+technologies:
+  - "Html"
+  - "Css"
+  - "Javascript"
+  - "Github"
+  - "Git"
+  - "Bootstrap"
+type: "Aplicación de escritorio"
+---

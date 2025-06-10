@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+import sena from "../assets/logos/logo_sena.webp";
+import ucompensar from "../assets/logos/logo-ucompensar.webp";
+const { Data } = Astro.props;
+const { Image_path, Title, Duration, Where } = Data;
+const logos = {
+  logo_ucompensar: ucompensar,
+  logo_sena: sena,
+};
+const logo: ImageMetadata = logos[Image_path as keyof typeof logos];
+---
+
+<article>
+  <div>
+    <Image alt={`${Where} logo`} src={logo} />
+    <p>
+      <strong>{Title}</strong>
+      <br />
+      <small>{Duration}</small>
+    </p>
+  </div>
+  <p>{Where}</p>
+</article>

@@ -1,49 +1,240 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+/* -- Metadata -- */
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_KEYWORDS } from "../consts";
+
+/* -- Images -- */
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import foto_sobre_mi from "../assets/josedhernandez.webp";
+
+/* -- Components -- */
+import WorkExpCard from "../components/WorkExpCard.astro";
+import StudyCard from "../components/StudyCard.astro";
+import ProjectSection from "../components/ProjectComponent";
+
+/* -- Content -- */
+import { getCollection } from "astro:content";
+import { soft_skills } from "../content/skills/skills.json";
+const work_experience = await getCollection("work_experience");
+const studies = await getCollection("studies");
+const projects = await getCollection("projects");
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={SITE_DESCRIPTION} />
+    <meta name="keywords" content={SITE_KEYWORDS} />
+    <title>{SITE_TITLE}</title>
+  </head>
+  <body>
+    <div>
+      <main>
+        <section aria-label="Presentación" class="bg-primary">
+          <div class="content presentation">
+            <img
+              src="/images/josedhernandez.webp"
+              width="347px"
+              height="367px"
+              class="presentation-image"
+            />
+            <h1 class="text-center presentation-title">
+              <span class="text-white">Jos&eacute;</span>
+              <span class="text-secondary">David</span>
+              <span class="text-white">Hern&aacute;ndez</span>
+              <span class="text-secondary">Hort&uacute;a</span>
+            </h1>
+            <p class="presentation-description text-white">
+              <strong>Ingeniero de Software</strong> en desarrollo, con experiencia
+              en el <em
+                >desarrollo de aplicaciones web FullStack. Poseo conocimiento en
+                tecnolog&iacute;as FrontEnd y BackEnd</em
+              >
+              , priorizando la experiencia de usuario (UX) y el dise&ntilde;o intuitivo
+              de interfaces (UI).
+            </p>
+            <div class="presentation-buttons">
+              <button class="button-white">Descargar CV</button>
+              <button
+                class="button-white-icon"
+                aria-label="Ir al perfil de Git Hub"
+              >
+                <Icon name="github_v" />
+              </button>
+              <button class="button-white-icon" aria-label="Ir al perfil de ">
+                <Icon name="linkedin" />
+              </button>
+            </div>
+            <nav class="presentation-links">
+              <ul>
+                <li><a href="/sobre-mi">Sobre m&iacute;</a></li>
+                <li><a href="/proyectos">Proyectos</a></li>
+                <li><a href="#Contacto">Contacto</a></li>
+              </ul>
+            </nav>
+          </div>
+        </section>
+        <section aria-label="Sobre mí">
+          <div class="content about-me">
+            <h2 class="about-me-title">Sobre m&iacute;</h2>
+            <Image
+              class="about-me-image"
+              width="370"
+              src={foto_sobre_mi}
+              alt="Foto de José David Hernández"
+              quality="max"
+            />
+            <p>
+              Hola, soy Jos&eacute; Hern&aacute;ndez. Estoy en constante
+              desarrollo (igual que el software que creo). Me apasiona
+              transformar ideas en soluciones interactivas que conecten con las
+              personas. Actualmente estudio Ingenier&iacute;a de Software y
+              cuento con formaci&oacute;n t&eacute;cnica en programaci&oacute;n.
+            </p>
+            <p>
+              Tengo experiencia en desarrollo web FullStack, trabajando con
+              tecnolog&iacute;as como HTML, CSS, JavaScript, React, Node.js, PHP
+              y bases de datos relacionales y no relacionales. Fui aprendiz
+              webmaster en la Universidad Libre, donde modernic&eacute;
+              estructuras web con enfoque en accesibilidad y
+              documentaci&oacute;n t&eacute;cnica.
+            </p>
+            <p>
+              También he desarrollado proyectos personales como una tienda
+              digital y un juego multijugador web basado en Cards Against
+              Humanity. Cuando no estoy programando, me inspiro escuchando
+              m&uacute;sica, viendo series, leyendo o jugando videojuegos.
+            </p>
+            <aside>
+              <strong>Habilidades blandas</strong>
+              <ul class="about-me-skills">
+                {
+                  soft_skills.map((skill) => {
+                    return <li>{skill}</li>;
+                  })
+                }
+              </ul>
+            </aside>
+          </div>
+        </section>
+        <section aria-label="Experiencia laboral">
+          <h2>Experiencia Laboral</h2>
+          {work_experience.map((exp) => <WorkExpCard Information={exp.data} />)}
+        </section>
+        <section>
+          <h2>Formaci&oacute;n acad&eacute;mica</h2>
+          {
+            studies
+              .sort((a, b) => a.data.Position - b.data.Position)
+              .map((study) => <StudyCard Data={study.data} />)
+          }
+          <aside>
+            <button>Ver certificados</button>
+          </aside>
+        </section>
+        <section>
+          <h2>Proyectos</h2>
+          <ProjectSection projects={projects} />
+          <a href="/proyectos">Ver todos los proyectos</a>
+        </section>
+        <section>
+          <h2>Contacto</h2>
+          <p>
+            <strong>¿Tienes una idea o proyecto en mente?</strong>
+            <br /><br />
+            ¡Hablemos! Me encanta colaborar en proyectos creativos y tecnológicos.
+            Estoy disponible para charlas, retos de programación o simplemente compartir
+            ideas.
+          </p>
+          <button>Descargar CV</button>
+          <article>
+            <h3>Formulario de contacto</h3>
+            <form action="">
+              <div>
+                <label for="name">Nombre</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Ingrese su nombre o el de compañía"
+                  maxlength="50"
+                  minlength="3"
+                  required
+                />
+              </div>
+              <div>
+                <label for="email">Correo electr&oacute;nico</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Ingrese su dirección de correo electrónico"
+                  maxlength="300"
+                  minlength="5"
+                  required
+                />
+              </div>
+              <div>
+                <label for="title">Asunto</label>
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  placeholder="Ingrese el asunto del mensaje"
+                  maxlength="300"
+                  minlength="3"
+                  required
+                />
+              </div>
+              <div>
+                <label for="message">Mensaje</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder="Ingrese su nombre o el de compañía"
+                  maxlength="1000"
+                  minlength="3"
+                  required></textarea>
+              </div>
+              <input type="submit" value="Enviar" />
+            </form>
+          </article>
+          <article>
+            <p><strong>Otros tipos de contacto:</strong></p>
+            <ul>
+              <li>
+                <b>Correo electrónico:</b>
+                <a href="mailto:josedhernandez@proton.com" target="_blank"
+                  >josedhernandez@proton.com</a
+                >
+              </li>
+              <li>
+                <b>Correo electrónico alternativo:</b>
+                <a href="mailto:jh265626@gmail.com">jh265626@gmail.com</a>
+              </li>
+              <li>
+                <b>LinkedIn:</b>
+                <a
+                  href="https://www.linkedin.com/in/josedhernandezh/"
+                  target="_blank">JoseDHernandez</a
+                >
+              </li>
+              <li>
+                <b>Git hub:</b>
+                <a href="https://github.com/JoseDHernandez" target="_blank"
+                  >JoseDHernandez</a
+                >
+              </li>
+            </ul>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
+
+<style lang="scss" is:global>
+  @use "../styles/global.scss";
+</style>
