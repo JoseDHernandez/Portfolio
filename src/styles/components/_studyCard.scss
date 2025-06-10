@@ -1,0 +1,30 @@
+.studyCard {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  &-logo {
+    width: 5em;
+    height: 5em;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  & p {
+    margin: 0;
+    text-wrap: wrap;
+  }
+  & > div {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    & p {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+  &-where {
+    width: 100%;
+    font-size: 14px;
+    color: #d85d28;
+  }
+}

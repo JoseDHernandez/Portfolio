@@ -56,14 +56,14 @@ const projects = await getCollection("projects");
               de interfaces (UI).
             </p>
             <div class="presentation-buttons">
-              <button class="button-white">Descargar CV</button>
+              <a class="button-text-primary">Descargar CV</a>
               <button
-                class="button-white-icon"
+                class="button-icon-primary"
                 aria-label="Ir al perfil de Git Hub"
               >
                 <Icon name="github_v" />
               </button>
-              <button class="button-white-icon" aria-label="Ir al perfil de ">
+              <button class="button-icon-primary" aria-label="Ir al perfil de ">
                 <Icon name="linkedin" />
               </button>
             </div>
@@ -78,7 +78,7 @@ const projects = await getCollection("projects");
         </section>
         <section aria-label="Sobre mí">
           <div class="content about-me">
-            <h2 class="about-me-title">Sobre m&iacute;</h2>
+            <h2 class="about-me-title text-primary">Sobre m&iacute;</h2>
             <Image
               class="about-me-image"
               width="370"
@@ -86,149 +86,179 @@ const projects = await getCollection("projects");
               alt="Foto de José David Hernández"
               quality="max"
             />
-            <p>
-              Hola, soy Jos&eacute; Hern&aacute;ndez. Estoy en constante
-              desarrollo (igual que el software que creo). Me apasiona
-              transformar ideas en soluciones interactivas que conecten con las
-              personas. Actualmente estudio Ingenier&iacute;a de Software y
-              cuento con formaci&oacute;n t&eacute;cnica en programaci&oacute;n.
-            </p>
-            <p>
-              Tengo experiencia en desarrollo web FullStack, trabajando con
-              tecnolog&iacute;as como HTML, CSS, JavaScript, React, Node.js, PHP
-              y bases de datos relacionales y no relacionales. Fui aprendiz
-              webmaster en la Universidad Libre, donde modernic&eacute;
-              estructuras web con enfoque en accesibilidad y
-              documentaci&oacute;n t&eacute;cnica.
-            </p>
-            <p>
-              También he desarrollado proyectos personales como una tienda
-              digital y un juego multijugador web basado en Cards Against
-              Humanity. Cuando no estoy programando, me inspiro escuchando
-              m&uacute;sica, viendo series, leyendo o jugando videojuegos.
-            </p>
-            <aside>
-              <strong>Habilidades blandas</strong>
-              <ul class="about-me-skills">
-                {
-                  soft_skills.map((skill) => {
-                    return <li>{skill}</li>;
-                  })
-                }
-              </ul>
-            </aside>
+            <div class="about-me-text">
+              <p>
+                Hola, soy Jos&eacute; Hern&aacute;ndez. Estoy en constante
+                desarrollo (igual que el software que creo). Me apasiona
+                transformar ideas en soluciones interactivas que conecten con
+                las personas. Actualmente estudio Ingenier&iacute;a de Software
+                y cuento con formaci&oacute;n t&eacute;cnica en
+                programaci&oacute;n.
+              </p>
+              <p>
+                Tengo experiencia en desarrollo web FullStack, trabajando con
+                tecnolog&iacute;as como HTML, CSS, JavaScript, React, Node.js,
+                PHP y bases de datos relacionales y no relacionales. Fui
+                aprendiz webmaster en la Universidad Libre, donde
+                modernic&eacute; estructuras web con enfoque en accesibilidad y
+                documentaci&oacute;n t&eacute;cnica.
+              </p>
+              <p>
+                También he desarrollado proyectos personales como una tienda
+                digital y un juego multijugador web basado en Cards Against
+                Humanity. Cuando no estoy programando, me inspiro escuchando
+                m&uacute;sica, viendo series, leyendo o jugando videojuegos.
+              </p>
+
+              <aside>
+                <strong>Habilidades blandas</strong>
+                <ul class="about-me-skills">
+                  {
+                    soft_skills
+                      .sort((a, b) => a.length - b.length)
+                      .map((skill) => {
+                        return <li>{skill}</li>;
+                      })
+                  }
+                </ul>
+              </aside>
+            </div>
           </div>
         </section>
         <section aria-label="Experiencia laboral">
-          <h2>Experiencia Laboral</h2>
-          {work_experience.map((exp) => <WorkExpCard Information={exp.data} />)}
+          <div class="content">
+            <h2 class="text-primary text-center">Experiencia Laboral</h2>
+            {
+              work_experience.map((exp) => (
+                <WorkExpCard Information={exp.data} />
+              ))
+            }
+          </div>
         </section>
-        <section>
-          <h2>Formaci&oacute;n acad&eacute;mica</h2>
-          {
-            studies
-              .sort((a, b) => a.data.Position - b.data.Position)
-              .map((study) => <StudyCard Data={study.data} />)
-          }
-          <aside>
-            <button>Ver certificados</button>
-          </aside>
+        <section class="bg-primary studies">
+          <div class="content">
+            <h2 class="text-white text-center">
+              Formaci&oacute;n acad&eacute;mica
+            </h2>
+            {
+              studies
+                .sort((a, b) => b.data.Position - a.data.Position)
+                .map((study) => <StudyCard Data={study.data} />)
+            }
+            <aside>
+              <a class="button-text-secondary" href="/certificados/"
+                >Ver certificados</a
+              >
+            </aside>
+          </div>
         </section>
-        <section>
-          <h2>Proyectos</h2>
-          <ProjectSection projects={projects} />
-          <a href="/proyectos">Ver todos los proyectos</a>
+        <section class="bg-primary">
+          <div class="content">
+            <h2 class="text-white text-center">Proyectos</h2>
+            <ProjectSection projects={projects} client:only="react">
+              <div slot="fallback">Loading</div>
+            </ProjectSection>
+            <a href="/proyectos" class="button-text-secondary"
+              >Ver todos los proyectos</a
+            >
+          </div>
         </section>
-        <section>
-          <h2>Contacto</h2>
-          <p>
-            <strong>¿Tienes una idea o proyecto en mente?</strong>
-            <br /><br />
-            ¡Hablemos! Me encanta colaborar en proyectos creativos y tecnológicos.
-            Estoy disponible para charlas, retos de programación o simplemente compartir
-            ideas.
-          </p>
-          <button>Descargar CV</button>
-          <article>
-            <h3>Formulario de contacto</h3>
-            <form action="">
-              <div>
-                <label for="name">Nombre</label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Ingrese su nombre o el de compañía"
-                  maxlength="50"
-                  minlength="3"
-                  required
-                />
-              </div>
-              <div>
-                <label for="email">Correo electr&oacute;nico</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Ingrese su dirección de correo electrónico"
-                  maxlength="300"
-                  minlength="5"
-                  required
-                />
-              </div>
-              <div>
-                <label for="title">Asunto</label>
-                <input
-                  type="text"
-                  name="title"
-                  id="title"
-                  placeholder="Ingrese el asunto del mensaje"
-                  maxlength="300"
-                  minlength="3"
-                  required
-                />
-              </div>
-              <div>
-                <label for="message">Mensaje</label>
-                <textarea
-                  name="message"
-                  id="message"
-                  placeholder="Ingrese su nombre o el de compañía"
-                  maxlength="1000"
-                  minlength="3"
-                  required></textarea>
-              </div>
-              <input type="submit" value="Enviar" />
-            </form>
-          </article>
-          <article>
-            <p><strong>Otros tipos de contacto:</strong></p>
-            <ul>
-              <li>
-                <b>Correo electrónico:</b>
-                <a href="mailto:josedhernandez@proton.com" target="_blank"
-                  >josedhernandez@proton.com</a
-                >
-              </li>
-              <li>
-                <b>Correo electrónico alternativo:</b>
-                <a href="mailto:jh265626@gmail.com">jh265626@gmail.com</a>
-              </li>
-              <li>
-                <b>LinkedIn:</b>
-                <a
-                  href="https://www.linkedin.com/in/josedhernandezh/"
-                  target="_blank">JoseDHernandez</a
-                >
-              </li>
-              <li>
-                <b>Git hub:</b>
-                <a href="https://github.com/JoseDHernandez" target="_blank"
-                  >JoseDHernandez</a
-                >
-              </li>
-            </ul>
-          </article>
+        <section class="contact">
+          <div class="bg-primary">
+            <h2 class="text-white text-center">Contacto</h2>
+          </div>
+          <div class="content">
+            <p>
+              <strong>¿Tienes una idea o proyecto en mente?</strong>
+              <br /><br />
+              ¡Hablemos! Me encanta colaborar en proyectos creativos y tecnológicos.
+              Estoy disponible para charlas, retos de programación o simplemente
+              compartir ideas.
+            </p>
+            <a class="button-text-icon-background-secondary"
+              >Descargar CV &nbsp; <Icon name="download" /></a
+            >
+            <article>
+              <h3 class="text-primary text-center">Formulario de contacto</h3>
+              <form action="">
+                <div>
+                  <label for="name">Nombre</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Ingrese su nombre o el de compañía"
+                    maxlength="50"
+                    minlength="3"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="email">Correo electr&oacute;nico</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Ingrese su dirección de correo electrónico"
+                    maxlength="300"
+                    minlength="5"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="title">Asunto</label>
+                  <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="Ingrese el asunto del mensaje"
+                    maxlength="300"
+                    minlength="3"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="message">Mensaje</label>
+                  <textarea
+                    name="message"
+                    id="message"
+                    placeholder="Ingrese su nombre o el de compañía"
+                    maxlength="1000"
+                    minlength="3"
+                    required></textarea>
+                </div>
+                <input type="submit" value="Enviar" />
+              </form>
+            </article>
+            <article>
+              <p><strong>Otros tipos de contacto:</strong></p>
+              <ul>
+                <li>
+                  <b>Correo electrónico:</b>
+                  <a href="mailto:josedhernandez@proton.com" target="_blank"
+                    >josedhernandez@proton.com</a
+                  >
+                </li>
+                <li>
+                  <b>Correo electrónico alternativo:</b>
+                  <a href="mailto:jh265626@gmail.com">jh265626@gmail.com</a>
+                </li>
+                <li>
+                  <b>LinkedIn:</b>
+                  <a
+                    href="https://www.linkedin.com/in/josedhernandezh/"
+                    target="_blank">JoseDHernandez</a
+                  >
+                </li>
+                <li>
+                  <b>Git hub:</b>
+                  <a href="https://github.com/JoseDHernandez" target="_blank"
+                    >JoseDHernandez</a
+                  >
+                </li>
+              </ul>
+            </article>
+          </div>
         </section>
       </main>
     </div>

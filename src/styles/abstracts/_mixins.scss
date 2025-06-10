@@ -1,0 +1,19 @@
+@mixin button-icon($size, $fill) {
+  margin: 0px !important;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  width: 45px;
+  height: 45px;
+  & > svg {
+    width: $size;
+    height: $size;
+  }
+  & path {
+    fill: $fill !important;
+  }
+}
+@mixin image-rounded-border($radius) {
+  border-radius: $radius;
+  object-fit: cover;
+}

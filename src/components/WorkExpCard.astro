@@ -3,15 +3,18 @@ const { Information } = Astro.props;
 const { Role, Where, Duration, Description, Functions } = Information;
 ---
 
-<article>
-  <h3>{Role}</h3>
+<article class="workCard">
+  <strong>{Role}</strong>
   <p>
     <strong>{Where}</strong> &nbsp;
     {Duration}
   </p>
   <p>{Description}</p>
   <p>
-    Funciones:
+    <b>Funciones:</b>
     <ul>{Functions.map((f: string) => <li>{f}</li>)}</ul>
   </p>
 </article>
+<style lang="scss">
+  @use "../styles/components/_workCard";
+</style>

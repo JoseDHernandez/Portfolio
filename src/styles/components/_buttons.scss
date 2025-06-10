@@ -1,0 +1,81 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+.button {
+  text-decoration: none;
+  border-radius: 5px;
+  border: 0px solid transparent;
+  min-height: 45px !important;
+  min-width: 45px !important;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: max-content;
+}
+.button-text {
+  padding: 0.2rem 0.8rem;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.button-text-primary {
+  @extend .button;
+  @extend .button-text;
+  background-color: #fff;
+  color: $primary-color-button;
+}
+.button-icon-primary {
+  @extend .button;
+  @include button-icon(40px, $primary-color-button);
+  background-color: #fff;
+}
+.button-secondary {
+  @extend .button;
+  @extend .button-text;
+  background-color: $secondary-color;
+  color: #fff;
+}
+.button-icon-secondary {
+  @extend .button;
+  @include button-icon(40px, $secondary-color);
+  background-color: #fff;
+}
+.button-icon-background-secondary {
+  @extend .button;
+  @include button-icon(40px, #fff);
+  background-color: $secondary-color;
+}
+.button-text-secondary {
+  @extend .button;
+  @extend .button-text;
+  background-color: #fff;
+  color: $secondary-color;
+}
+.button-text-icon-secondary {
+  @extend .button;
+  @extend .button-text;
+  background-color: #fff;
+  color: $secondary-color;
+  padding: 5px;
+  svg {
+    width: 30px !important;
+    height: 30px !important;
+    path {
+      fill: $secondary-color;
+    }
+  }
+}
+.button-text-icon-background-secondary {
+  @extend .button;
+  @extend .button-text;
+  background-color: $secondary-color;
+  color: #fff;
+  padding: 5px;
+  svg {
+    width: 30px !important;
+    height: 30px !important;
+    path {
+      fill: #fff;
+    }
+  }
+}

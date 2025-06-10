@@ -1,5 +1,7 @@
 @use "./abstracts/variables";
 @use "./base/fonts";
 @use "./base/general";
+/*Components*/
+@use "./components/buttons";
 /*Pages*/
 @use "./pages/homepage.scss";

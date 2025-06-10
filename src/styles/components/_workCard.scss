@@ -1,0 +1,19 @@
+@use "../abstracts/variables" as *;
+.workCard {
+  box-shadow: 2px 2px 7px 4px #21153747;
+  padding: 1em;
+  border-radius: 10px;
+  & > ul {
+    padding-left: 2em;
+  }
+  & > strong {
+    font-size: 25px;
+    color: $secondary-color;
+  }
+  & li::marker {
+    color: $secondary-color;
+  }
+  & > :first-child {
+    margin-top: 0px !important;
+  }
+}

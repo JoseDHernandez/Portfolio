@@ -11,14 +11,16 @@ const logos = {
 const logo: ImageMetadata = logos[Image_path as keyof typeof logos];
 ---
 
-<article>
+<article class="studyCard">
   <div>
-    <Image alt={`${Where} logo`} src={logo} />
+    <Image class="studyCard-logo" alt={`${Where} logo`} src={logo} />
     <p>
-      <strong>{Title}</strong>
-      <br />
-      <small>{Duration}</small>
+      <strong class="studyCard-title">{Title}</strong>
+      <small class="studyCard-duration"><i>{Duration}</i></small>
     </p>
   </div>
-  <p>{Where}</p>
+  <p class="studyCard-where">{Where}</p>
 </article>
+<style lang="scss">
+  @use "../styles/components/_studyCard.scss";
+</style>
