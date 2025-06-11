@@ -17,3 +17,7 @@ $breakpoints: (
   // pantallas grandes
   limit: $limit-size,
 );
+.limit-section {
+  max-width: $limit-size;
+  margin: auto;
+}

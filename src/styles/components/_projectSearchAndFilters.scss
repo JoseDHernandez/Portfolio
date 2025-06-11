@@ -1,5 +1,6 @@
 @use "../abstracts/mixins" as *;
 .project {
+  min-height: 80dvh;
   &-inputs {
     display: grid;
     gap: 1em;

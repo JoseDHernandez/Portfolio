@@ -100,8 +100,9 @@ export default function ProjectSection({ projects }) {
           </div>
 
           <div>
-            <label>Tipo de aplicación:</label> <br /> <br />
+            <label htmlFor="Filter">Tipo de aplicación:</label> <br /> <br />
             <select
+              id="Filter"
               value={typeFilter}
               onChange={(e) => setTypeFilter(e.target.value)}
             >
