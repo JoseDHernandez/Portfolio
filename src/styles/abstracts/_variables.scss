@@ -3,3 +3,17 @@ $primary-color-button: #3c2178;
 $secondary-color: #64b9a8;
 $bg-white: #fbeaff;
 $labels-color: #2f2f2f;
+$limit-size: 2000px;
+$breakpoints: (
+  sm: 480px,
+  // pequeños móviles
+  md: 768px,
+  // tablets
+  lg: 1024px,
+  // laptops
+  xl: 1280px,
+  // desktops
+  2xl: 1536px,
+  // pantallas grandes
+  limit: $limit-size,
+);

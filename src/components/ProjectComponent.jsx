@@ -53,29 +53,31 @@ export default function ProjectSection({ projects }) {
 
   return (
     <div className="project">
-      <div className="project-input">
-        <input
-          type="text"
-          placeholder="Buscar..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+      <div className="project-inputs">
+        <div className="project-input">
+          <input
+            type="text"
+            placeholder="Buscar..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button
+            aria-label="Buscar proyectos"
+            className="button-icon-background-secondary project-button"
+          >
+            <SearchIcon />
+          </button>
+        </div>
+
         <button
-          aria-label="Buscar proyectos"
-          className="button-icon-background-secondary project-button"
+          className="button-text-icon-secondary project-filter-button"
+          onClick={openModal}
+          aria-haspopup="true"
+          aria-expanded={modalOpen}
         >
-          <SearchIcon />
+          <FilterIcon /> Filtros
         </button>
       </div>
-
-      <button
-        className="button-text-icon-secondary project-filter-button"
-        onClick={openModal}
-        aria-haspopup="true"
-        aria-expanded={modalOpen}
-      >
-        <FilterIcon /> Filtros
-      </button>
       <div
         className={`project-filters-modal ${modalOpen ? "open" : ""}`}
         role="dialog"

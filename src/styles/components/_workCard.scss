@@ -3,11 +3,12 @@
   box-shadow: 2px 2px 7px 4px #21153747;
   padding: 1em;
   border-radius: 10px;
+  max-width: 500px;
+  margin: auto;
   & > ul {
     padding-left: 2em;
   }
-  & > strong {
-    font-size: 25px;
+  & > h3 {
     color: $secondary-color;
   }
   & li::marker {

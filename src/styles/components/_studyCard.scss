@@ -1,13 +1,20 @@
+@use "../abstracts/mixins" as *;
 .studyCard {
   background-color: #fff;
+  width: 100%;
+  max-width: 320px;
   padding: 10px;
   border-radius: 5px;
-  margin-bottom: 1em;
   &-logo {
+    margin: auto;
     width: 5em;
     height: 5em;
     object-fit: cover;
     border-radius: 5px;
+    @include breakpoint(lg) {
+      width: 4em;
+      height: 4em;
+    }
   }
   & p {
     margin: 0;
@@ -20,6 +27,9 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+    }
+    @include breakpoint(lg) {
+      grid-template-columns: 70px 1fr;
     }
   }
   &-where {

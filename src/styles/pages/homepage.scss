@@ -1,11 +1,19 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
-
+//Radius size for projects
+$radius-size: 20px;
 // Hero/Presentation
+@include breakpoint(lg) {
+  .hero {
+    border-bottom-right-radius: $radius-size;
+  }
+}
 .presentation {
   min-height: 100dvh;
-  padding-top: 10dvh;
+  padding-top: 5dvh;
   padding-bottom: 5dvh;
+  display: grid;
+  align-items: center;
   &-image {
     @include image-rounded-border(20px);
     background-color: #fff;
@@ -16,9 +24,6 @@
     height: 15em;
     object-position: 100% 1%;
     box-shadow: 5px 4px 5px 2px #00000033;
-  }
-  &-title {
-    font-size: 27px;
   }
   &-description {
     & > strong {
@@ -32,34 +37,63 @@
     display: flex;
     justify-content: space-around;
     gap: 7px;
-    margin-bottom: 1em;
-  }
-  &-links {
-    & > ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
+    @include breakpoint(sm) {
       justify-content: center;
-      & > li {
-        line-height: 1.6;
-        display: inline;
-        margin: 0 10px;
-        & > a:link {
-          font-size: 26px;
-          color: $secondary-color;
-          font-family: "Poppins-Medium";
-        }
-      }
-      & :nth-child(2) > a {
-        font-size: 28px !important;
-      }
+      gap: 12px;
+    }
+  }
+  @include breakpoint(lg) {
+    grid-template-columns: 1fr 1fr;
+    padding-top: 0;
+    padding-bottom: 0;
+    & > :first-child {
+      order: 2;
+      justify-self: end;
+    }
+    &-image {
+      width: 30dvw;
+      height: 30dvw;
+    }
+    &-buttons {
+      justify-content: flex-start;
+    }
+    &-title {
+      font-size: 4.8dvw;
+    }
+  }
+
+  @include breakpoint(xl) {
+    &-title {
+      font-size: 4.2dvw;
+    }
+  }
+}
+// Titles for about me and contact
+.title-fusion {
+  padding-top: 0px;
+  & > :first-child {
+    margin-bottom: 2em;
+    border-bottom-left-radius: $radius-size;
+    border-bottom-right-radius: $radius-size;
+    & > h2 {
+      margin: 0;
+      padding: 0.5em 0em 0.2em 0em;
+    }
+    @include breakpoint(lg) {
+      width: 50dvw;
     }
   }
 }
 //about me
 .about-me {
+  @extend .title-fusion;
+  & .content {
+    display: grid;
+    gap: 1em;
+    @include breakpoint(lg) {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
   &-image {
     @include image-rounded-border(10px);
     width: 11em;
@@ -67,6 +101,10 @@
     display: block;
     margin: auto;
     box-shadow: 4px 4px 4px 2px #00000033;
+    @include breakpoint(lg) {
+      width: 15em;
+      height: 20em;
+    }
   }
   &-skills {
     list-style: none;
@@ -75,6 +113,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+    @include breakpoint(lg) {
+      margin-left: 1em;
+    }
     & > li {
       background-color: $secondary-color;
       color: #fff;
@@ -84,8 +125,25 @@
     }
   }
 }
+//Work
+.work-experience {
+  padding-bottom: 2em;
+  @include breakpoint(lg) {
+    .content {
+      padding: 2dvw;
+    }
+    & h2 {
+      margin-bottom: 1.5em;
+      width: 50%;
+      text-align: left;
+      margin-left: 5dvw;
+    }
+  }
+}
 //Studies
 .studies {
+  border-top-left-radius: $radius-size;
+  border-top-right-radius: $radius-size;
   padding-top: 1em;
   padding-bottom: 2em;
 
@@ -93,19 +151,123 @@
     display: flex;
     justify-content: center;
   }
+  &-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 2em;
+    @include breakpoint(md) {
+      justify-content: space-around;
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 2em;
+    }
+    @include breakpoint(lg) {
+      flex-direction: column;
+      width: 320px;
+    }
+  }
+  @include breakpoint(lg) {
+    .content {
+      padding: 0;
+    }
+    width: 100%;
+    height: max-content;
+    align-self: end;
+    justify-self: end;
+  }
+}
+.work-studies {
+  display: grid;
+  @include breakpoint(lg) {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+//Project
+.project-section {
+  .certifications-button {
+    margin: auto;
+    margin-top: 1em;
+  }
+  @include breakpoint(lg) {
+    border-top-left-radius: $radius-size;
+    border-bottom-right-radius: $radius-size;
+    padding-bottom: 3em;
+  }
 }
 //Contact
 .contact {
-  padding-top: 0px;
-  & > :first-child {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    & > h2 {
-      margin: 0;
-      padding: 1em 0em 0.5em 0em;
+  @extend .title-fusion;
+  &-button {
+    margin: auto;
+  }
+  & article ul {
+    list-style: none;
+    li {
+      margin-bottom: 10px;
+      a {
+        color: #000;
+      }
     }
   }
-  .button-text-icon-background-secondary {
+  form {
+    border-radius: 1em;
+    padding: 26px;
+    background: #fff;
+    box-shadow: 2px 2px 4px 4px #00000033;
+    max-width: 500px;
     margin: auto;
+    & div {
+      background: rgb(228, 228, 228);
+      box-shadow: 4px 4px 4px #0000002d;
+      padding: 10px;
+      margin-bottom: 1em;
+      border-radius: 10px;
+      label {
+        color: $labels-color;
+        width: 100%;
+        font-weight: 600;
+      }
+      input,
+      textarea {
+        width: 100%;
+        font-size: 18px;
+        padding: 5px;
+      }
+      input {
+        background-color: transparent;
+        border-color: transparent transparent $labels-color transparent;
+      }
+      textarea {
+        border-color: transparent;
+        border-radius: 10px;
+        margin-top: 10px;
+        overflow-y: scroll;
+        resize: vertical;
+        min-height: 5rem;
+        max-height: 20rem;
+        margin-bottom: 1em;
+      }
+    }
+    & :nth-child(4) {
+      margin-bottom: 2em;
+    }
+    .button-text-background-primary {
+      margin: auto;
+    }
+  }
+  @include breakpoint(lg) {
+    .content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5dvw;
+      & :first-child {
+        order: 2;
+      }
+      blockquote {
+        margin-top: 12dvw;
+      }
+    }
   }
 }

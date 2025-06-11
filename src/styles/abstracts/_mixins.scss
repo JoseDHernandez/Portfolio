@@ -1,4 +1,7 @@
+@use "./variables" as *;
+@use "sass:map";
 @mixin button-icon($size, $fill) {
+  @extend .button;
   margin: 0px !important;
   display: flex;
   justify-content: center;
@@ -13,7 +16,26 @@
     fill: $fill !important;
   }
 }
+@mixin button-text-icon($bg, $color) {
+  @extend .button;
+  @extend .button-text;
+  background-color: $bg;
+  color: $color;
+  padding: 5px 10px;
+  svg {
+    width: 30px !important;
+    height: 30px !important;
+    path {
+      fill: $color;
+    }
+  }
+}
 @mixin image-rounded-border($radius) {
   border-radius: $radius;
   object-fit: cover;
+}
+@mixin breakpoint($size) {
+  @media (min-width: map.get($breakpoints, $size)) {
+    @content;
+  }
 }

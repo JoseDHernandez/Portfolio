@@ -1,6 +1,19 @@
+@use "../abstracts/mixins" as *;
 .project {
+  &-inputs {
+    display: grid;
+    gap: 1em;
+    @include breakpoint(md) {
+      grid-template-columns: 2fr 1fr;
+    }
+    @include breakpoint(lg) {
+      grid-template-columns: 1fr 200px;
+      padding: 0 1dvw;
+    }
+  }
   &-input {
     display: flex;
+    max-width: 1200px;
     input {
       font-size: 18px;
       padding: 0px 8px;
@@ -16,13 +29,16 @@
     border-bottom-left-radius: 0 !important ;
   }
   &-filter-button {
-    margin: 0.5em 0px;
+    margin: 0 auto;
     width: 100%;
-    max-width: 400px;
+    max-width: 320px;
+    @include breakpoint(lg) {
+      max-width: 150px;
+    }
   }
   &-filters-modal {
     position: absolute;
-    top: -1em;
+    top: -0.5em;
     left: -1000%;
     width: 100dvw;
     z-index: 2 !important;
@@ -32,6 +48,9 @@
 
     &.open {
       left: -10dvw;
+      @include breakpoint(sm) {
+        left: 0;
+      }
     }
   }
 }
@@ -40,7 +59,8 @@
   background: white;
   border-radius: 10px;
   padding-bottom: 2em;
-
+  max-width: 400px;
+  box-shadow: 10px 10px 10px rgba(33, 21, 55, 0.2784313725);
   & > :first-child {
     display: grid;
     grid-template-columns: 1fr 50px;
@@ -58,6 +78,7 @@
 
   select {
     width: 100%;
+    height: 2rem;
     font-size: 18px;
     padding: 0px 8px;
     border-radius: 5px;
@@ -82,7 +103,17 @@
 }
 .projects-grid {
   display: grid;
-  grid-template-rows: 1fr;
+  justify-items: center;
+  grid-template-columns: 1fr;
   gap: 1em;
-  margin: 1em 0px;
+  margin: 1em auto;
+  @include breakpoint(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include breakpoint(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include breakpoint(xl) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

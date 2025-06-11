@@ -2,10 +2,10 @@
 Role: "Aprendiz web máster"
 Where: "Universidad Libre"
 Duration: "Agosto 2024 a Marzo 2025 (8 meses)"
-Description: "Como aprendiz, trabajé en la conversión de contenidos desde documentos a HTML5, integrándolos en el CMS institucional. Modernicé estructuras HTML aplicando buenas prácticas de accesibilidad (WCAG) y desarrollé manuales de uso para Bricks Builder y WordPress, orientados a la creación de sitios accesibles y la publicación de contenidos."
+Description: "Paso de información de documentos a HTML5, para el CMS institucional. Modernicé estructuras HTML aplicando accesibilidad (WCAG), desarrollé manuales de accesibilidad y uso para Bricks Builder y WordPress."
 Functions:
   - "Migración y modernización de contenido HTML accesible."
-  - "Desarrollo e implementación de visores de imágenes y documentos PDF."
-  - "Creación de instructivos técnicos para el uso de Bricks Builder y WordPress."
+  - "Desarrollo de visores de imágenes y documentos PDF."
+  - "Creación de instructivos para el uso de Bricks Builder y WordPress."
   - "Modificación de plantillas de correo electrónico en Salesforce."
 ---

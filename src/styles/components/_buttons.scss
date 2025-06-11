@@ -13,69 +13,50 @@
   max-width: max-content;
 }
 .button-text {
+  @extend .button;
   padding: 0.2rem 0.8rem;
   font-weight: 700;
   font-size: 20px;
 }
 
 .button-text-primary {
-  @extend .button;
   @extend .button-text;
   background-color: #fff;
   color: $primary-color-button;
 }
+.button-text-background-primary {
+  @extend .button-text;
+  background-color: $primary-color;
+  color: #fff;
+}
 .button-icon-primary {
-  @extend .button;
   @include button-icon(40px, $primary-color-button);
   background-color: #fff;
 }
-.button-secondary {
-  @extend .button;
+.button-text-background-secondary {
   @extend .button-text;
   background-color: $secondary-color;
   color: #fff;
 }
 .button-icon-secondary {
-  @extend .button;
   @include button-icon(40px, $secondary-color);
   background-color: #fff;
 }
 .button-icon-background-secondary {
-  @extend .button;
   @include button-icon(40px, #fff);
   background-color: $secondary-color;
 }
 .button-text-secondary {
-  @extend .button;
   @extend .button-text;
   background-color: #fff;
   color: $secondary-color;
 }
 .button-text-icon-secondary {
-  @extend .button;
-  @extend .button-text;
-  background-color: #fff;
-  color: $secondary-color;
-  padding: 5px;
-  svg {
-    width: 30px !important;
-    height: 30px !important;
-    path {
-      fill: $secondary-color;
-    }
-  }
+  @include button-text-icon(#fff, $secondary-color);
 }
 .button-text-icon-background-secondary {
-  @extend .button;
-  @extend .button-text;
-  background-color: $secondary-color;
-  color: #fff;
-  padding: 5px;
-  svg {
-    width: 30px !important;
-    height: 30px !important;
-    path {
-      fill: #fff;
-    }
-  }
+  @include button-text-icon($secondary-color, #fff);
+}
+.button-text-icon-background-primary {
+  @include button-text-icon($primary-color, #fff);
 }

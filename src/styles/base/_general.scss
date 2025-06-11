@@ -1,82 +1,120 @@
 @use "../abstracts/variables" as *;
-* {
+@use "../abstracts/mixins" as *;
+/* Box sizing y normalización base */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   position: relative;
   min-width: 0;
 }
+
+/* Utilitarias */
 .bg-primary {
   background-color: $primary-color;
 }
+
 .text-center {
   text-align: center;
 }
+
 .text-white {
   color: #fff;
 }
+
 .text-primary {
   color: $primary-color;
 }
+
 .text-secondary {
   color: $secondary-color;
 }
+
+/* Body */
 body {
   min-height: 100dvh;
   margin: 0;
-  font-family: "OpenSans-Regular";
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #111;
 }
+
+/* Encabezados */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  line-height: 1.5;
+  line-height: 1.2;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  text-wrap: balance;
+  margin: 0.5em 0;
 }
-h1,
+
+/* Tipografía fluida */
+h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem); // 40–56px
+}
+
 h2 {
-  font-family: "Poppins-Bold";
-  text-wrap: balance;
+  font-size: clamp(2rem, 4vw, 2.75rem); // 32–44px
 }
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Poppins-Medium";
-  text-wrap: balance;
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem); // 24–36px
 }
+
+h4 {
+  font-size: clamp(1.25rem, 2.5vw, 2rem); // 20–32px
+}
+
 p,
 a,
 small,
 figcaption,
-li {
+li,
+input[type="text"],
+input[type="number"],
+input[type="email"],
+textarea,
+section {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
   line-height: 1.5;
   text-wrap: pretty;
   overflow-wrap: break-word;
   hyphens: auto;
+  @include breakpoint(md) {
+    hyphens: none;
+  }
 }
-h1 {
-  font-size: clamp(40px, 6vw, 78px);
-}
-h2 {
-  font-size: clamp(32px, 4vw, 48px);
-}
-h3 {
-  font-size: clamp(26px, 3.5vw, 42px);
-}
-h4 {
-  font-size: clamp(22px, 3vw, 36px);
-}
+
 p,
 a {
-  font-size: clamp(16px, 1.5vw, 18px);
+  font-size: clamp(1rem, 1.5vw, 1.125rem); // 16–18px
 }
+
 small {
-  font-size: clamp(12px, 1.2vw, 14px);
+  font-size: clamp(0.875rem, 1.2vw, 0.9375rem); // 14–15px
 }
+
+/* Espaciado */
 .content {
   padding: 0 10dvw;
+  @include breakpoint(lg) {
+    padding: 0 5dvw;
+  }
+  @include breakpoint(xl) {
+    padding: 0 10dvw;
+  }
 }
+
+/* Secciones */
 section {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-block: 1em;
 }
