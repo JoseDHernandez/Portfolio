@@ -114,7 +114,13 @@ small {
     padding: 0 10dvw;
   }
 }
-
+.container {
+  @extend .content;
+  @extend .limit-section;
+  min-height: 90dvh;
+  padding-top: 2dvh;
+  padding-bottom: 2dvh;
+}
 /* Secciones */
 section {
   padding-block: 1em;

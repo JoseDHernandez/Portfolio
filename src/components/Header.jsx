@@ -14,11 +14,10 @@ export default function Header() {
         setBreakSize(false);
       }
     };
-
+    handler();
     window.addEventListener("resize", handler);
     return () => window.removeEventListener("resize", handler);
   }, []);
-
   return (
     <header className="bg-primary">
       <div className={`navbar${isOpen ? "-open" : ""} limit-section`}>

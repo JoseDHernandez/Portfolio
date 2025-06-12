@@ -10,6 +10,7 @@ import { SITE_DESCRIPTION, SITE_KEYWORDS } from "../consts";
 import { AstroFont } from "astro-font";
 /* -- Components -- */
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.jsx";
 ---
 
 <!doctype html>
@@ -89,8 +90,16 @@ import Footer from "../components/Footer.astro";
     />
   </head>
   <body>
-    <slot />
+    <Header client:load />
+    <main id="swup" class="transition-fade">
+      <slot />
+    </main>
     <Footer />
+    <script>
+      import Swup from "swup";
+
+      const swup = new Swup({ native: true, animationSelector: false });
+    </script>
   </body>
 </html>
 <style lang="scss" is:global>
