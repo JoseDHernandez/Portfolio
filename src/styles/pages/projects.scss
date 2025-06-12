@@ -1,13 +1,18 @@
 @use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+.projects-grid-section {
+  min-height: 90dvh;
+}
 .project {
   &-inputs {
+    margin-bottom: 1em;
     display: grid;
     gap: 1em;
     @include breakpoint(md) {
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 1fr 2fr;
     }
     @include breakpoint(lg) {
-      grid-template-columns: 1fr 200px;
+      grid-template-columns: 200px 1fr;
       padding: 0 1dvw;
     }
   }
@@ -19,7 +24,7 @@
       padding: 0px 8px;
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
-      border: 0px solid transparent;
+      border: 2px $accent-color solid;
       min-height: 45px !important;
       width: 100%;
     }
@@ -32,11 +37,15 @@
     }
   }
   &-filter-button {
+    order: 2;
     margin: 0 auto;
     width: 100%;
     max-width: 320px;
     @include breakpoint(lg) {
       max-width: 150px;
+    }
+    @include breakpoint(md) {
+      order: initial;
     }
   }
   &-filters-modal {

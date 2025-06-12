@@ -7,5 +7,7 @@ const projects = await getCollection("projects");
 
 <PageLayout title="Proyectos">
   <h2 class="text-primary text-center">Proyectos</h2>
-  <ProjectComponent projects={projects} />
+  <ProjectComponent projects={projects} client:only="react">
+    <div slot="fallback">cargando</div>
+  </ProjectComponent>
 </PageLayout>

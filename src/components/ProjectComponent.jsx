@@ -53,6 +53,14 @@ export default function ProjectSection({ projects }) {
   return (
     <div className="project">
       <div className="project-inputs">
+        <button
+          className="button-text-icon-background-accent project-filter-button"
+          onClick={openModal}
+          aria-haspopup="true"
+          aria-expanded={modalOpen}
+        >
+          <FilterIcon /> Filtros
+        </button>
         <div className="project-input">
           <input
             type="text"
@@ -67,15 +75,6 @@ export default function ProjectSection({ projects }) {
             <SearchIcon />
           </button>
         </div>
-
-        <button
-          className="button-text-icon-accent project-filter-button"
-          onClick={openModal}
-          aria-haspopup="true"
-          aria-expanded={modalOpen}
-        >
-          <FilterIcon /> Filtros
-        </button>
       </div>
       <div
         className={`project-filters-modal ${modalOpen ? "open" : ""}`}
@@ -135,10 +134,12 @@ export default function ProjectSection({ projects }) {
         </div>
       </div>
 
-      <div className="projects-grid">
-        {filtered.map(({ data, slug }) => (
-          <ProjectCard slug={slug} data={data} key={slug} />
-        ))}
+      <div className="projects-grid-section">
+        <div className="projects-grid">
+          {filtered.map(({ data, slug }) => (
+            <ProjectCard slug={slug} data={data} key={slug} />
+          ))}
+        </div>
       </div>
     </div>
   );
