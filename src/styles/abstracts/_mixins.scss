@@ -29,6 +29,7 @@
       fill: $color;
     }
   }
+  @include hover-elevate($bg, $color);
 }
 @mixin image-rounded-border($radius) {
   border-radius: $radius;
@@ -37,5 +38,22 @@
 @mixin breakpoint($size) {
   @media (min-width: map.get($breakpoints, $size)) {
     @content;
+  }
+}
+@mixin hover-elevate($bg-hover: null, $text-hover: null) {
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+
+    @if $bg-hover {
+      background-color: $bg-hover;
+    }
+
+    @if $text-hover {
+      color: $text-hover;
+    }
   }
 }

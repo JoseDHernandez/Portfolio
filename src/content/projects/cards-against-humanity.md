@@ -8,7 +8,7 @@ technologies:
   - "Tailwind"
   - "Mysql"
   - "Socketio"
-  - "React"
+  - "ReactIcon"
   - "Html"
   - "Css"
   - "Javascript"

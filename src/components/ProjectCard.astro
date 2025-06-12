@@ -1,0 +1,46 @@
+---
+interface ProjectData {
+  Title: string;
+  Short_description: string;
+  Cover_path: string;
+  technologies: string[];
+}
+
+/* -- Images -- */
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  slug: string;
+  data: ProjectData;
+}
+const { slug, data } = Astro.props;
+
+const covers = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/projects/*/*.webp",
+  { eager: true }
+);
+
+const imageKey = `../assets/projects/${slug}/${data.Cover_path}`;
+const coverImage = covers[imageKey]?.default;
+---
+
+<a
+  href={`/proyectos/${slug}`}
+  class="project-card"
+  aria-label={`Ver página del proyecto: ${data.Title}`}
+>
+  <Image src={coverImage} alt={data.Title} width="230" />
+  <strong>{data.Title}</strong>
+  <small>{data.Short_description}</small>
+  <span>
+    {
+      data.technologies.map((tech: string) => (
+        <Icon name={`technologies/${tech}`} title={tech} />
+      ))
+    }
+  </span>
+</a>
+<style lang="scss">
+  @use "../styles/components/projectCardIndex";
+</style>

@@ -1,0 +1,11 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../layouts/PageLayout.astro";
+import ProjectComponent from "../components/ProjectComponent.jsx";
+const projects = await getCollection("projects");
+---
+
+<PageLayout title="Proyectos">
+  <h2>Proyectos</h2>
+  <ProjectComponent projects={projects} />
+</PageLayout>

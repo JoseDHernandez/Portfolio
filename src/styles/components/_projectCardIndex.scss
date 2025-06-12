@@ -1,0 +1,31 @@
+.project-card {
+  width: 100%;
+  text-decoration: none;
+  max-width: 320px;
+  color: #000;
+  background-color: #fff;
+  display: grid;
+  gap: 5px;
+  border-radius: 10px;
+  padding: 10px;
+  img {
+    border-radius: 10px 10px 0px 0px;
+    object-fit: contain;
+    width: 100%;
+    height: 9em;
+  }
+  small {
+    text-wrap: wrap;
+    word-break: break-word;
+  }
+  & > :last-child {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-height: 45px;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

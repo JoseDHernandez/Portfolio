@@ -35,6 +35,9 @@ $radius-size: 20px;
     }
   }
   &-buttons {
+    & > :first-child {
+      color: $labels-color;
+    }
     display: flex;
     justify-content: space-around;
     gap: 7px;
@@ -102,6 +105,7 @@ $radius-size: 20px;
     display: grid;
     gap: 1em;
     @include breakpoint(lg) {
+      margin-top: 15dvh;
       grid-template-columns: 1fr 2fr;
     }
   }
@@ -128,7 +132,7 @@ $radius-size: 20px;
       margin-left: 1em;
     }
     & > li {
-      background-color: $secondary-color;
+      background-color: $accent-color;
       color: #fff;
       padding: 2px 8px;
       margin: 0 2px;
@@ -202,6 +206,7 @@ $radius-size: 20px;
 }
 //Project
 .project-section {
+  min-height: 80dvh;
   @extend .limit-section;
   .certifications-button {
     margin: auto;
@@ -212,6 +217,22 @@ $radius-size: 20px;
     border-bottom-right-radius: $radius-size;
     padding-bottom: 3em;
     min-height: 100dvh;
+  }
+  .projects-grid {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    margin: 1em auto;
+    @include breakpoint(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include breakpoint(xl) {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 }
 //Contact

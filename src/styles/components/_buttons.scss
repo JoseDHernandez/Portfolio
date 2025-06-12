@@ -23,40 +23,80 @@
   @extend .button-text;
   background-color: #fff;
   color: $primary-color-button;
+  @include hover-elevate(#fff, $primary-color-button);
+}
+.button-text-accent {
+  @extend .button-text;
+  background-color: #fff;
+  color: $accent-color;
+  @include hover-elevate(#fff, $accent-color);
+}
+.button-text-background-accent {
+  @extend .button-text;
+  background-color: $accent-color;
+  color: #fff;
+  @include hover-elevate($accent-color, #fff);
+}
+.button-icon-accent {
+  @include button-icon(40px, $accent-color);
+  background-color: #fff;
+  @include hover-elevate(#fff, $accent-color);
+}
+.button-icon-background-accent {
+  @include button-icon(40px, #fff);
+  background-color: $accent-color;
+  @include hover-elevate($accent-color, #fff);
+}
+.button-icon-background-primary {
+  @include button-icon(40px, #fff);
+  background-color: $primary-color;
+  @include hover-elevate($primary-color, #fff);
 }
 .button-text-background-primary {
   @extend .button-text;
   background-color: $primary-color;
   color: #fff;
+  @include hover-elevate($primary-color-button, #fff);
 }
 .button-icon-primary {
   @include button-icon(40px, $primary-color-button);
   background-color: #fff;
+  @include hover-elevate(#fff, $primary-color);
 }
 .button-text-background-secondary {
   @extend .button-text;
   background-color: $secondary-color;
   color: #fff;
+  @include hover-elevate($secondary-color, #fff);
 }
 .button-icon-secondary {
   @include button-icon(40px, $secondary-color);
   background-color: #fff;
+  @include hover-elevate(#fff, $secondary-color);
 }
 .button-icon-background-secondary {
   @include button-icon(40px, #fff);
   background-color: $secondary-color;
+  @include hover-elevate($secondary-color, #fff);
 }
 .button-text-secondary {
   @extend .button-text;
   background-color: #fff;
   color: $secondary-color;
+  @include hover-elevate(#fff, $secondary-color);
 }
 .button-text-icon-secondary {
   @include button-text-icon(#fff, $secondary-color);
+}
+.button-text-icon-accent {
+  @include button-text-icon(#fff, $accent-color);
 }
 .button-text-icon-background-secondary {
   @include button-text-icon($secondary-color, #fff);
 }
 .button-text-icon-background-primary {
   @include button-text-icon($primary-color, #fff);
+}
+.button-text-icon-background-accent {
+  @include button-text-icon($accent-color, #fff);
 }

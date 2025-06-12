@@ -53,11 +53,10 @@
        inkscape:transform-center-y="-0.39800985"
        transform="matrix(0.99185611,-0.00297794,-0.00297794,1.0082197,0,0)"
        style="stroke-width:1.32672"><tspan
-         fill="#fbeaff"
-         id="tspan1"
-         style="stroke-width:1.32672">J</tspan><tspan
+         style="fill:#ffffff"
+         id="tspan1">J</tspan><tspan
          fill="#64b9a8"
          id="tspan2"
-         style="stroke-width:1.32672">H</tspan></text>
+         style="fill:#ffbc50;fill-opacity:1;stroke-width:1.32672">H</tspan></text>
   </g>
 </svg>

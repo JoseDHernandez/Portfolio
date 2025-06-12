@@ -1,16 +1,14 @@
 ---
-/* -- Metadata -- */
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_KEYWORDS } from "../consts";
-
+/* -- Layout -- */
+import Layout from "../layouts/Layout.astro";
 /* -- Images -- */
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import foto_sobre_mi from "../assets/josedhernandez.webp";
-
+import foto_principal from "../assets/josehernandez.webp";
 /* -- Components -- */
 import WorkExpCard from "../components/WorkExpCard.astro";
 import StudyCard from "../components/StudyCard.astro";
-import ProjectSection from "../components/ProjectComponent";
 
 /* -- Content -- */
 import { getCollection } from "astro:content";
@@ -18,64 +16,65 @@ import { soft_skills } from "../content/skills/skills.json";
 const work_experience = await getCollection("work_experience");
 const studies = await getCollection("studies");
 const projects = await getCollection("projects");
+import ProjectCard from "../components/ProjectCard.astro";
 ---
 
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={SITE_DESCRIPTION} />
-    <meta name="keywords" content={SITE_KEYWORDS} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{SITE_TITLE}</title>
-  </head>
-  <body>
+<Layout title="JoséDHernández">
+  <main id="swup" class="transition-main">
     <div class="page-container">
-      <main>
-        <section aria-label="Presentación" class="bg-primary hero">
-          <div class="content presentation">
-            <div>
-              <img
-                src="/images/josedhernandez.webp"
-                width="347px"
-                height="367px"
-                class="presentation-image"
-                alt="null"
-              />
-            </div>
-            <div class="presentation-info">
-              <h1 class="text-center presentation-title">
-                <span class="text-white">Jos&eacute;</span>
-                <span class="text-secondary">David</span>
-                <span class="text-white">Hern&aacute;ndez</span>
-                <span class="text-secondary">Hort&uacute;a</span>
-              </h1>
-              <p class="presentation-description text-white">
-                <strong>Ingeniero de Software</strong> en desarrollo, con experiencia
-                en el desarrollo de aplicaciones web FullStack. Poseo conocimiento
-                en tecnolog&iacute;as FrontEnd y BackEnd , priorizando la experiencia
-                de usuario (UX) y el dise&ntilde;o intuitivo de interfaces (UI).
-              </p>
-              <div class="presentation-buttons">
-                <a class="button-text-primary">Descargar CV</a>
-                <button
-                  class="button-icon-primary"
-                  aria-label="Ir al perfil de Git Hub"
-                >
-                  <Icon name="github_v" />
-                </button>
-                <button
-                  class="button-icon-primary"
-                  aria-label="Ir al perfil de "
-                >
-                  <Icon name="linkedin" />
-                </button>
-              </div>
+      <section aria-label="Presentación" class="bg-primary hero">
+        <div class="content presentation">
+          <div>
+            <Image
+              src={foto_principal}
+              class="presentation-image"
+              alt="null"
+              width="347"
+              height="367"
+            />
+          </div>
+          <div class="presentation-info">
+            <h1 class="text-center presentation-title">
+              <span class="text-white">Jos&eacute;</span>
+              <span class="text-secondary">David</span>
+              <span class="text-white">Hern&aacute;ndez</span>
+              <span class="text-secondary">Hort&uacute;a</span>
+            </h1>
+            <p class="presentation-description text-white">
+              <strong>Ingeniero de Software</strong> en desarrollo, con experiencia
+              en el desarrollo de aplicaciones web FullStack. Poseo conocimiento
+              en tecnolog&iacute;as FrontEnd y BackEnd , priorizando la experiencia
+              de usuario (UX) y el dise&ntilde;o intuitivo de interfaces (UI).
+            </p>
+            <div class="presentation-buttons">
+              <a
+                class="button-text-background-secondary"
+                href="https://drive.proton.me/urls/5Q4EF7MY7G#lbolEx8asEMr"
+                target="_blank"
+                rel="noopener noreferrer">Descargar CV</a
+              >
+              <a
+                class="button-icon-primary"
+                aria-label="Ir al perfil de Git Hub"
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://github.com/JoseDHernandez"
+              >
+                <Icon name="github_v" />
+              </a>
+              <a
+                class="button-icon-primary"
+                aria-label="Ir al perfil de linkedin"
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://www.linkedin.com/in/josedhernandezh/"
+              >
+                <Icon name="linkedin" />
+              </a>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
       <section aria-label="Sobre mí" class="about-me" id="Sobre-mi">
         <div class="bg-primary">
           <h2 class="about-me-title text-white text-center">Sobre m&iacute;</h2>
@@ -85,9 +84,10 @@ const projects = await getCollection("projects");
             <Image
               class="about-me-image"
               width="370"
+              height="400"
               src={foto_sobre_mi}
               alt="Foto de José David Hernández"
-              quality="max"
+              quality="high"
             />
           </div>
           <div class="about-me-text">
@@ -153,8 +153,8 @@ const projects = await getCollection("projects");
               }
             </div>
             <aside>
-              <a class="button-text-secondary" href="/certificados/"
-                >Ver certificados</a
+              <a class="button-text-accent" href="/certificados/"
+                >Ir certificados</a
               >
             </aside>
           </div>
@@ -163,13 +163,19 @@ const projects = await getCollection("projects");
       <section class="bg-primary project-section">
         <div class="content">
           <h2 class="text-white text-center">Proyectos</h2>
-          <ProjectSection projects={projects} client:only="react">
-            <div slot="fallback">Loading</div>
-          </ProjectSection>
-          <a
-            href="/proyectos"
-            class="button-text-secondary certifications-button"
-            >Ver todos los proyectos</a
+          <div class="projects-grid">
+            {
+              projects
+                .sort(
+                  (a, b) =>
+                    new Date(b.data.Date).getTime() -
+                    new Date(a.data.Date).getTime()
+                )
+                .map((p) => <ProjectCard data={p.data} slug={p.slug} />)
+            }
+          </div>
+          <a href="/proyectos" class="button-text-accent certifications-button"
+            >Ir a todos los proyectos</a
           >
         </div>
       </section>
@@ -296,9 +302,5 @@ const projects = await getCollection("projects");
         </div>
       </section>
     </div>
-  </body>
-</html>
-
-<style lang="scss" is:global>
-  @use "../styles/global.scss";
-</style>
+  </main>
+</Layout>

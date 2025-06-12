@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
-import "../styles/components/_projectSearchAndFilters.scss";
 import { ReactComponent as SearchIcon } from "../icons/search.svg";
 import { ReactComponent as FilterIcon } from "../icons/filter.svg";
 import { ReactComponent as CloseIcon } from "../icons/close.svg";
@@ -63,14 +62,14 @@ export default function ProjectSection({ projects }) {
           />
           <button
             aria-label="Buscar proyectos"
-            className="button-icon-background-secondary project-button"
+            className="button-icon-background-accent project-button"
           >
             <SearchIcon />
           </button>
         </div>
 
         <button
-          className="button-text-icon-secondary project-filter-button"
+          className="button-text-icon-accent project-filter-button"
           onClick={openModal}
           aria-haspopup="true"
           aria-expanded={modalOpen}
@@ -92,7 +91,7 @@ export default function ProjectSection({ projects }) {
             <button
               autoFocus
               aria-label="Cerrar filtros"
-              className="button-icon-background-secondary"
+              className="button-icon-background-accent"
               onClick={closeModal}
             >
               <CloseIcon />

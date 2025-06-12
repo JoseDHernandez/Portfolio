@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+@use "sass:color";
 /* Box sizing y normalización base */
 *,
 *::before,
@@ -117,4 +118,28 @@ small {
 /* Secciones */
 section {
   padding-block: 1em;
+}
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+  color: $labels-color;
+  width: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $accent-color;
+    box-shadow: 0 0 0 4px rgba($secondary-color, 0.2);
+    border-radius: 5px;
+  }
+
+  &::placeholder {
+    color: color.adjust($labels-color, $lightness: 30%);
+  }
+
+  &:disabled {
+    background-color: #f2f2f2;
+    cursor: not-allowed;
+  }
 }

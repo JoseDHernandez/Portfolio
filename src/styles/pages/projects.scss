@@ -1,6 +1,5 @@
 @use "../abstracts/mixins" as *;
 .project {
-  min-height: 80dvh;
   &-inputs {
     display: grid;
     gap: 1em;
@@ -28,6 +27,9 @@
   &-button {
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important ;
+    &:hover {
+      transform: none;
+    }
   }
   &-filter-button {
     margin: 0 auto;
@@ -100,21 +102,5 @@
       width: 20px !important;
       height: 20px !important;
     }
-  }
-}
-.projects-grid {
-  display: grid;
-  justify-items: center;
-  grid-template-columns: 1fr;
-  gap: 1em;
-  margin: 1em auto;
-  @include breakpoint(md) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @include breakpoint(lg) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @include breakpoint(xl) {
-    grid-template-columns: repeat(4, 1fr);
   }
 }
