@@ -10,7 +10,7 @@ $radius-size: 20px;
 }
 .presentation {
   @extend .limit-section;
-  min-height: 100dvh;
+  min-height: 90dvh;
   padding-top: 5dvh;
   padding-bottom: 5dvh;
   display: grid;
