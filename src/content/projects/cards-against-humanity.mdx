@@ -4,11 +4,11 @@ Date: 2024-07-13
 Short_description: "Juego web de cartas contra la humanidad"
 Description: "Este proyecto es un prototipo personal del juego original Tarjetas Contra la Humanidad. Fue desarrollado para aprender sobre WebSockets, componentes web, API REST y autenticación utilizando JSON Web Tokens."
 Cover_path: "cch_cover.webp"
-technologies:
+Technologies:
   - "Tailwind"
   - "Mysql"
   - "Socketio"
-  - "ReactIcon"
+  - "React"
   - "Html"
   - "Css"
   - "Javascript"
@@ -16,13 +16,15 @@ technologies:
   - "Git"
   - "Express"
   - "Nodejs"
-type: "Aplicación de navegador"
-license: "CC"
-github_link: https://github.com/JoseDHernandez/CCH
+Type: "Aplicación de navegador"
+License: "CC"
+Github_link: https://github.com/JoseDHernandez/CCH
 ---
 
 import FeatureCard from "../../components/FeatureCard.astro";
+import HeroProject from "../../components/HeroProject.astro";
 import { Image } from "astro:assets";
+import Imagen from "../../assets/projects/cards-against-humanity/cards-against-humanity.webp";
 import Imagen1 from "../../assets/projects/cards-against-humanity/cards-against-humanity-1.webp";
 import Imagen2 from "../../assets/projects/cards-against-humanity/cards-against-humanity-2.webp";
 import Imagen3 from "../../assets/projects/cards-against-humanity/cards-against-humanity-4.webp";
@@ -34,6 +36,16 @@ import Imagen8 from "../../assets/projects/cards-against-humanity/cards-against-
 import Imagen9 from "../../assets/projects/cards-against-humanity/cards-against-humanity-10.webp";
 import Imagen10 from "../../assets/projects/cards-against-humanity/cards-against-humanity-11.webp";
 import Imagen11 from "../../assets/projects/cards-against-humanity/cards-against-humanity-12.webp";
+
+<HeroProject
+  Description={frontmatter.Description}
+  Technologies={frontmatter.Technologies}
+  Github_link={frontmatter.Github_link}
+  Demo_link={frontmatter?.Demo_link}
+  License={frontmatter.License}
+>
+  <Image src={Imagen} alt={frontmatter.Title} />
+</HeroProject>
 
 ## Características
 
@@ -119,7 +131,7 @@ Además, proporciona un botón para **unirte** cuando la sala esté disponible.
   como **ver sus logros desbloqueados**.
 </FeatureCard>
 
-## Proceso
+## Proceso de desarrollo
 
 Este proyecto nació de la necesidad de **jugar en línea Cartas contra la Humanidad con mis amigos**. Al buscar alternativas en la web,
 descubrimos que **la mayoría de implementaciones eran muy básicas**: no se veía cómo quedaban las oraciones formadas con dos cartas,
@@ -131,7 +143,7 @@ siguiente nivel. Durante el **desarrollo, que duró unos 2 meses de aprendizaje 
 la **construcción de una API (mi primera API)**, el manejo de **arrays en JavaScript**, las **bases de JWT**, así como el uso de **React** y **Tailwind CSS**
 en un proyecto más complejo.
 
-Tras finalizar el prototipo, reflexioné sobre la importancia de **hacer wireframes o mockups antes de comenzar**, para tener una guía más clara de lo
+Tras finalizar el prototipo, reflexioné sobre la importancia de **hacer wireframe o mockups antes de comenzar**, para tener una guía más clara de lo
 que necesitaba y así **evitar perder tiempo en la reiteración de estilos o componentes**. Por otro lado, también me di cuenta de que **el rendimiento es
 un punto clave**, pues Lighthouse me indicó que la aplicación estaba poco optimizada. Esto me ayudó a tener más en cuenta el rendimiento en futuros desarrollos.
 

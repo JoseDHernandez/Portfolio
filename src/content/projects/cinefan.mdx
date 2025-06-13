@@ -2,15 +2,133 @@
 Title: "CineFan"
 Date: 2025-05-03
 Short_description: "Página de reseñas de mis películas favoritas"
-Description: "Este proyecto es una página de películas con un sistema de reseñas, en el cual utilice.."
+Description: "Este proyecto fue el resultado de una tarea de mi universidad y es una página de películas con un sistema de reseñas, en el cual se muestran mis peliculas favritas, junto con reseñas y calificaciones. en este proyecto aprendi el uso de SASS y los placeholders o esqueletos para mejorar el diseño y evitar el desplazmiento de componenetes. Al principio se desarrollo solo con bootstrap (cnd) pero despues exigieron el uso de sass"
 Cover_path: "cinefan_cover.webp"
-technologies:
+Technologies:
   - "Html"
   - "Css"
   - "Javascript"
   - "Github"
   - "Git"
   - "Bootstrap"
-type: "Aplicación de escritorio"
-license: "CC"
+Type: "Aplicación de escritorio"
+License: "CC"
+Github_link: https://github.com/JoseDHernandez/CineFan
+Demo_link: https://josedhernandez.github.io/CineFan/
 ---
+
+import FeatureCard from "../../components/FeatureCard.astro";
+import HeroProject from "../../components/HeroProject.astro";
+import { Image } from "astro:assets";
+import Imagen from "../../assets/projects/cinefan/cinefan.webp";
+import Image1 from "../../assets/projects/cinefan/cinefan-1.webp";
+import Image2 from "../../assets/projects/cinefan/cinefan-2.webp";
+import Image3 from "../../assets/projects/cinefan/cinefan-3.webp";
+import Image4 from "../../assets/projects/cinefan/cinefan-4.webp";
+import Image5 from "../../assets/projects/cinefan/cinefan-5.webp";
+import Image6 from "../../assets/projects/cinefan/cinefan-6.webp";
+import Image7 from "../../assets/projects/cinefan/cinefan-7.webp";
+
+<HeroProject
+  Description={frontmatter.Description}
+  Technologies={frontmatter.Technologies}
+  Github_link={frontmatter.Github_link}
+  Demo_link={frontmatter?.Demo_link}
+  License={frontmatter.License}
+>
+  <Image src={Imagen} alt={frontmatter.Title} />
+</HeroProject>
+
+## Características
+
+<FeatureCard title="Película destacada" image={Imagen}>
+  En la pantalla principal se muestra una película destacada y, debajo de ella,
+  están listadas todas las películas junto con un buscador.
+</FeatureCard>
+
+<FeatureCard title="Listado de películas" image={Image1}>
+  En la sección de películas están disponibles todas las películas, acompañadas
+  de su calificación en estrellas y el año de estreno.
+</FeatureCard>
+
+<FeatureCard title="Filtrado de películas" image={Image2}>
+  Según la categoría de la película, puedes filtrarlos para encontrar más rápido
+  lo que buscas.
+</FeatureCard>
+
+<FeatureCard title="Buscador de películas" image={Image3}>
+  La aplicación cuenta con un buscador que primero intenta encontrar una
+  coincidencia exacta; pero, si no obtiene resultados, busca coincidencias
+  aproximadas.
+</FeatureCard>
+
+<FeatureCard title="Tema oscuro" image={Image4}>
+  Por medio de SASS y algo de Javascript se implementó la funcionalidad de
+  cambiar de tema, entre claro y oscuro.
+</FeatureCard>
+
+<FeatureCard title="Información detallada de la película" image={Image5}>
+  Al seleccionar una película, se muestra una pantalla con información más
+  exhaustiva, como el año de lanzamiento, duración, calificación general,
+  géneros, sinopsis, reparto, entre otros.
+</FeatureCard>
+
+<FeatureCard title="Tráiler y galería de fotos" image={Image6}>
+  Puedes ver el tráiler junto con algunas fotografías relacionados con la
+  película.
+</FeatureCard>
+
+<FeatureCard title="Reseñas" image={Image7}>
+  En la parte inferior están las reseñas y calificaciones de los usuarios.
+  Además, puedes dejar tu propia opinión en el formulario destinado para eso.
+</FeatureCard>
+
+## Proceso de desarrollo
+
+Este proyecto nació como parte de un trabajo para la Universidad. La aplicación pasó por tres fases de desarrollo:
+
+- **En la primera**, se implementó utilizando **HTML**, **Javascript** y **CSS de Bootstrap** (mediante CDN).
+- **En la segunda**, se integró **SASS** para dar estilo de forma más organizada.
+- **En la última**, el proyecto se migró a **Angular** para dar paso a una estructura más robusta y dinámica.
+
+Debido a que era necesario demostrar la evolución del proyecto, en la aplicación están presentes tanto clases de Bootstrap como estilos en SASS. Esto no es lo más óptimo, ya que Bootstrap también ofrece una variante en SASS, pero así se puede notar el progreso en cada etapa. Por otro lado, el paso de HTML a Angular fue más sencillo de lo que esperaba, puesto que toda la estructura estaba ya organizada en componentes de Javascript (ES6).
+
+Este proyecto me ayudó tanto a aprender **SASS** como a tener un **acercamiento a Angular**, que, aunque actualmente no lo utilizo, me proporciona una base más clara en el manejo de frameworks. Esta holística me hubiera sido util para mi otro proyecto de [Cartas contra la humanidad](/proyectos/cards-against-humanity) con React, puesto que no estaba tan familiarizado con frameworks robustos como Next.js o Angular.
+
+## Instalación
+
+1. **Clona el repositorio:**
+
+   ```bash
+   git clone https://github.com/JoseDHernandez/CineFan
+   ```
+
+2. Ejecuta un servidor local y accede al proyecto, puedes usar _Live Server_ o un sistema similar.
+
+## Estructura del Proyecto
+
+A continuación se describe la estructura de archivos y carpetas de la aplicación:
+
+| Archivo      | Descripción                                                                |
+| ------------ | -------------------------------------------------------------------------- |
+| `index.html` | Plantilla de la pantalla principal                                         |
+| `movie.html` | Plantilla de la pantalla de una película, utiliza el `id` pasado en la URL |
+| `404.html`   | Página mostrada cuando el `id` de la película no existe                    |
+
+| Carpeta            | Descripción                                                              |
+| ------------------ | ------------------------------------------------------------------------ |
+| `css/`             | Almacena el CSS resultante de compilar SASS                              |
+| `images/`          | Contiene las imágenes de las películas                                   |
+| `js/`              | Incluye los scripts de la aplicación                                     |
+| `js/components/`   | Contiene los componentes usados en varias páginas, como cartas o reseñas |
+| `scss/`            | Archivos fuente en SASS                                                  |
+| `scss/components/` | Styles específicos de cada componente                                    |
+
+| Componente         | Descripción                                                                      |
+| ------------------ | -------------------------------------------------------------------------------- |
+| `formReview.js`    | Formulario para dejar reseñas; valida y almacena en `sessionStorage`             |
+| `movieCard.js`     | Muestra la información de una película en forma de tarjeta                       |
+| `movieCardMini.js` | Versión más compacta de `movieCard.js`; usada en recomendaciones                 |
+| `reviewHTML.js`    | Genera la plantilla HTML de cada reseña                                          |
+| `score.js`         | Convierte una calificación numérica en iconos de estrellas                       |
+| `theme.js`         | Implementa el cambio de tema (claro/oscuro) y lo deja guardado en `localStorage` |

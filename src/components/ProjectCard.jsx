@@ -10,9 +10,9 @@ for (const path in svgIcons) {
 }
 
 export default function ProjectCard({ slug, data }) {
-  const technologies = data.technologies.map((tech) => {
+  const technologies = data.Technologies.map((tech) => {
     const Icon = iconMap[tech.toLowerCase()];
-    return Icon ? <Icon key={tech} title={tech} /> : null;
+    return Icon ? <Icon key={tech + "-" + slug} title={tech} /> : null;
   });
 
   return (

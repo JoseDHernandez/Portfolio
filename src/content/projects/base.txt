@@ -4,7 +4,7 @@ Date: 2025-05-03
 Short_description: "Página de reseñas de mis películas favoritas"
 Description: "Este proyecto es una página de películas con un sistema de reseñas, en el cual utilice.."
 Cover_path: "cinefan_cover.webp"
-technologies:
+Technologies:
   - "Tailwind"
   - "Mysql"
   - "Socketio"
@@ -23,5 +23,20 @@ technologies:
   - "Mongodb"
   - "Figma"
   - "Penpot"
-type: "Aplicación de escritorio"
+Type: "Aplicación de escritorio"
+License:"CC"
 ---
+
+import FeatureCard from "../../components/FeatureCard.astro";
+import HeroProject from "../../components/HeroProject.astro";
+import { Image } from "astro:assets";
+
+<HeroProject
+  Description={frontmatter.Description}
+  Technologies={frontmatter.Technologies}
+  Github_link={frontmatter.Github_link}
+  Demo_link={frontmatter?.Demo_link}
+  License={frontmatter.License}
+>
+
+</HeroProject>

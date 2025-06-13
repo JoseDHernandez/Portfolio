@@ -1,0 +1,57 @@
+---
+import { Icon } from "astro-icon/components";
+interface Props {
+  Description: string;
+  Technologies: string[];
+  Github_link?: string;
+  Demo_link?: string;
+  License: string;
+}
+const { Description, Technologies, Github_link, Demo_link, License } =
+  Astro.props;
+---
+
+<div>
+  <slot />
+  <p>{Description}</p>
+  <strong>Tecnologías utilizadas</strong>
+  <ul>
+    {
+      Technologies.map((tech) => (
+        <li aria-label={tech}>
+          <Icon name={`technologies/${tech}`} title={tech} />
+        </li>
+      ))
+    }
+  </ul>
+  <div>
+    {
+      Github_link && (
+        <a
+          class="button-text-icon-background-primary"
+          href={Github_link}
+          rel="external noopener noreferrer"
+          target="_blank"
+        >
+          Repositorio <Icon name="github_l" />
+        </a>
+      )
+    }
+    {
+      Demo_link && (
+        <a
+          class="button-text-icon-background-accent"
+          href={Demo_link}
+          rel="external noopener noreferrer"
+          target="_blank"
+        >
+          Demostración <Icon name="play" />
+        </a>
+      )
+    }
+  </div>
+  <p>
+    <strong>Licencia:</strong>
+    {License}
+  </p>
+</div>

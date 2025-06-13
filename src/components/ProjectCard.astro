@@ -3,7 +3,7 @@ interface ProjectData {
   Title: string;
   Short_description: string;
   Cover_path: string;
-  technologies: string[];
+  Technologies: string[];
 }
 
 /* -- Images -- */
@@ -35,7 +35,7 @@ const coverImage = covers[imageKey]?.default;
   <small>{data.Short_description}</small>
   <span>
     {
-      data.technologies.map((tech: string) => (
+      data.Technologies.map((tech: string) => (
         <Icon name={`technologies/${tech}`} title={tech} />
       ))
     }

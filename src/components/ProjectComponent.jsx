@@ -40,15 +40,15 @@ export default function ProjectSection({ projects }) {
     );
     const matchesTech =
       techFilter.length === 0 ||
-      techFilter.every((t) => data.technologies.includes(t));
-    const matchesType = typeFilter ? data.type === typeFilter : true;
+      techFilter.every((t) => data.Technologies.includes(t));
+    const matchesType = typeFilter ? data.Type === typeFilter : true;
     return matchesSearch && matchesTech && matchesType;
   });
 
   const allTechnologies = [
-    ...new Set(projects.flatMap((p) => p.data.technologies)),
+    ...new Set(projects.flatMap((p) => p.data.Technologies)),
   ];
-  const allTypes = [...new Set(projects.map((p) => p.data.type))];
+  const allTypes = [...new Set(projects.map((p) => p.data.Type))];
 
   return (
     <div className="project">
