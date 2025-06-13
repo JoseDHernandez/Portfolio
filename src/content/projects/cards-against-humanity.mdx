@@ -1,0 +1,311 @@
+---
+Title: "Cartas contra la humanidad"
+Date: 2024-07-13
+Short_description: "Juego web de cartas contra la humanidad"
+Description: "Este proyecto es un prototipo personal del juego original Tarjetas Contra la Humanidad. Fue desarrollado para aprender sobre WebSockets, componentes web, API REST y autenticación utilizando JSON Web Tokens."
+Cover_path: "cch_cover.webp"
+technologies:
+  - "Tailwind"
+  - "Mysql"
+  - "Socketio"
+  - "ReactIcon"
+  - "Html"
+  - "Css"
+  - "Javascript"
+  - "Github"
+  - "Git"
+  - "Express"
+  - "Nodejs"
+type: "Aplicación de navegador"
+license: "CC"
+github_link: https://github.com/JoseDHernandez/CCH
+---
+
+import FeatureCard from "../../components/FeatureCard.astro";
+import { Image } from "astro:assets";
+import Imagen1 from "../../assets/projects/cards-against-humanity/cards-against-humanity-1.webp";
+import Imagen2 from "../../assets/projects/cards-against-humanity/cards-against-humanity-2.webp";
+import Imagen3 from "../../assets/projects/cards-against-humanity/cards-against-humanity-4.webp";
+import Imagen4 from "../../assets/projects/cards-against-humanity/cards-against-humanity-5.webp";
+import Imagen5 from "../../assets/projects/cards-against-humanity/cards-against-humanity-6.webp";
+import Imagen6 from "../../assets/projects/cards-against-humanity/cards-against-humanity-7.webp";
+import Imagen7 from "../../assets/projects/cards-against-humanity/cards-against-humanity-8.webp";
+import Imagen8 from "../../assets/projects/cards-against-humanity/cards-against-humanity-9.webp";
+import Imagen9 from "../../assets/projects/cards-against-humanity/cards-against-humanity-10.webp";
+import Imagen10 from "../../assets/projects/cards-against-humanity/cards-against-humanity-11.webp";
+import Imagen11 from "../../assets/projects/cards-against-humanity/cards-against-humanity-12.webp";
+
+## Características
+
+<FeatureCard title="Ingreso de usuario" image={Imagen1}>
+  Antes de comenzar a jugar, el usuario debe autenticarse con una **dirección de
+  correo electrónico** y **contraseña**. Esto proporciona una experiencia más
+  personalizada y segura.
+</FeatureCard>
+
+<FeatureCard title="Registro de cuentas" image={Imagen2}>
+  El proyecto cuenta con un **formulario de registro dinámico**, destinado tanto
+  a nuevos jugadores como a aquellos que regresan pero aún no están registrados.
+</FeatureCard>
+
+<FeatureCard title="Lobby de partidas disponibles" image={Imagen3}>
+  La pantalla principal muestra **todas las salas públicas disponibles**, así
+  como las creadas por el propio jugador. Además, proporciona un **menú para
+  crear nuevas partidas** o **un campo destinado a introducir el código de una
+  partida privada**.
+</FeatureCard>
+
+<FeatureCard title="Lobby en tiempo real" image={Imagen4}>
+  El lobby se actualiza en **tiempo real gracias a Socket.io**, mostrando información relevante de cada partida:
+
+- **Nombre de la sala**
+- **Anfitrión**
+- **Cantidad de jugadores**
+- **Ronda actual**
+- **Estado de la partida** (en espera, en juego o finalizando)
+
+Además, proporciona un botón para **unirte** cuando la sala esté disponible.
+
+</FeatureCard>
+
+<FeatureCard title="Confirmación de ingreso" image={Imagen5}>
+  Al unirte a una partida, aparecerá una **ventana de confirmación** mostrando
+  información de la sala junto con botones de **Entrar** o **Salir** para
+  abandonar el procedimiento.
+</FeatureCard>
+
+<FeatureCard title="Lobby en las partidas (jugador)" image={Imagen6}>
+  Durante la espera, el jugador puede **ver a los miembros de la sala en línea**
+  y **conversar en el chat** destinado a los jugadores de esa partida.
+</FeatureCard>
+
+<FeatureCard title="Lobby en las partidas (anfitrión)" image={Imagen7}>
+  El anfitrión tiene **control total de la sala**, incluido:
+
+- **Expulsar jugadores**
+- **Modificar nombre de la partida**
+- **Ajustar cantidad de jugadores o de rondas**
+- **Comenzar el juego cuando esté listo**
+
+</FeatureCard>
+
+<FeatureCard title="Vista del jugador" image={Imagen8}>
+  Durante la partida, el jugador descubre:
+
+- La **carta negra**, que proporciona el texto base.
+- Sus **cartas blancas**, con varias alternativas para completar la oración.
+- La **sala en general**, mostrando cartas de otros jugadores.
+- La **ronda actual** y el nombre de la sala en la parte superior.
+
+</FeatureCard>
+
+<FeatureCard title="Vista del juez o zar" image={Imagen9}>
+  El **juez o zar** tiene la difícil pero divertida tarea de **elegir la carta
+  más graciosa o adecuada**. A medida que elige, la oración en pantalla se va
+  completando.
+</FeatureCard>
+
+<FeatureCard title="Resultado de cada ronda" image={Imagen10}>
+  Al finalizar la selección, se muestra un resumen de:
+
+- La **frase final**
+- La información de los jugadores que participaron
+- La cantidad de puntos ganados en la ronda
+
+</FeatureCard>
+
+<FeatureCard title="Configuración de cuenta" image={Imagen11}>
+  Finalmente, cada jugador puede **gestionar la información de su cuenta**, así
+  como **ver sus logros desbloqueados**.
+</FeatureCard>
+
+## Proceso
+
+Este proyecto nació de la necesidad de **jugar en línea Cartas contra la Humanidad con mis amigos**. Al buscar alternativas en la web,
+descubrimos que **la mayoría de implementaciones eran muy básicas**: no se veía cómo quedaban las oraciones formadas con dos cartas,
+el “zar” debía ir relatándolas en lugar de dejar que el juego lo hiciera automáticamente, y además **tampoco podíamos cambiar cartas o
+descartar las que no nos convencían**.
+
+Así que decidí **crear mi propio prototipo web**. Me propuse así **aprender React y Node.js** para llevar mis habilidades en JavaScript al
+siguiente nivel. Durante el **desarrollo, que duró unos 2 meses de aprendizaje autónomo**, descubrí el manejo de **ECMAScript**, el uso de **WebSockets**,
+la **construcción de una API (mi primera API)**, el manejo de **arrays en JavaScript**, las **bases de JWT**, así como el uso de **React** y **Tailwind CSS**
+en un proyecto más complejo.
+
+Tras finalizar el prototipo, reflexioné sobre la importancia de **hacer wireframes o mockups antes de comenzar**, para tener una guía más clara de lo
+que necesitaba y así **evitar perder tiempo en la reiteración de estilos o componentes**. Por otro lado, también me di cuenta de que **el rendimiento es
+un punto clave**, pues Lighthouse me indicó que la aplicación estaba poco optimizada. Esto me ayudó a tener más en cuenta el rendimiento en futuros desarrollos.
+
+## Uso e instalación
+
+1.  **Clona el repositorio:**
+    ```bash
+    git clone https://github.com/JoseDHernandez/CHH
+    ```
+2.  **Importa la base de datos:**
+
+    Importa el esquema incluido en `cartas_contra_humanidad.sql` en tu base de datos MySQL.
+
+3.  Modifica las variables `config.js` en la carpeta del servidor o cliente. [`client/scr/api/config.js`]
+
+        **Configuraciones en el servidor**
+
+        Dentro de `config.js`:
+
+        | Variable    | Descripción                              |
+        | ----------- | ---------------------------------------- |
+        | PORT        | Puerto en el que se levanta el server    |
+        | secret      | Clave privada para JSON Web Tokens (JWT) |
+        | urlClient   | URL del cliente, usada para CORS         |
+        | DB_HOST     | Host de la base de datos                 |
+        | DB_USER     | Nombre de usuario de la base de datos    |
+        | DB_PASSWORD | Contraseña de la base de datos           |
+        | DB_NAME     | Nombre de la base de datos               |
+        | DB_PORT     | Puerto de la base de datos               |
+
+
+        Ajustes en el archivo `index.js`:
+
+        Cors de socket.io:
+
+        ```javascript
+        const io = new SocketServer(server, {
+          cors: {
+            origin: urlClient,
+            methods: ["GET", "POST", "PUT", "DELETE"],
+          },
+        });
+        ```
+
+        Cors de Express:
+
+        ```javascript
+        app.use(
+          cors({
+            origin: urlClient,
+            methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+          })
+        );
+        ```
+
+        Uso de Morgan:
+
+        ```javascript
+        app.use(morgan("dev"));
+        ```
+
+        **Configuración en el cliente**
+
+        En el archivo `config.js`, ubicado en `client/scr/api`:
+
+        La variable `URL` es la url de la API (servidor), esta es la indicada por el server (`server/index.js`)  en la consola:
+
+        ```javascript
+        console.log("Server running: " + DB_HOST + ":" + PORT);
+        ```
+
+4.  Puedes usar las siguientes cuentas de prueba:
+
+    | Username | Email            | Password |
+    | -------- | ---------------- | -------- |
+    | UserTest | test@gmail.com   | 12345678 |
+    | Test     | test@test.com    | 12345678 |
+    | Username | test@hotmail.com | 12345678 |
+
+5.  Puedes cambiar la foto de perfil en la aplicación, ingresando una URL de Imgur u otro alojamiento de imágenes en la configuración de la cuenta, o directamente en la base de datos (Tabla `user`, columna `Photo`).
+6.  No olvidar ejecutar:
+
+    ```bash
+    npm run dev
+    ```
+
+    ```bash
+    npm run build
+    ```
+
+    tanto en el directorio `client` como en el server, dependiendo de si estás en desarrollo o en producción.
+
+---
+
+### Rutas de la API
+
+#### Rutas de las cartas
+
+**Cartas negras**
+|Ruta|Descripción|Nivel|
+|---|---|--|
+| `GET /cardsBlack` | Obtener cartas negras| |
+| `POST /cardsBlack` | Crear nueva carta negra |Administrador|
+| `PUT /cardsBlack/:id` | Actualizar carta negra |Moderador|
+| `GET /cardsBlack/:id` | Obtener carta negra por ID| |
+| `DELETE /cardsBlack/:id` | Eliminar carta negra |Administrador|
+
+**Cartas blancas**
+|Ruta|Descripción|Nivel|
+|---|---|--|
+| `GET /cardsWhite` | Obtener cartas blancas| |
+| `POST /cardsWhite` | Crear nueva carta blanca |Administrador|
+| `PUT /cardsWhite/:id` | Actualizar carta blanca |Administrador|
+| `GET /cardsWhite/:id` | Obtener carta blanca por ID| |
+| `DELETE /cardsWhite/:id` |Eliminar carta blanca |Administrador|
+
+#### Game Routes
+
+**Tokens**
+
+El token de cuenta es un encabezado:
+
+- [:token] Token JWT con información de la cuenta.
+
+Sockets y los parámetros :token and :code
+
+- [:code] Código de la partida.
+- [:tokenParty] Token de información de la sala de juego.
+
+  _Importante_: ver el código de `sockets.js` en la carpeta del servidor (`server/routes`)
+  para ver los códigos de los websockets, esta información es almacenada en el `localStorage` en el cliente (user Context): `client/src/context/User.context.jsx` y en los otros archivos `.jsx` se indicada el comportamiento de las llamadas:
+
+  - `sockets.js` en la ruta: `server/routes`
+  - `Partida.jsx` y `Salas.jsx` en la ruta: `client/src/pages`
+  - `Game.jsx`, `Zar.jsx`, `Player.jsx` y `chat.jsx` en la ruta: `client/src/components`
+
+- **Lobby y gestión de la partida**
+  |Ruta|Descripción|Requiere token|
+  |---|---|--|
+  |`GET /Game` |Verificar token| No|
+  |`GET /lobby/:code` |Unirte a la partida|Si|
+  |`GET /party/:code` | Verificar ingreso a la sala|Si|
+  |`POST /party` |Validar la contraseña de la partida|Si|
+  |`PUT /party` | Actualizar información de la sala|Si|
+
+- **Game Management**
+  _Todas las rutas requieren token_
+  |Ruta|Descripción|
+  |---|---|
+  | `POST /game`| Iniciar el juego|
+  | `GET /game`| Obtener cantidad de cartas|
+  | `GET /cards/:token`| Obtener cartas en mano|
+  | `GET /cardsOther/:token`| Obtener cartas de la banca|
+  | `POST /cards`| Guardar cartas en el jugador|
+  | `GET /cartas/:token`| Obtener cartas elegidas de un jugador|
+  | `PUT /game`| Actualizar puntos y ronda|
+  | `GET /points/:token`| Obtener puntos|
+  | `PUT /cards`| Guardar cartas seleccionadas en el server|
+  | `DELETE /party`| Eliminar partida|
+
+#### Rutas de autenticación
+
+| Ruta           | Descripción                 |
+| -------------- | --------------------------- |
+| `POST /signup` | Registrarse                 |
+| `POST /signin` | Iniciar sesión              |
+| `GET /info`    | Obtener información general |
+
+#### Rutas de la cuenta de usuario
+
+_Nota:_ `:id` es el ID de una cuenta registrada en la base de datos.
+
+_Las dos rutas requieren token_
+|Ruta|Descripción|
+|---|---|
+|`GET /user/:id` |Obtener logros de un jugador|
+|`PUT /user` |Actualizar información de perfil|

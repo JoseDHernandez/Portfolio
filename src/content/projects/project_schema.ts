@@ -7,4 +7,7 @@ export const project_schema = z.object({
   Cover_path: z.string(),
   technologies: z.array(z.string()),
   type: z.string(),
+  license: z.string(),
+  github_link: z.string().url().optional(),
+  demo_link: z.string().url().optional(),
 });

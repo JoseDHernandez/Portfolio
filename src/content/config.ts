@@ -2,6 +2,7 @@ import { defineCollection } from "astro:content";
 import { work_experience_schema } from "./work_experience/work_experience_schema";
 import { study_schema } from "./studies/study_schema.ts";
 import { project_schema } from "./projects/project_schema.ts";
+import { glob } from "astro/loaders";
 const work_experience = defineCollection({
   schema: work_experience_schema,
 });
