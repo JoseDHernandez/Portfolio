@@ -1,5 +1,5 @@
 import "../styles/components/_projectCard.scss";
-const svgIcons = import.meta.glob("../icons/technologies/*.svg", {
+const svgIcons = import.meta.glob("/src/icons/technologies/*.svg", {
   eager: true,
   import: "ReactComponent",
 });
@@ -22,7 +22,7 @@ export default function ProjectCard({ slug, data }) {
       aria-label={`Ver página del proyecto: ${data.Title}`}
     >
       <img
-        src={`/src/assets/projects/${slug + "/" + data.Cover_path}`}
+        src={data.Cover_path.src}
         alt={data.Title}
         loading="lazy"
         decoding="async"

@@ -2,7 +2,7 @@
 interface ProjectData {
   Title: string;
   Short_description: string;
-  Cover_path: string;
+  Cover_path: ImageMetadata;
   Technologies: string[];
 }
 
@@ -15,14 +15,6 @@ interface Props {
   data: ProjectData;
 }
 const { slug, data } = Astro.props;
-
-const covers = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/projects/*/*.webp",
-  { eager: true }
-);
-
-const imageKey = `../assets/projects/${slug}/${data.Cover_path}`;
-const coverImage = covers[imageKey]?.default;
 ---
 
 <a
@@ -30,7 +22,7 @@ const coverImage = covers[imageKey]?.default;
   class="project-card"
   aria-label={`Ver página del proyecto: ${data.Title}`}
 >
-  <Image src={coverImage} alt={data.Title} width="230" />
+  <Image src={data.Cover_path} alt={data.Title} width="230" />
   <strong>{data.Title}</strong>
   <small>{data.Short_description}</small>
   <span>

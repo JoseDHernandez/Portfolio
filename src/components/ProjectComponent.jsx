@@ -49,6 +49,7 @@ export default function ProjectSection({ projects }) {
     ...new Set(projects.flatMap((p) => p.data.Technologies)),
   ];
   const allTypes = [...new Set(projects.map((p) => p.data.Type))];
+  console.log(projects);
 
   return (
     <div className="project">
