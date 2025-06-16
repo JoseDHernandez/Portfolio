@@ -22,7 +22,7 @@ const { slug, data } = Astro.props;
   class="project-card"
   aria-label={`Ver página del proyecto: ${data.Title}`}
 >
-  <Image src={data.Cover_path} alt={data.Title} width="230" quality="high" />
+  <Image src={data.Cover_path} alt={data.Title} width="300" />
   <strong>{data.Title}</strong>
   <small>{data.Short_description}</small>
   <span>

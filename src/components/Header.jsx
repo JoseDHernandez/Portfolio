@@ -9,7 +9,7 @@ export default function Header() {
     <header className="bg-primary">
       <div className={`navbar-${isOpen ? "open" : "close"} limit-section`}>
         <div className="navbar-top">
-          <img src="/favicon.svg" alt="" />
+          <img src="/favicon.svg" alt="Logo" width="64" height="64" />
           <button
             aria-controls="menu"
             aria-haspopup="true"
