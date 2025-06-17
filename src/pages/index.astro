@@ -165,6 +165,7 @@ import ProjectCard from "../components/ProjectCard.astro";
                 new Date(b.data.Date).getTime() -
                 new Date(a.data.Date).getTime()
             )
+            .slice(0, 8)
             .map((p) => <ProjectCard data={p.data} slug={p.slug} />)
         }
       </div>

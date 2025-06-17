@@ -20,14 +20,14 @@ const { slug, data } = Astro.props;
 <a
   href={`/proyectos/${slug}`}
   class="project-card"
-  aria-label={`Ver página del proyecto: ${data.Title}`}
+  aria-label={`Ir a la página del proyecto: ${data.Title}`}
 >
   <Image src={data.Cover_path} alt={data.Title} width="300" />
   <strong>{data.Title}</strong>
   <small>{data.Short_description}</small>
   <span>
     {
-      data.Technologies.map((tech: string) => (
+      data.Technologies.sort().map((tech: string) => (
         <Icon name={`technologies/${tech}`} title={tech} />
       ))
     }
