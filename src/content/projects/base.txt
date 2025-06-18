@@ -4,6 +4,9 @@ Date: 2025-05-03
 Short_description: "Página de reseñas de mis películas favoritas"
 Description: "Este proyecto es una página de películas con un sistema de reseñas, en el cual utilice.."
 Cover_path: "cinefan_cover.webp"
+Cover_pat_md: "cinefan_cover.webp"
+Cover_path_xl: "cinefan_cover.webp"
+Cover_path_full: "cinefan_cover.webp"
 Technologies:
   - "Tailwind"
   - "Mysql"

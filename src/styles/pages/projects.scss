@@ -1,10 +1,8 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
-.projects-grid-section {
-  min-height: 90dvh;
-}
+// Page styles
 .project {
-  &-inputs {
+  &--inputs {
     margin-bottom: 1em;
     display: grid;
     gap: 1em;
@@ -16,7 +14,7 @@
       padding: 0 1dvw;
     }
   }
-  &-input {
+  &--input {
     display: flex;
     max-width: 1200px;
     input {
@@ -24,19 +22,19 @@
       padding: 0px 8px;
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
-      border: 2px $accent-color solid;
+      border: 2px $secondary-color solid;
       min-height: 45px !important;
       width: 100%;
     }
   }
-  &-button {
+  &--button {
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important ;
     &:hover {
       transform: none;
     }
   }
-  &-filter-button {
+  &--filter-button {
     order: 2;
     margin: 0 auto;
     width: 100%;
@@ -48,37 +46,46 @@
       order: initial;
     }
   }
-  &-filters-modal {
+  //Modal menu
+  &--filters-modal {
     position: absolute;
-    top: -0.5em;
+    width: 0;
+    height: 0;
+    top: 0;
     left: -1000%;
-    width: 100dvw;
-    z-index: 2 !important;
-    border-radius: 10px;
+    z-index: 1;
     border: 0;
+    background-color: rgba(0, 0, 0, 0);
     transition: left 0.5s ease;
-
+    transition: background-color 0.3s ease;
+    transition: width 0.5s ease;
+    //Open modal
     &.open {
-      left: -10dvw;
-      @include breakpoint(sm) {
-        left: 0;
-      }
+      width: 100%;
+      height: 100%;
+      left: 0px;
+      background-color: rgba(0, 0, 0, 0.295);
+    }
+    @include breakpoint(md) {
+      border-radius: 15px;
     }
   }
 }
-.project-filters-panel {
+// Filter menu styles
+.project--filters-panel {
   padding: 1em;
   background: white;
   border-radius: 10px;
   padding-bottom: 2em;
+  width: 80dvw;
   max-width: 400px;
-  box-shadow: 10px 10px 10px rgba(33, 21, 55, 0.2784313725);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.322);
   & > :first-child {
     display: grid;
     grid-template-columns: 1fr 50px;
     gap: 1em;
 
-    h3 {
+    h2 {
       margin: 0;
       line-height: 2;
     }
@@ -96,8 +103,8 @@
     border-radius: 5px;
   }
 
-  & > :last-child {
-    & > div > div {
+  &-technologies {
+    & div {
       display: flex;
       justify-items: center;
       gap: 10px;
@@ -106,10 +113,136 @@
         width: 60%;
       }
     }
-
     input[type="checkbox"] {
       width: 20px !important;
       height: 20px !important;
     }
+  }
+}
+//Grid section
+.projects--grid-section {
+  min-height: 100dvh;
+  margin-top: 2em;
+}
+//Grid
+.projects--grid {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: 1fr;
+  @include breakpoint(md) {
+    grid-template-columns: repeat(2, 1fr);
+    & > :first-child {
+      grid-column: span 2;
+      grid-template-rows: 2em auto 1.5em 2em;
+
+      & img {
+        height: max-content !important;
+        object-fit: contain;
+      }
+    }
+  }
+  @include breakpoint(lg) {
+    gap: 3em;
+    & > :first-child {
+      padding: 1em;
+      & strong {
+        font-size: 1.5em;
+        color: $accent-color;
+      }
+      & img {
+        min-height: 350px;
+        max-height: 620px;
+      }
+    }
+  }
+}
+//skeleton
+.projects-card-skeleton {
+  margin-top: 2em;
+  .projects--inputs {
+    & div {
+      background-color: $secondary-color;
+      height: 45px;
+      border-radius: 5px;
+      width: 100% !important;
+      animation: loading 1.2s infinite ease-in-out;
+      cursor: wait;
+      padding: 2px;
+    }
+    & div > div {
+      background-color: #fff;
+      height: 100%;
+      width: 95% !important;
+    }
+    margin-bottom: 1em;
+    display: grid;
+    gap: 1em;
+    @include breakpoint(md) {
+      grid-template-columns: 1fr 2fr;
+    }
+    @include breakpoint(lg) {
+      grid-template-columns: 200px 1fr;
+      padding: 0 1dvw;
+    }
+    & > :first-child {
+      max-width: 1200px;
+      @include breakpoint(md) {
+        order: 1 !important;
+      }
+    }
+    & > :last-child {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 320px;
+      @include breakpoint(lg) {
+        max-width: 150px;
+      }
+    }
+  }
+  .project--card {
+    cursor: wait;
+    animation: loading 1.2s infinite ease-in-out;
+    display: grid;
+    gap: 10px;
+    &-title {
+      background-color: rgb(158, 158, 158);
+      border-radius: 5px;
+    }
+    &-image {
+      height: 300px;
+    }
+    &-image,
+    &-description,
+    &-technologies div {
+      background-color: rgb(204, 204, 204);
+      border-radius: 5px;
+    }
+    &-technologies {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+    &-technologies div {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  @include breakpoint(lg) {
+    .projects--grid-section :first-child .project--card-image {
+      min-height: 350px;
+      height: 65dvh !important;
+    }
+  }
+}
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
   }
 }

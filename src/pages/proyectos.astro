@@ -2,12 +2,114 @@
 import { getCollection } from "astro:content";
 import PageLayout from "../layouts/PageLayout.astro";
 import ProjectComponent from "../components/ProjectComponent.jsx";
-const projects = await getCollection("projects");
+const projectsCollection = await getCollection("projects");
+//"Destructuring" of projectCollection to projects
+interface Projects {
+  slug: string;
+  data: {
+    Title: string;
+    Short_description: string;
+    Cover_path: { src: string; width: number };
+    Cover_path_md: { src: string; width: number };
+    Cover_path_xl: { src: string; width: number };
+    Cover_path_full: { src: string; width: number };
+    Technologies: string[];
+    Type: string;
+  };
+}
+const projects: Projects[] = projectsCollection
+  .sort(
+    (a, b) => new Date(b.data.Date).getTime() - new Date(a.data.Date).getTime()
+  )
+  .map(
+    ({
+      slug,
+      data: {
+        Title,
+        Short_description,
+        Cover_path,
+        Cover_path_md,
+        Cover_path_xl,
+        Cover_path_full,
+        Technologies,
+        Type,
+      },
+    }) => ({
+      slug,
+      data: {
+        Title,
+        Short_description,
+        Cover_path: { src: Cover_path.src, width: Cover_path.width },
+        Cover_path_md: { src: Cover_path_md.src, width: Cover_path_md.width },
+        Cover_path_xl: { src: Cover_path_xl.src, width: Cover_path_xl.width },
+        Cover_path_full: {
+          src: Cover_path_full.src,
+          width: Cover_path_full.width,
+        },
+        Technologies,
+        Type,
+      },
+    })
+  );
 ---
 
 <PageLayout title="Proyectos">
-  <h2 class="text-primary text-center">Proyectos</h2>
+  <h1 class="text-primary text-center">Proyectos</h1>
+
   <ProjectComponent projects={projects} client:only="react">
-    <div slot="fallback">cargando</div>
+    <div slot="fallback">
+      <div class="projects-card-skeleton">
+        <div class="projects--inputs">
+          <div><div>&nbsp;</div></div>
+          <div>&nbsp;</div>
+        </div>
+        <div class="projects--grid-section">
+          <div class="projects--grid">
+            <div class="project--card">
+              <div class="project--card-title">&nbsp;</div>
+              <div class="project--card-image"></div>
+              <div class="project--card-description">&nbsp;</div>
+              <div class="project--card-technologies">
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+              </div>
+            </div>
+            <div class="project--card">
+              <div class="project--card-title">&nbsp;</div>
+              <div class="project--card-image"></div>
+              <div class="project--card-description">&nbsp;</div>
+              <div class="project--card-technologies">
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+              </div>
+            </div>
+            <div class="project--card">
+              <div class="project--card-title">&nbsp;</div>
+              <div class="project--card-image"></div>
+              <div class="project--card-description">&nbsp;</div>
+              <div class="project--card-technologies">
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </ProjectComponent>
 </PageLayout>

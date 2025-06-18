@@ -49,20 +49,19 @@ export default function ProjectSection({ projects }) {
     ...new Set(projects.flatMap((p) => p.data.Technologies)),
   ];
   const allTypes = [...new Set(projects.map((p) => p.data.Type))];
-  console.log(projects);
 
   return (
     <div className="project">
-      <div className="project-inputs">
+      <div className="project--inputs">
         <button
-          className="button-text-icon-background-accent project-filter-button"
+          className="button-text-icon-background-secondary project--filter-button"
           onClick={openModal}
           aria-haspopup="true"
           aria-expanded={modalOpen}
         >
           <FilterIcon /> Filtros
         </button>
-        <div className="project-input">
+        <div className="project--input">
           <input
             type="text"
             placeholder="Buscar..."
@@ -71,27 +70,29 @@ export default function ProjectSection({ projects }) {
           />
           <button
             aria-label="Buscar proyectos"
-            className="button-icon-background-accent project-button"
+            className="button-icon-background-secondary project--button"
           >
             <SearchIcon />
           </button>
         </div>
       </div>
+      {/*Menu*/}
       <div
-        className={`project-filters-modal ${modalOpen ? "open" : ""}`}
+        className={`project--filters-modal ${modalOpen ? "open" : ""}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby="filters-title"
+        onClick={closeModal}
       >
-        <div className="project-filters-panel">
+        <div className="project--filters-panel">
           <div>
-            <h3 id="filters-title" className="text-primary">
+            <h2 id="filters-title" className="text-accent">
               Filtros
-            </h3>
+            </h2>
             <button
               autoFocus
               aria-label="Cerrar filtros"
-              className="button-icon-background-accent"
+              className="button-icon-background-secondary"
               onClick={closeModal}
             >
               <CloseIcon />
@@ -117,28 +118,30 @@ export default function ProjectSection({ projects }) {
           <div>
             <p>Tecnologías:</p>
             <div>
-              {allTechnologies.map((tech) => (
-                <div key={tech}>
-                  <input
-                    type="checkbox"
-                    value={tech}
-                    checked={techFilter.includes(tech)}
-                    onChange={() => handleTechChange(tech)}
-                    name={tech}
-                    id={tech}
-                  />
-                  <label htmlFor={tech}>{tech}</label>
-                </div>
-              ))}
+              <div className="project--filters-panel-technologies">
+                {allTechnologies.map((tech) => (
+                  <div key={tech}>
+                    <input
+                      type="checkbox"
+                      value={tech}
+                      checked={techFilter.includes(tech)}
+                      onChange={() => handleTechChange(tech)}
+                      name={tech}
+                      id={tech}
+                    />
+                    <label htmlFor={tech}>{tech}</label>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="projects-grid-section">
-        <div className="projects-grid">
-          {filtered.map(({ data, slug }) => (
-            <ProjectCard slug={slug} data={data} key={slug} />
+      {/*Cards*/}
+      <div className="projects--grid-section">
+        <div className="projects--grid">
+          {filtered.map(({ data, slug }, index) => (
+            <ProjectCard slug={slug} data={data} key={slug} index={index} />
           ))}
         </div>
       </div>

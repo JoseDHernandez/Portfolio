@@ -75,9 +75,9 @@
   @include hover-elevate(#fff, $secondary-color);
 }
 .button-icon-background-secondary {
-  @include button-icon(40px, #fff);
+  @include button-icon(40px, $labels-color);
   background-color: $secondary-color;
-  @include hover-elevate($secondary-color, #fff);
+  @include hover-elevate($secondary-color, $labels-color);
 }
 .button-text-secondary {
   @extend .button-text;
@@ -92,7 +92,7 @@
   @include button-text-icon(#fff, $accent-color);
 }
 .button-text-icon-background-secondary {
-  @include button-text-icon($secondary-color, #fff);
+  @include button-text-icon($secondary-color, $labels-color);
 }
 .button-text-icon-background-primary {
   @include button-text-icon($primary-color, #fff);
