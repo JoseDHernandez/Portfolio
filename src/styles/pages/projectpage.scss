@@ -1,0 +1,15 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+.project-page-mdx {
+  & h2 {
+    color: $secondary-color;
+  }
+  & .table-responsive,
+  & code,
+  & pre {
+    @include breakpoint(xl) {
+      max-width: 60dvw;
+      margin: 1em auto;
+    }
+  }
+}

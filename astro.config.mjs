@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import svgr from "@svgr/rollup";
@@ -18,6 +18,11 @@ export default defineConfig({
   vite: {
     plugins: [svgr()],
   },
-
+  env: {
+    schema: {
+      URL_CV: envField.string({ context: "server", access: "public" }),
+      URL_PROFILE: envField.string({ context: "server", access: "public" }),
+    },
+  },
   adapter: netlify(),
 });

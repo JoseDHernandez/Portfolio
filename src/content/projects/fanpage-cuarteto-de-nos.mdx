@@ -17,7 +17,7 @@ Technologies:
   - "Astro"
   - "Markdown"
 Type: "Aplicación web"
-License: "CC"
+License: "CC-BY-NC-SA"
 Github_link: https://github.com/JoseDHernandez/Fanpage-del-Cuarteto-de-Nos
 Demo_link: https://fanpage-cuarteto-de-nos.netlify.app/
 ---
@@ -25,13 +25,39 @@ Demo_link: https://fanpage-cuarteto-de-nos.netlify.app/
 import FeatureCard from "../../components/FeatureCard.astro";
 import HeroProject from "../../components/HeroProject.astro";
 import { Image } from "astro:assets";
+import Image1 from "./fanpage-cuarteto-de-nos/fanpage-cuarteto-de-nos.webp";
+import Image2 from "./fanpage-cuarteto-de-nos/fanpage-cuarteto-de-nos-1.webp";
+import Image3 from "./fanpage-cuarteto-de-nos/fanpage-cuarteto-de-nos-2.webp";
+import Image4 from "./fanpage-cuarteto-de-nos/fanpage-cuarteto-de-nos-3.webp";
+import Image5 from "./fanpage-cuarteto-de-nos/fanpage-cuarteto-de-nos-4.webp";
 
 <HeroProject
+  Img={Image1}
+  Title={frontmatter.Title}
   Description={frontmatter.Description}
   Technologies={frontmatter.Technologies}
   Github_link={frontmatter.Github_link}
   Demo_link={frontmatter?.Demo_link}
   License={frontmatter.License}
->
+/>
 
-</HeroProject>
+## Características
+
+<FeatureCard title="Discografía" image={Image2}>
+  asdasd
+</FeatureCard>
+<FeatureCard title="Información de cada album" image={Image3}>
+  asdasd
+</FeatureCard>
+<FeatureCard title="Integrantes de la banda" image={Image4}>
+  asdasd
+</FeatureCard>
+<FeatureCard title="Información de cada integrante" image={Image5}>
+  asdasd
+</FeatureCard>
+
+## Proceso de desarrollo
+
+asd
+
+## Uso e instalación

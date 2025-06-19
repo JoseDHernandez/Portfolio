@@ -1,0 +1,43 @@
+@use "../abstracts/mixins" as *;
+
+.hero {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr;
+  &--image {
+    width: 100%;
+    height: max-content;
+    aspect-ratio: 16/9 !important;
+    align-self: center;
+    border: 10px;
+  }
+  &--information {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 1em 0;
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      max-width: 420px;
+      li {
+        display: inline-block;
+      }
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+  &--buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  @include breakpoint(lg) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+  }
+}

@@ -1,0 +1,18 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+.feature-card {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.322);
+  border-radius: 1em;
+  padding: 1em 2em;
+  margin: 2em auto;
+
+  & img {
+    width: 100%;
+    height: max-content;
+  }
+  @include breakpoint(md) {
+    width: 55dvw;
+  }
+}

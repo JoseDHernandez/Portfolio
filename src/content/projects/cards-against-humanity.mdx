@@ -19,7 +19,7 @@ Technologies:
   - "Express"
   - "Nodejs"
 Type: "Aplicación web"
-License: "CC"
+License: "CC-BY-NC-SA"
 Github_link: https://github.com/JoseDHernandez/CCH
 ---
 
@@ -40,13 +40,13 @@ import Imagen10 from "./cards-against-humanity/cards-against-humanity-11.webp";
 import Imagen11 from "./cards-against-humanity/cards-against-humanity-12.webp";
 
 <HeroProject
+  Img={Imagen}
+  Title={frontmatter.Title}
   Description={frontmatter.Description}
   Technologies={frontmatter.Technologies}
   Github_link={frontmatter.Github_link}
   License={frontmatter.License}
->
-  <Image src={Imagen} alt={frontmatter.Title} />
-</HeroProject>
+/>
 
 ## Características
 
@@ -163,6 +163,7 @@ un punto clave**, pues Lighthouse me indicó que la aplicación estaba poco opti
         **Configuraciones en el servidor**
 
         Dentro de `config.js`:
+        <div class="table-responsive" >
 
         | Variable    | Descripción                              |
         | ----------- | ---------------------------------------- |
@@ -174,7 +175,7 @@ un punto clave**, pues Lighthouse me indicó que la aplicación estaba poco opti
         | DB_PASSWORD | Contraseña de la base de datos           |
         | DB_NAME     | Nombre de la base de datos               |
         | DB_PORT     | Puerto de la base de datos               |
-
+        </div>
 
         Ajustes en el archivo `index.js`:
 
@@ -218,11 +219,15 @@ un punto clave**, pues Lighthouse me indicó que la aplicación estaba poco opti
 
 4.  Puedes usar las siguientes cuentas de prueba:
 
+    <div class="table-responsive" >
+
     | Username | Email            | Password |
     | -------- | ---------------- | -------- |
     | UserTest | test@gmail.com   | 12345678 |
     | Test     | test@test.com    | 12345678 |
     | Username | test@hotmail.com | 12345678 |
+
+    </div>
 
 5.  Puedes cambiar la foto de perfil en la aplicación, ingresando una URL de Imgur u otro alojamiento de imágenes en la configuración de la cuenta, o directamente en la base de datos (Tabla `user`, columna `Photo`).
 6.  No olvidar ejecutar:
@@ -244,23 +249,30 @@ un punto clave**, pues Lighthouse me indicó que la aplicación estaba poco opti
 #### Rutas de las cartas
 
 **Cartas negras**
-|Ruta|Descripción|Nivel|
-|---|---|--|
-| `GET /cardsBlack` | Obtener cartas negras| |
-| `POST /cardsBlack` | Crear nueva carta negra |Administrador|
-| `PUT /cardsBlack/:id` | Actualizar carta negra |Moderador|
-| `GET /cardsBlack/:id` | Obtener carta negra por ID| |
-| `DELETE /cardsBlack/:id` | Eliminar carta negra |Administrador|
 
+<div class="table-responsive" >
+
+| Ruta                     | Descripción                | Nivel         |
+| ------------------------ | -------------------------- | ------------- |
+| `GET /cardsBlack`        | Obtener cartas negras      |               |
+| `POST /cardsBlack`       | Crear nueva carta negra    | Administrador |
+| `PUT /cardsBlack/:id`    | Actualizar carta negra     | Moderador     |
+| `GET /cardsBlack/:id`    | Obtener carta negra por ID |               |
+| `DELETE /cardsBlack/:id` | Eliminar carta negra       | Administrador |
+
+</div>
 **Cartas blancas**
-|Ruta|Descripción|Nivel|
-|---|---|--|
-| `GET /cardsWhite` | Obtener cartas blancas| |
-| `POST /cardsWhite` | Crear nueva carta blanca |Administrador|
-| `PUT /cardsWhite/:id` | Actualizar carta blanca |Administrador|
-| `GET /cardsWhite/:id` | Obtener carta blanca por ID| |
-| `DELETE /cardsWhite/:id` |Eliminar carta blanca |Administrador|
+<div class="table-responsive" >
 
+| Ruta                     | Descripción                 | Nivel         |
+| ------------------------ | --------------------------- | ------------- |
+| `GET /cardsWhite`        | Obtener cartas blancas      |               |
+| `POST /cardsWhite`       | Crear nueva carta blanca    | Administrador |
+| `PUT /cardsWhite/:id`    | Actualizar carta blanca     | Administrador |
+| `GET /cardsWhite/:id`    | Obtener carta blanca por ID |               |
+| `DELETE /cardsWhite/:id` | Eliminar carta blanca       | Administrador |
+
+</div>
 #### Game Routes
 
 **Tokens**
@@ -282,30 +294,42 @@ Sockets y los parámetros :token and :code
   - `Game.jsx`, `Zar.jsx`, `Player.jsx` y `chat.jsx` en la ruta: `client/src/components`
 
 - **Lobby y gestión de la partida**
-  |Ruta|Descripción|Requiere token|
-  |---|---|--|
-  |`GET /Game` |Verificar token| No|
-  |`GET /lobby/:code` |Unirte a la partida|Si|
-  |`GET /party/:code` | Verificar ingreso a la sala|Si|
-  |`POST /party` |Validar la contraseña de la partida|Si|
-  |`PUT /party` | Actualizar información de la sala|Si|
+
+  <div class="table-responsive" >
+
+  | Ruta               | Descripción                         | Requiere token |
+  | ------------------ | ----------------------------------- | -------------- |
+  | `GET /Game`        | Verificar token                     | No             |
+  | `GET /lobby/:code` | Unirte a la partida                 | Si             |
+  | `GET /party/:code` | Verificar ingreso a la sala         | Si             |
+  | `POST /party`      | Validar la contraseña de la partida | Si             |
+  | `PUT /party`       | Actualizar información de la sala   | Si             |
+
+  </div>
 
 - **Game Management**
   _Todas las rutas requieren token_
-  |Ruta|Descripción|
-  |---|---|
-  | `POST /game`| Iniciar el juego|
-  | `GET /game`| Obtener cantidad de cartas|
-  | `GET /cards/:token`| Obtener cartas en mano|
-  | `GET /cardsOther/:token`| Obtener cartas de la banca|
-  | `POST /cards`| Guardar cartas en el jugador|
-  | `GET /cartas/:token`| Obtener cartas elegidas de un jugador|
-  | `PUT /game`| Actualizar puntos y ronda|
-  | `GET /points/:token`| Obtener puntos|
-  | `PUT /cards`| Guardar cartas seleccionadas en el server|
-  | `DELETE /party`| Eliminar partida|
+
+  <div class="table-responsive" >
+
+  | Ruta                     | Descripción                               |
+  | ------------------------ | ----------------------------------------- |
+  | `POST /game`             | Iniciar el juego                          |
+  | `GET /game`              | Obtener cantidad de cartas                |
+  | `GET /cards/:token`      | Obtener cartas en mano                    |
+  | `GET /cardsOther/:token` | Obtener cartas de la banca                |
+  | `POST /cards`            | Guardar cartas en el jugador              |
+  | `GET /cartas/:token`     | Obtener cartas elegidas de un jugador     |
+  | `PUT /game`              | Actualizar puntos y ronda                 |
+  | `GET /points/:token`     | Obtener puntos                            |
+  | `PUT /cards`             | Guardar cartas seleccionadas en el server |
+  | `DELETE /party`          | Eliminar partida                          |
+
+  </div>
 
 #### Rutas de autenticación
+
+<div class="table-responsive" >
 
 | Ruta           | Descripción                 |
 | -------------- | --------------------------- |
@@ -313,12 +337,18 @@ Sockets y los parámetros :token and :code
 | `POST /signin` | Iniciar sesión              |
 | `GET /info`    | Obtener información general |
 
+</div>
 #### Rutas de la cuenta de usuario
 
 _Nota:_ `:id` es el ID de una cuenta registrada en la base de datos.
 
 _Las dos rutas requieren token_
-|Ruta|Descripción|
-|---|---|
-|`GET /user/:id` |Obtener logros de un jugador|
-|`PUT /user` |Actualizar información de perfil|
+
+<div class="table-responsive" >
+
+| Ruta            | Descripción                      |
+| --------------- | -------------------------------- |
+| `GET /user/:id` | Obtener logros de un jugador     |
+| `PUT /user`     | Actualizar información de perfil |
+
+</div>

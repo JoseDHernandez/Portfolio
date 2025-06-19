@@ -1,4 +1,6 @@
 ---
+/* -- Env -- */
+import { URL_CV } from "astro:env/server";
 /* -- Layout -- */
 import Layout from "../layouts/Layout.astro";
 /* -- Images -- */
@@ -49,7 +51,7 @@ import ProjectCard from "../components/ProjectCard.astro";
         <div class="presentation-buttons">
           <a
             class="button-text-background-secondary"
-            href="https://drive.proton.me/urls/5Q4EF7MY7G#lbolEx8asEMr"
+            href={URL_CV}
             target="_blank"
             rel="noopener noreferrer">Descargar CV</a
           >
@@ -188,8 +190,9 @@ import ProjectCard from "../components/ProjectCard.astro";
           Estoy disponible para charlas, retos de programación o simplemente compartir
           ideas.
         </p>
-        <a class="button-text-icon-background-secondary contact-button"
-          >Descargar CV &nbsp; <Icon name="download" /></a
+        <a
+          class="button-text-icon-background-secondary contact-button"
+          href={URL_CV}>Descargar CV &nbsp; <Icon name="download" /></a
         >
         <br /><br />
         <article>

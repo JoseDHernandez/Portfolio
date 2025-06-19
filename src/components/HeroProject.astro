@@ -1,58 +1,90 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import { URL_PROFILE } from "astro:env/server";
 interface Props {
   Description: string;
   Technologies: string[];
   Github_link?: string;
   Demo_link?: string;
   License: string;
+  Img: ImageMetadata;
+  Title: string;
 }
-const { Description, Technologies, Github_link, Demo_link, License } =
-  Astro.props;
+const {
+  Description,
+  Technologies,
+  Github_link,
+  Demo_link,
+  License,
+  Img,
+  Title,
+} = Astro.props;
+
+import GetLicense from "./GetLicense";
 ---
 
-<div>
-  <slot />
-  <p>{Description}</p>
-  <strong>Tecnologías utilizadas</strong>
-  <ul>
-    {
-      Technologies.map((tech) => (
-        <li aria-label={tech}>
-          <Icon name={`technologies/${tech}`} title={tech} />
-        </li>
-      ))
-    }
-  </ul>
-  <div>
-    {
-      Github_link && (
-        <a
-          class="button-text-icon-background-primary"
-          href={Github_link}
-          rel="external noopener noreferrer"
-          target="_blank"
-        >
-          Repositorio <Icon name="github_l" />
-        </a>
-      )
-    }
-    {
-      Demo_link && (
-        <a
-          class="button-text-icon-background-accent"
-          href={Demo_link}
-          rel="external noopener noreferrer"
-          target="_blank"
-        >
-          Demostración <Icon name="play" />
-        </a>
-      )
-    }
-  </div>
-  <p>
-    <strong>Licencia:</strong>
-    {License}
-  </p>
-</div>
+<section>
+  <div class="hero">
+    <Image
+      class="hero--image"
+      src={Img}
+      alt={`Imagen de portada del proyecto ${Title}`}
+      widths={[400, 700, Img.width]}
+      sizes="(max-width: 768px) 100vw, 800px"
+      width="850"
+    />
+    <div class="hero--information">
+      <p>{Description}</p>
+      <div class="hero--buttons">
+        {
+          Github_link && (
+            <a
+              class="button-text-icon-background-primary"
+              href={Github_link}
+              rel="external noopener noreferrer"
+              target="_blank"
+              aria-label="Ir al repositorio en GitHub"
+            >
+              Repositorio <Icon name="github_l" />
+            </a>
+          )
+        }
+        {
+          Demo_link && (
+            <a
+              class="button-text-icon-background-accent"
+              href={Demo_link}
+              rel="external noopener noreferrer"
+              target="_blank"
+              aria-label="Ir a la página de demostración del proyecto"
+            >
+              Demostración <Icon name="play" />
+            </a>
+          )
+        }
+      </div>
+      <br />
+      <b class="text-primary">Tecnologías utilizadas</b>
+      <ul>
+        {
+          Technologies.map((tech) => (
+            <li aria-label={`Tecnología: ${tech}`} title={tech}>
+              <Icon name={`technologies/${tech}`} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div><br />
+  <GetLicense
+    License={License}
+    Work_link={Github_link}
+    Title={Title}
+    Year={2025}
+  />
+</section>
+
+<style lang="scss">
+  @use "../styles/components/_heroProject.scss";
+</style>

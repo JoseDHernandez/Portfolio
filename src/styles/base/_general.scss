@@ -98,7 +98,9 @@ select {
 }
 
 p,
-a {
+a,
+pre,
+code span {
   font-size: clamp(1rem, 1.5vw, 1.125rem); // 16–18px
 }
 
@@ -149,5 +151,127 @@ input[type="email"] {
   &:disabled {
     background-color: #f2f2f2;
     cursor: not-allowed;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"],
+progress {
+  accent-color: $accent-color;
+}
+details {
+  border-radius: 5px;
+  padding: 5px 2px;
+  transition: background-color 0.3s ease;
+
+  summary {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: $primary-color;
+    list-style: none;
+    position: relative;
+    padding-right: 1.5em;
+
+    &::marker {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      background: url("/src/icons/arrow-right.svg") no-repeat center;
+      background-size: contain;
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+  }
+  &[open] {
+    summary::before {
+      transform: rotate(90deg);
+    }
+    .details-content {
+      margin-top: 5px;
+      margin-left: 30px;
+      animation: slideDown 0.3s ease-out;
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+pre,
+code {
+  font-family: "Fira Code", "Courier New", monospace;
+  border-radius: 0.5rem;
+  tab-size: 2;
+  overflow-x: auto;
+}
+
+pre {
+  width: 100%;
+  padding: 1em;
+  margin: 1em 0;
+  white-space: pre;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+code {
+  width: 100%;
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  white-space: pre-wrap;
+}
+
+p code,
+li code {
+  font-size: 0.9rem;
+  color: $accent-color;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 1rem;
+  background-color: #fff;
+  border: 1px solid rgba($primary-color, 0.2);
+}
+
+th,
+td {
+  padding: 0.75em 1em;
+  text-align: left;
+  border-bottom: 1px solid rgba($primary-color, 0.15);
+}
+
+th {
+  color: $primary-color;
+  font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  table {
+    min-width: 600px;
   }
 }

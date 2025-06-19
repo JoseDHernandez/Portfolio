@@ -15,7 +15,8 @@ const { Content } = await render(project);
 ---
 
 <PageLayout title={Title}>
-  <h1 class="text-primary text-center">{Title}</h1>
-
-  <Content />
+  <h1 class="text-center text-primary">{Title}</h1>
+  <div class="project-page-mdx">
+    <Content />
+  </div>
 </PageLayout>

@@ -7,8 +7,16 @@ interface Props {
 const { title, image } = Astro.props;
 ---
 
-<div>
-  <h3>{title}</h3>
-  <Image src={image} alt="hola" width="720" height="360" />
+<div class="feature-card">
+  <h3 class="text-accent">{title}</h3>
+  <Image
+    src={image}
+    alt={title}
+    widths={[400, 700, image.width]}
+    sizes={`(max-width:500px) 400px, (max-width:1024) 700px, ${image.width}px`}
+  />
   <slot />
 </div>
+<style lang="scss">
+  @use "../styles/components/featureCard.scss";
+</style>
