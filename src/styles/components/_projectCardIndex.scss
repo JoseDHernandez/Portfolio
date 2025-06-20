@@ -1,3 +1,4 @@
+@use "../abstracts/mixins" as *;
 .project-card {
   width: 100%;
   text-decoration: none;
@@ -16,7 +17,7 @@
     aspect-ratio: 16/9;
   }
   strong {
-    word-break: break-all;
+    text-align: center;
   }
   small {
     text-wrap: wrap;
@@ -26,10 +27,18 @@
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    max-height: 45px;
+    max-height: 20px;
     svg {
       width: 20px;
       height: 20px;
+      aspect-ratio: 1/1;
+      object-fit: contain;
+    }
+  }
+  @include breakpoint(xl) {
+    grid-template-rows: 150px auto auto 20px;
+    strong {
+      align-self: center;
     }
   }
 }

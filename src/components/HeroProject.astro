@@ -10,6 +10,7 @@ interface Props {
   License: string;
   Img: ImageMetadata;
   Title: string;
+  Release: Date;
 }
 const {
   Description,
@@ -19,6 +20,7 @@ const {
   License,
   Img,
   Title,
+  Release,
 } = Astro.props;
 
 import GetLicense from "./GetLicense";
@@ -35,7 +37,7 @@ import GetLicense from "./GetLicense";
       width="850"
     />
     <div class="hero--information">
-      <p>{Description}</p>
+      {Description.split("\n").map((parrafo) => <p>{parrafo}</p>)}
       <div class="hero--buttons">
         {
           Github_link && (
@@ -68,7 +70,7 @@ import GetLicense from "./GetLicense";
       <b class="text-primary">Tecnologías utilizadas</b>
       <ul>
         {
-          Technologies.map((tech) => (
+          Technologies.sort().map((tech) => (
             <li aria-label={`Tecnología: ${tech}`} title={tech}>
               <Icon name={`technologies/${tech}`} />
             </li>
@@ -81,7 +83,7 @@ import GetLicense from "./GetLicense";
     License={License}
     Work_link={Github_link}
     Title={Title}
-    Year={2025}
+    Year={new Date(Release).getFullYear()}
   />
 </section>
 

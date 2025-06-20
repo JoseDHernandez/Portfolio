@@ -61,7 +61,7 @@ export default function GetLicense({ License, Work_link, Title, Year }) {
           <a href={profileURL} rel="noopener noreferrer">
             Jos&eacute; Hern&aacute;ndez
           </a>{" "}
-          esta licenciado bajo{" "}
+          bajo la licencia{" "}
           <a href={`https://creativecommons.org/licenses/${licenseCode}/4.0/`}>
             {licenseName}
           </a>

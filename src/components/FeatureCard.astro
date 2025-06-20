@@ -8,14 +8,18 @@ const { title, image } = Astro.props;
 ---
 
 <div class="feature-card">
-  <h3 class="text-accent">{title}</h3>
-  <Image
-    src={image}
-    alt={title}
-    widths={[400, 700, image.width]}
-    sizes={`(max-width:500px) 400px, (max-width:1024) 700px, ${image.width}px`}
-  />
-  <slot />
+  {title && <h3 class="text-accent">{title}</h3>}
+  <figure>
+    <Image
+      src={image}
+      alt={title}
+      widths={[400, 700, image.width]}
+      sizes={`(max-width:500px) 400px, (max-width:1024) 700px, ${image.width}px`}
+    />
+    <figcaption>
+      <slot />
+    </figcaption>
+  </figure>
 </div>
 <style lang="scss">
   @use "../styles/components/featureCard.scss";

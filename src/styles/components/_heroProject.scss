@@ -33,7 +33,11 @@
   &--buttons {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    gap: 1.4em;
+    @include breakpoint(md) {
+      gap: 0;
+    }
   }
 
   @include breakpoint(lg) {

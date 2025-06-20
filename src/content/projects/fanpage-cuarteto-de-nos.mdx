@@ -1,8 +1,11 @@
 ---
 Title: "Fan page de El cuarteto de Nos"
 Date: 2025-06-05
-Short_description: "Página de reseñas de mis películas favoritas"
-Description: "Este proyecto es una página de películas con un sistema de reseñas, en el cual utilice.."
+Short_description: "Página dedicada al cuarteto de nos, basada en uno de mis primeros proyectos."
+Description: >
+  Este proyecto está inspirado en una de las primeras páginas web que realicé, por eso mantiene un diseño simple pero coherente. Nace de mi gusto y admiración por El Cuarteto de Nos.
+
+  Decidí retomarlo como una forma de actualizarme y aprender sobre Astro, esta vez con más conocimientos y experiencia que cuando hice la versión original.
 Cover_path: "./fanpage-cuarteto-de-nos/fanpage-cuarteto-de-nos_cover.webp"
 Cover_path_md: "./fanpage-cuarteto-de-nos/fanpage-cuarteto-de-nos_cover-md.webp"
 Cover_path_xl: "./fanpage-cuarteto-de-nos/fanpage-cuarteto-de-nos_cover-xl.webp"
@@ -31,6 +34,13 @@ import Image3 from "./fanpage-cuarteto-de-nos/fanpage-cuarteto-de-nos-2.webp";
 import Image4 from "./fanpage-cuarteto-de-nos/fanpage-cuarteto-de-nos-3.webp";
 import Image5 from "./fanpage-cuarteto-de-nos/fanpage-cuarteto-de-nos-4.webp";
 
+import Image6 from "./fanpage-cuarteto-de-nos/fan-page-4teto.webp";
+import Image7 from "./fanpage-cuarteto-de-nos/fan-page-4teto-1.webp";
+import Image8 from "./fanpage-cuarteto-de-nos/fan-page-4teto-2.webp";
+import Image9 from "./fanpage-cuarteto-de-nos/fan-page-4teto-3.webp";
+import Image10 from "./fanpage-cuarteto-de-nos/fan-page-4teto-4.webp";
+import Image11 from "./fanpage-cuarteto-de-nos/fan-page-4teto-1.webp";
+
 <HeroProject
   Img={Image1}
   Title={frontmatter.Title}
@@ -39,25 +49,39 @@ import Image5 from "./fanpage-cuarteto-de-nos/fanpage-cuarteto-de-nos-4.webp";
   Github_link={frontmatter.Github_link}
   Demo_link={frontmatter?.Demo_link}
   License={frontmatter.License}
+  Release={frontmatter.Date}
 />
 
 ## Características
 
+<FeatureCard title="Introducción" image={Image1}>
+  La página principal muestra una breve descripción de la banda, junto con una
+  foto grupal de sus integrantes. La última imagen funciona como un vínculo
+  hacia la sección de <em>integrantes</em>.
+</FeatureCard>
+
 <FeatureCard title="Discografía" image={Image2}>
-  asdasd
+  En la sección de <em>discografía</em> se presentan todos los álbumes de la
+  banda, y cada uno cuenta con su propia página individual.
 </FeatureCard>
-<FeatureCard title="Información de cada album" image={Image3}>
-  asdasd
+
+<FeatureCard title="Información de cada álbum" image={Image3}>
+  Cada álbum incluye una descripción, enlaces a plataformas de música para
+  escucharlo, y la lista completa de canciones que contiene.
 </FeatureCard>
+
 <FeatureCard title="Integrantes de la banda" image={Image4}>
-  asdasd
+  En esta página se presentan la mayoría de los integrantes y ex-integrantes de
+  la banda, con una fotografía y una breve reseña de cada uno.
 </FeatureCard>
+
 <FeatureCard title="Información de cada integrante" image={Image5}>
-  asdasd
+  Cada integrante cuenta con una página individual que muestra su foto, nombre,
+  rol en la banda, período de actividad y una descripción personal.
 </FeatureCard>
 
 ## Proceso de desarrollo
 
-asd
+La primer version inicio el desarrollo a finales de septiembre del 2021 hasta octubre del mismo año.
 
 ## Uso e instalación

@@ -3,6 +3,16 @@
 .project-page-mdx {
   & h2 {
     color: $secondary-color;
+    margin-top: 4dvh;
+  }
+  & h3 {
+    color: $accent-color;
+  }
+  & h4 {
+    color: $labels-color;
+    @include breakpoint(md) {
+      margin-left: 5dvw;
+    }
   }
   & .table-responsive,
   & code,
@@ -10,6 +20,21 @@
     @include breakpoint(xl) {
       max-width: 60dvw;
       margin: 1em auto;
+    }
+  }
+  & > h3 {
+    @include breakpoint(md) {
+      margin-left: 2.5dvw;
+    }
+  }
+  & > ol {
+    li {
+      margin-top: 4dvw;
+    }
+    & > li::marker {
+      color: $accent-color;
+      font-weight: bold;
+      font-size: clamp(1.25rem, 2.5vw, 2rem); // 20–32px
     }
   }
 }

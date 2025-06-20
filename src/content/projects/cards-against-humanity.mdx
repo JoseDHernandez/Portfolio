@@ -1,8 +1,8 @@
 ---
 Title: "Cartas contra la humanidad"
 Date: 2024-07-13
-Short_description: "Juego web de cartas contra la humanidad"
-Description: "Este proyecto es un prototipo personal del juego original Tarjetas Contra la Humanidad. Fue desarrollado para aprender sobre WebSockets, componentes web, API REST y autenticación utilizando JSON Web Tokens."
+Short_description: "Versión web interactiva inspirada en el juego Cartas contra la Humanidad."
+Description: "Este proyecto es un prototipo personal del juego original Cartas Contra la Humanidad. Fue desarrollado para aprender sobre WebSockets, componentes web, API REST y autenticación utilizando JSON Web Tokens."
 Cover_path: "./cards-against-humanity/cards-against-humanity_cover.webp"
 Cover_path_md: "./cards-against-humanity/cards-against-humanity_cover-md.webp"
 Cover_path_xl: "./cards-against-humanity/cards-against-humanity_cover-xl.webp"
@@ -12,7 +12,6 @@ Technologies:
   - "Mysql"
   - "Socketio"
   - "React"
-  - "Css"
   - "Javascript"
   - "Github"
   - "Git"
@@ -46,107 +45,107 @@ import Imagen11 from "./cards-against-humanity/cards-against-humanity-12.webp";
   Technologies={frontmatter.Technologies}
   Github_link={frontmatter.Github_link}
   License={frontmatter.License}
+  Release={frontmatter.Date}
 />
+
+**_Nota:_** Este proyecto es un prototipo personal del juego original [Cards Against Humanity](https://www.cardsagainsthumanity.com/).Todos los derechos de propiedad intelectual, incluyendo el nombre, diseño y marca registrada del juego, pertenecen a sus respectivos creadores. Tanto el desarrollo del software como los elementos gráficos utilizados en esta versión fueron creados exclusivamente por el <abbr title="José David Hernández Hortúa">autor</abbr> con fines educativos y no comerciales.
 
 ## Características
 
 <FeatureCard title="Ingreso de usuario" image={Imagen1}>
-  Antes de comenzar a jugar, el usuario debe autenticarse con una **dirección de
-  correo electrónico** y **contraseña**. Esto proporciona una experiencia más
-  personalizada y segura.
+  Antes de comenzar a jugar, el usuario debe autenticarse con una dirección de
+  correo electrónico y contraseña.
 </FeatureCard>
 
 <FeatureCard title="Registro de cuentas" image={Imagen2}>
-  El proyecto cuenta con un **formulario de registro dinámico**, destinado tanto
-  a nuevos jugadores como a aquellos que regresan pero aún no están registrados.
+  El proyecto cuenta con un formulario de registro dinámico, destinado tanto a
+  nuevos jugadores como a aquellos que regresan pero aún no están registrados.
 </FeatureCard>
 
 <FeatureCard title="Lobby de partidas disponibles" image={Imagen3}>
-  La pantalla principal muestra **todas las salas públicas disponibles**, así
-  como las creadas por el propio jugador. Además, proporciona un **menú para
-  crear nuevas partidas** o **un campo destinado a introducir el código de una
-  partida privada**.
+  La pantalla principal muestra todas las salas públicas disponibles, así como
+  las creadas por el propio jugador. Además, proporciona un menú para crear
+  nuevas partidas o un campo destinado a introducir el código de una partida
+  privada.
 </FeatureCard>
 
 <FeatureCard title="Lobby en tiempo real" image={Imagen4}>
-  El lobby se actualiza en **tiempo real gracias a Socket.io**, mostrando información relevante de cada partida:
+  El lobby se actualiza en tiempo real gracias a Socket.io, mostrando información relevante de cada partida:
 
-- **Nombre de la sala**
-- **Anfitrión**
-- **Cantidad de jugadores**
-- **Ronda actual**
-- **Estado de la partida** (en espera, en juego o finalizando)
+- Nombre de la sala
+- Anfitrión
+- Cantidad de jugadores
+- Ronda actual
+- Estado de la partida (en espera, en juego o finalizando)
 
-Además, proporciona un botón para **unirte** cuando la sala esté disponible.
+Además, proporciona un botón para unirte cuando la sala esté disponible.
 
 </FeatureCard>
 
 <FeatureCard title="Confirmación de ingreso" image={Imagen5}>
-  Al unirte a una partida, aparecerá una **ventana de confirmación** mostrando
-  información de la sala junto con botones de **Entrar** o **Salir** para
-  abandonar el procedimiento.
+  Al unirte a una partida, aparecerá una ventana de confirmación mostrando
+  información de la sala junto con botones de *Entrar* o *Salir* para abandonar
+  el procedimiento.
 </FeatureCard>
 
 <FeatureCard title="Lobby en las partidas (jugador)" image={Imagen6}>
-  Durante la espera, el jugador puede **ver a los miembros de la sala en línea**
-  y **conversar en el chat** destinado a los jugadores de esa partida.
+  Durante la espera, el jugador puede ver a los miembros de la sala en línea y
+  conversar en el chat destinado a los jugadores de esa partida.
 </FeatureCard>
 
 <FeatureCard title="Lobby en las partidas (anfitrión)" image={Imagen7}>
-  El anfitrión tiene **control total de la sala**, incluido:
+  El anfitrión tiene control total de la sala, incluido:
 
-- **Expulsar jugadores**
-- **Modificar nombre de la partida**
-- **Ajustar cantidad de jugadores o de rondas**
-- **Comenzar el juego cuando esté listo**
+- Expulsar jugadores
+- Modificar nombre de la partida
+- Ajustar cantidad de jugadores o de rondas
+- Comenzar el juego cuando esté listo
 
 </FeatureCard>
 
 <FeatureCard title="Vista del jugador" image={Imagen8}>
-  Durante la partida, el jugador descubre:
+  Durante la partida, el jugador tiene:
 
-- La **carta negra**, que proporciona el texto base.
-- Sus **cartas blancas**, con varias alternativas para completar la oración.
-- La **sala en general**, mostrando cartas de otros jugadores.
-- La **ronda actual** y el nombre de la sala en la parte superior.
+- Una carta negra, que proporciona el texto base.
+- Sus cartas blancas, con varias alternativas para completar la oración.
+- "Mazo" general, donde se muestran las cartas de otros jugadores.
+
+Además, En la parte superior se indica la ronda actual y el nombre de la sala.
 
 </FeatureCard>
 
 <FeatureCard title="Vista del juez o zar" image={Imagen9}>
-  El **juez o zar** tiene la difícil pero divertida tarea de **elegir la carta
-  más graciosa o adecuada**. A medida que elige, la oración en pantalla se va
+  El juez o zar tiene la difícil pero divertida tarea de elegir la carta más
+  graciosa o adecuada. A medida que elige, la oración en pantalla se va
   completando.
 </FeatureCard>
 
 <FeatureCard title="Resultado de cada ronda" image={Imagen10}>
   Al finalizar la selección, se muestra un resumen de:
 
-- La **frase final**
+- La frase final
 - La información de los jugadores que participaron
 - La cantidad de puntos ganados en la ronda
 
 </FeatureCard>
 
 <FeatureCard title="Configuración de cuenta" image={Imagen11}>
-  Finalmente, cada jugador puede **gestionar la información de su cuenta**, así
-  como **ver sus logros desbloqueados**.
+  Finalmente, cada jugador puede gestionar la información de su cuenta, así como
+  ver sus logros desbloqueados.
 </FeatureCard>
 
 ## Proceso de desarrollo
 
-Este proyecto nació de la necesidad de **jugar en línea Cartas contra la Humanidad con mis amigos**. Al buscar alternativas en la web,
-descubrimos que **la mayoría de implementaciones eran muy básicas**: no se veía cómo quedaban las oraciones formadas con dos cartas,
-el “zar” debía ir relatándolas en lugar de dejar que el juego lo hiciera automáticamente, y además **tampoco podíamos cambiar cartas o
-descartar las que no nos convencían**.
+Este proyecto nació de la necesidad de jugar en línea **Cartas contra la Humanidad** con mis amigos. Al buscar alternativas en la web,
+descubrimos que la mayoría de implementaciones eran muy básicas: no se veía cómo quedaban las oraciones formadas con dos cartas, entonces
+el “zar” debía ir relatándolas en lugar de dejar que el juego lo hiciera automáticamente, y además tampoco podíamos cambiar cartas o
+descartar las que no nos convencían.
 
-Así que decidí **crear mi propio prototipo web**. Me propuse así **aprender React y Node.js** para llevar mis habilidades en JavaScript al
-siguiente nivel. Durante el **desarrollo, que duró unos 2 meses de aprendizaje autónomo**, descubrí el manejo de **ECMAScript**, el uso de **WebSockets**,
-la **construcción de una API (mi primera API)**, el manejo de **arrays en JavaScript**, las **bases de JWT**, así como el uso de **React** y **Tailwind CSS**
-en un proyecto más complejo.
+Así que decidí crear mi propio prototipo web. Me propuse así aprender React y Node.js para mejorar mis habilidades en JavaScript. Durante el desarrollo, que duró unos 2 meses de aprendizaje autónomo, descubrí el manejo de ECMAScript, el uso de WebSockets,
+la construcción de una API (mi primera API REST), el manejo de arrays en JavaScript, las bases de JWT, así como el uso de React y Tailwind CSS.
 
-Tras finalizar el prototipo, reflexioné sobre la importancia de **hacer wireframe o mockups antes de comenzar**, para tener una guía más clara de lo
-que necesitaba y así **evitar perder tiempo en la reiteración de estilos o componentes**. Por otro lado, también me di cuenta de que **el rendimiento es
-un punto clave**, pues Lighthouse me indicó que la aplicación estaba poco optimizada. Esto me ayudó a tener más en cuenta el rendimiento en futuros desarrollos.
+Tras finalizar el prototipo, aprendí sobre la importancia de hacer mockups antes de comenzar. Además de tener definidos los requerimientos de un software para evitar perder tiempo en la reiteración de estilos, lógica no prevista o incensaría. Por otro lado, también me di cuenta de que el rendimiento es
+un punto clave, pues _Lighthouse_ me indicó que la aplicación estaba poco optimizada. Esto me ayudó a tener más en cuenta el rendimiento en futuros desarrollos.
 
 ## Uso e instalación
 
@@ -179,43 +178,43 @@ un punto clave**, pues Lighthouse me indicó que la aplicación estaba poco opti
 
         Ajustes en el archivo `index.js`:
 
-        Cors de socket.io:
+    - Cors de socket.io:
 
-        ```javascript
-        const io = new SocketServer(server, {
-          cors: {
-            origin: urlClient,
-            methods: ["GET", "POST", "PUT", "DELETE"],
-          },
-        });
-        ```
+      ```javascript
+      const io = new SocketServer(server, {
+        cors: {
+          origin: urlClient,
+          methods: ["GET", "POST", "PUT", "DELETE"],
+        },
+      });
+      ```
 
-        Cors de Express:
+    - Cors de Express:
 
-        ```javascript
-        app.use(
-          cors({
-            origin: urlClient,
-            methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-          })
-        );
-        ```
+      ```javascript
+      app.use(
+        cors({
+          origin: urlClient,
+          methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        })
+      );
+      ```
 
-        Uso de Morgan:
+    - Uso de Morgan:
 
-        ```javascript
-        app.use(morgan("dev"));
-        ```
+      ```javascript
+      app.use(morgan("dev"));
+      ```
 
-        **Configuración en el cliente**
+    **Configuración en el cliente**
 
-        En el archivo `config.js`, ubicado en `client/scr/api`:
+    En el archivo `config.js`, ubicado en `client/scr/api`:
 
-        La variable `URL` es la url de la API (servidor), esta es la indicada por el server (`server/index.js`)  en la consola:
+    La variable `URL` es la url de la API (servidor), esta es la indicada por el server (`server/index.js`) en la consola:
 
-        ```javascript
-        console.log("Server running: " + DB_HOST + ":" + PORT);
-        ```
+    ```javascript
+    console.log("Server running: " + DB_HOST + ":" + PORT);
+    ```
 
 4.  Puedes usar las siguientes cuentas de prueba:
 
@@ -273,7 +272,7 @@ un punto clave**, pues Lighthouse me indicó que la aplicación estaba poco opti
 | `DELETE /cardsWhite/:id` | Eliminar carta blanca       | Administrador |
 
 </div>
-#### Game Routes
+#### Rutas de la API
 
 **Tokens**
 
@@ -307,8 +306,9 @@ Sockets y los parámetros :token and :code
 
   </div>
 
-- **Game Management**
-  _Todas las rutas requieren token_
+- **Juego**
+
+  _Nota:_ Todas las rutas requieren token
 
   <div class="table-responsive" >
 
@@ -342,7 +342,7 @@ Sockets y los parámetros :token and :code
 
 _Nota:_ `:id` es el ID de una cuenta registrada en la base de datos.
 
-_Las dos rutas requieren token_
+_\*Las dos rutas requieren token_
 
 <div class="table-responsive" >
 
