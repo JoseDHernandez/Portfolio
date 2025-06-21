@@ -239,6 +239,7 @@ $radius-size: 20px;
 .contact {
   @extend .limit-section;
   @extend .title-fusion;
+  padding-bottom: 3em;
   &-button {
     margin: auto;
   }

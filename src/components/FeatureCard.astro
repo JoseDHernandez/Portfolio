@@ -3,8 +3,9 @@ import { Image } from "astro:assets";
 interface Props {
   title: string;
   image: any;
+  alternative?: string;
 }
-const { title, image } = Astro.props;
+const { title, image, alternative } = Astro.props;
 ---
 
 <div class="feature-card">
@@ -12,7 +13,7 @@ const { title, image } = Astro.props;
   <figure>
     <Image
       src={image}
-      alt={title}
+      alt={alternative ? alternative : title}
       widths={[400, 700, image.width]}
       sizes={`(max-width:500px) 400px, (max-width:1024) 700px, ${image.width}px`}
     />

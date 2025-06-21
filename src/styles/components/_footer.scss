@@ -1,0 +1,31 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+.footer {
+  background-color: $primary-color;
+  color: white;
+  &--content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+    text-align: center;
+    padding: 2em 1em;
+    grid-template-columns: 1fr;
+    @include breakpoint(md) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+  &--social {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  & bottom {
+    margin: 5dvh auto;
+    @include breakpoint(md) {
+      grid-column: 1 / span 2;
+    }
+  }
+}

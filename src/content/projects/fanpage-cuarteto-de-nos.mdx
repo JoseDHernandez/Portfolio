@@ -39,7 +39,7 @@ import Image7 from "./fanpage-cuarteto-de-nos/fan-page-4teto-1.webp";
 import Image8 from "./fanpage-cuarteto-de-nos/fan-page-4teto-2.webp";
 import Image9 from "./fanpage-cuarteto-de-nos/fan-page-4teto-3.webp";
 import Image10 from "./fanpage-cuarteto-de-nos/fan-page-4teto-4.webp";
-import Image11 from "./fanpage-cuarteto-de-nos/fan-page-4teto-1.webp";
+import Image11 from "./fanpage-cuarteto-de-nos/fan-page-4teto-5.webp";
 
 <HeroProject
   Img={Image1}
@@ -82,6 +82,73 @@ import Image11 from "./fanpage-cuarteto-de-nos/fan-page-4teto-1.webp";
 
 ## Proceso de desarrollo
 
-La primer version inicio el desarrollo a finales de septiembre del 2021 hasta octubre del mismo año.
+La primera versión del sitio fue desarrollada entre finales de septiembre y octubre de 2021. Su estructura se basaba en tablas para organizar y presentar la información, ya que en ese momento aún no tenía conocimientos de CSS, y nos habían enseñado esta técnica más tradicional.
 
-## Uso e instalación
+En esta nueva versión utilicé Tailwind, por su versatilidad y porque no requería estilos demasiado específicos. Además, aproveché para experimentar con Astro, un framework que me llamaba la atención por su enfoque en sitios estáticos y con algo de dinamismo. Con lo aprendido, emprendí el desarrollo de mi [portafolio](/proyectos/portafolio).
+
+### Primer versión
+
+Esta primera version se muestra en las siguientes imágenes
+
+<FeatureCard
+  alternative="Imagen de la página principal de la primera versión"
+  image={Image6}
+>
+  Las páginas estaban organizadas y diseñadas con tablas HTML, ya que en ese
+  momento apenas comenzaba a aprender sobre CSS. Nos habían enseñado a
+  estructurarlas primero con tablas, y más adelante aplicar estilos con CSS.
+</FeatureCard>
+
+<FeatureCard
+  alternative="Imagen de la página principal de la primera versión, parte 2"
+  image={Image7}
+>
+  En la página principal había una sección (o artículo, desde un enfoque
+  semántico) donde se presentaban los diferentes logotipos de la banda y de su
+  sello independiente.
+</FeatureCard>
+
+<FeatureCard
+  alternative="Imagen de la página principal de la primera versión"
+  image={Image8}
+>
+  Contaba con una sección (una fila dentro de una tabla) llamada _videografía_,
+  donde se mostraban cuatro videoclips musicales de la banda.
+</FeatureCard>
+
+<FeatureCard
+  alternative="Imagen de la página de integrantes de la primera versión"
+  image={Image9}
+>
+  La página de integrantes era una sola tabla que contenía toda la información.
+  No existían páginas individuales para cada miembro.
+</FeatureCard>
+
+<FeatureCard
+  alternative="Imagen de la página de álbumes de la primera versión"
+  image={Image10}
+>
+  Los álbumes estaban organizados en una tabla, ordenados del más antiguo al más
+  reciente.
+</FeatureCard>
+
+<FeatureCard
+  alternative="Imagen de la página de álbumes de la primera versión, parte 2"
+  image={Image11}
+>
+  El "último" álbum registrado era el adelanto de _Fiesta en lo del Dr. Hermes_,
+  parte del disco _Lámina Once_. En ese momento (2021), aún no se conocía mucho
+  sobre ese nuevo trabajo, solo estaba disponible el single mencionado.
+</FeatureCard>
+
+## Instalación
+
+Clona el repositorio con:
+
+```bash
+git clone https://github.com/JoseDHernandez/Fanpage-del-Cuarteto-de-Nos.git
+```
+
+En la carpeta `src` encontraras los componentes, contenidos, layouts y páginas en cada carpeta.
+
+En `content` esta la información de `integrantes` y de `albumes`, en cada carpeta se encurtan los contenidos en markdown y la carpeta de imágenes de la colección.
