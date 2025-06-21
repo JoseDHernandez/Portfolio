@@ -1,8 +1,11 @@
 ---
 Title: "Sea battle"
 Date: 2024-05-02
-Short_description: "Página de reseñas de mis películas favoritas"
-Description: "Este proyecto es una página de películas con un sistema de reseñas, en el cual utilice.."
+Short_description: "Juego de batalla naval por turnos con ataques especiales y tablero personalizable"
+Description: |
+  Sea Battle es un juego de batalla naval por turnos, desarrollado como proyecto académico enfocado en la programación orientada a objetos (POO) con Java. 
+    El jugador puede personalizar la partida para enfrentarse a la inteligencia artificial del sistema mediante ataques normales o especiales.
+
 Cover_path: "./sea-battle/sea-battle_cover.webp"
 Cover_path_md: "./sea-battle/sea-battle_cover-md.webp"
 Cover_path_xl: "./sea-battle/sea-battle_cover-xl.webp"
@@ -12,7 +15,7 @@ Technologies:
   - "Git"
   - "Java"
 Type: "Aplicación de escritorio"
-License: "CC"
+License: "CC-BY-NC-SA"
 Github_link: https://github.com/JoseDHernandez/Sea-battle
 ---
 
@@ -20,12 +23,98 @@ import FeatureCard from "../../components/FeatureCard.astro";
 import HeroProject from "../../components/HeroProject.astro";
 import { Image } from "astro:assets";
 
+import Image1 from "./sea-battle/sea-battle.webp";
+import Image2 from "./sea-battle/sea-battle-1.webp";
+import Image3 from "./sea-battle/sea-battle-2.webp";
+import Image4 from "./sea-battle/sea-battle-3.webp";
+import Image5 from "./sea-battle/sea-battle-4.webp";
+import Image6 from "./sea-battle/sea-battle-5.webp";
+import Image7 from "./sea-battle/sea-battle-6.webp";
+
 <HeroProject
+  Title={frontmatter.Title}
+  Img={Image1}
+  Release={frontmatter.Date}
   Description={frontmatter.Description}
   Technologies={frontmatter.Technologies}
   Github_link={frontmatter.Github_link}
   Demo_link={frontmatter?.Demo_link}
   License={frontmatter.License}
->
+/>
 
-</HeroProject>
+## Características
+
+<FeatureCard title="Menú" image={Image1}>
+  En la pantalla inicial se encuentra el nombre del juego *Sea Battle*, el botón
+  de inicio ("¡Al ataque!") y las opciones. También se muestra la información de
+  la licencia.
+</FeatureCard>
+
+<FeatureCard title="Opciones" image={Image2}>
+  En el menú de opciones, el jugador puede modificar:
+
+    - La cantidad de barcos disponibles
+    - El tamaño del tablero
+    - La cantidad de minas
+    - El nombre del jugador
+
+  </FeatureCard>
+
+<FeatureCard title="Tablero del jugador" image={Image3}>
+  Al iniciar el juego, el jugador debe ubicar cada barco en el tablero
+  manualmente o de forma automática. Una vez completado el despliegue, se puede
+  presionar el botón *Atacar* para comenzar la partida.
+</FeatureCard>
+
+<FeatureCard title="Juego" image={Image6}>
+  Durante la partida se muestra el tablero del enemigo (la máquina) y, en la parte inferior derecha, el tablero del jugador.
+
+La interfaz indica la cantidad de barcos dañados para ambos jugadores, así como los botones para activar los ataques especiales: _Localizador_ y _Submarino_.
+
+</FeatureCard>
+
+### Ataques especiales
+
+<FeatureCard title="Localizador" image={Image4}>
+  El localizador es un ataque especial con un alcance de 3x3 (8 celdas
+  visibles). Permite revelar el contenido de esas celdas, exceptuando la celda
+  central.
+</FeatureCard>
+
+<FeatureCard title="Submarino" image={Image5}>
+  El submarino es una unidad de 1x3 celdas que lanza dos torpedos a cada lado, los cuales se desplazan en línea recta según su rotación. Los torpedos cuentan con una animación de desplazamiento.
+
+El submarino también puede impactar al colocarse, causando daño en hasta 3 celdas. Además, los torpedos registran su trayectoria, y si impactan con un barco, causan daño normalmente.
+
+</FeatureCard>
+
+## Proceso de desarrollo
+
+Este juego fue desarrollado como parte de mi asignatura de _Programación Orientada a Objetos_ (POO). El proyecto tuvo una duración de dos meses, iniciando en abril de 2024, y se basa en el clásico juego de batalla naval.
+
+En un principio, consideré implementar un modo multijugador a través de una conexión LAN o usando WebSockets. Sin embargo, decidí centrarme en una experiencia para un solo jugador, agregando mecánicas especiales que representaron un mayor reto en lógica y diseño orientado a objetos.
+
+Durante el desarrollo, aprendí que **Java Swing** tiene limitaciones para crear interfaces más complejas. De hecho, el ejecutable final presenta algunos problemas al abrirse. Aun así, fue considerado el mejor proyecto del curso por su escala y por la forma en que aplicaba los principios de la <abbr title="Programación Orientada a Objetos">POO</abbr>.
+
+Aunque el proyecto no es perfecto, fue una experiencia enriquecedora y disfruté especialmente el proceso creativo al diseñar los assets. En el futuro, me gustaría desarrollar un videojuego más completo.
+
+## Instalación y uso
+
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/JoseDHernandez/Sea-battle.git
+   ```
+2. Ejecutar el proyecto en un IDE, el archivo principal se ubica en `Sea-battle/src/batalla/naval/Main.java`
+
+### Estructura de carpetas
+
+<div class="table-responsive" >
+
+| Carpeta   | Descripción                                                                                                                                                                |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Classes` | Contiene clases auxiliares como `Player`, `getImage` y `getRandom`, encargadas de manejar la lógica del jugador, obtención de imágenes y generación de valores aleatorios. |
+| `Entitys` | Agrupa las abstracciones de las entidades jugables, como barcos y proyectiles. Aunque siguen siendo clases, representan elementos específicos del juego.                   |
+| `Img`     | Almacena todos los recursos gráficos utilizados en el juego, como "sprites", iconos y fondos.                                                                              |
+| `Naval`   | Ubicada en `sea-battle/batalla/`, contiene el código de ejecución principal y las interfaces gráficas desarrolladas con Java Swing.                                        |
+
+</div>

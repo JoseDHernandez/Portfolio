@@ -1,8 +1,12 @@
 ---
 Title: "La cueva de ana"
 Date: 2024-05-14
-Short_description: "Página de reseñas de mis películas favoritas"
-Description: "Este proyecto es una página de películas con un sistema de reseñas, en el cual utilice.."
+Short_description: "Sistema de gestión de cine con enfoque en pruebas de software"
+Description: |
+  Este proyecto es un sistema de gestión de boletos y asientos de un cine, desarrollado en Java, con un enfoque en las pruebas de software y el uso de una base de datos no relacional.
+
+  Fue creado como parte de mi asignatura de Pruebas de Software, en la cual utilicé MongoDB por primera vez. El sistema permite registrar asientos vendidos y disponibles, gestionar los horarios de proyección y registrar películas dentro de la cartelera.
+
 Cover_path: "./cinema-java/cinema-java_cover.webp"
 Cover_path_md: "./cinema-java/cinema-java_cover-md.webp"
 Cover_path_xl: "./cinema-java/cinema-java_cover-xl.webp"
@@ -13,20 +17,122 @@ Technologies:
   - "Java"
   - "Mongodb"
 Type: "Aplicación de escritorio"
-License: "CC"
+License: "CC-BY-NC-SA"
 Github_link: https://github.com/JoseDHernandez/cinema-in-java
 ---
 
 import FeatureCard from "../../components/FeatureCard.astro";
 import HeroProject from "../../components/HeroProject.astro";
 import { Image } from "astro:assets";
+import Image1 from "./cinema-java/cinema-java.webp";
+import Image2 from "./cinema-java/cinema-java-1.webp";
+import Image3 from "./cinema-java/cinema-java-2.webp";
+import Image4 from "./cinema-java/cinema-java-3.webp";
+import Image5 from "./cinema-java/cinema-java-4.webp";
+import Image6 from "./cinema-java/cinema-java-5.webp";
+import Image7 from "./cinema-java/cinema-java-6.webp";
+import Image8 from "./cinema-java/cinema-java-7.webp";
 
 <HeroProject
+Title={frontmatter.Title}
+Img={Image5}
   Description={frontmatter.Description}
   Technologies={frontmatter.Technologies}
   Github_link={frontmatter.Github_link}
   Demo_link={frontmatter?.Demo_link}
   License={frontmatter.License}
+  Release={frontmatter.Date}
 >
 
 </HeroProject>
+
+## Características
+
+<FeatureCard title="Inicio" image={Image1}>
+  En la vista inicial se presentan los campos de ingreso. Dependiendo del rol
+  (cajero o administrador), el sistema mostrará distintas opciones disponibles.
+</FeatureCard>
+
+<FeatureCard title="Configuración de la base de datos" image={Image2}>
+  Desde el botón de *Opciones*, ubicado en la esquina superior derecha, se
+  configuran los parámetros de la base de datos (MongoDB), como la URI y el
+  nombre. También es posible cargar datos de prueba o realizar una prueba de
+  conexión.
+</FeatureCard>
+
+<FeatureCard title="Registro de películas" image={Image3}>
+  El administrador puede registrar nuevas películas en la sección *Registrar*
+  del sistema.
+</FeatureCard>
+
+<FeatureCard title="Menú de películas" image={Image5}>
+  Luego del inicio, ambos tipos de usuario acceden al menú de películas, desde
+  donde se puede consultar la información individual de cada título registrado.
+</FeatureCard>
+
+<FeatureCard title="Información de películas" image={Image4}>
+  Tanto el administrador como el cajero pueden visualizar los detalles completos
+  de las películas registradas.
+</FeatureCard>
+
+<FeatureCard title="Selección de asientos" image={Image6}>
+  El cajero puede registrar ventas o reservaciones. En esta interfaz selecciona
+  los asientos y completa los datos del cliente.
+</FeatureCard>
+
+<FeatureCard title="Registro de usuarios" image={Image7}>
+  Solo el administrador tiene acceso al registro de nuevos usuarios dentro del
+  sistema.
+</FeatureCard>
+
+<FeatureCard title="Horarios de proyección" image={Image8}>
+  Los horarios de proyección son gestionados por el administrador, quien define
+  sala, fecha y película. La duración se calcula automáticamente.
+</FeatureCard>
+
+## Proceso de desarrollo
+
+Este software fue desarrollado como entrega para la asignatura de **Pruebas de Software**. Está construido en _Java_, utilizando _Java Swing_ para la interfaz gráfica y _MongoDB_ como base de datos. Elegí MongoDB porque quería experimentar cómo se gestiona una base de datos no relacional en un entorno práctico.
+
+El desarrollo se extendió durante aproximadamente tres meses, desde abril hasta el 14 de mayo de 2024. Este tiempo fue compartido con mis actividades académicas, personales y otros proyectos en paralelo como [Sea Battle](/proyectos/sea-battle) y [Tienda virtual de lácteos](/proyectos/tienda-lacteos).
+
+Dado que el enfoque principal eran las pruebas de software, el proyecto cuenta con pruebas unitarias realizadas con _JUnit_. Estas pruebas fueron desarrolladas por compañeros de clase, con mi orientación para acceder a métodos y flujos específicos del sistema. Gracias a ello, se aplicaron distintos tipos de pruebas:
+
+- Pruebas de caja blanca.
+- Pruebas de caja negra.
+- Pruebas unitarias.
+- Pruebas de usabilidad.
+- Pruebas de aceptación.
+- Pruebas de integración.
+- Pruebas de humo.
+
+Todos estos ensayos fueron documentados como parte de los entregables, siguiendo un **plan de pruebas basado en la norma ISO 29119**.
+
+## Instalación
+
+1. clonar el repositorio:
+
+```bash
+git clone https://github.com/JoseDHernandez/cinema-in-java.git
+```
+
+2. Ingresar a _Opciones_ en la interfaz inicial, e ingresar la URL y la base de datos de MongoDB.
+3. Cargar los valores de prueba.
+4. Aceptar la eliminación de los datos "existentes".
+5. Confirmar los cambios:
+
+- Eliminación de la base de datos (si existe)
+- Creación de las colecciones (registros)
+- Creación de los usuarios de pruebas.
+
+6. Pasar la prueba de verificación.
+7. Retener las credenciales:
+
+  <div class="table-responsive" >
+
+| Usuario    | Contraseña |
+| ---------- | ---------- |
+| Admin      | 123        |
+| CajeroTest | 123        |
+
+  </div>

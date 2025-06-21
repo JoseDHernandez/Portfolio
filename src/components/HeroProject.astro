@@ -77,6 +77,16 @@ import GetLicense from "./GetLicense";
           ))
         }
       </ul>
+      <p>
+        <strong class="text-accent">Fecha:</strong>
+        {
+          new Date(Release).toLocaleDateString("co-ES", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </p>
     </div>
   </div><br />
   <GetLicense
