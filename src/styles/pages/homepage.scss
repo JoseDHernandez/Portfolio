@@ -115,10 +115,11 @@ $radius-size: 20px;
     height: 15em;
     display: block;
     margin: auto;
-    box-shadow: 4px 4px 4px 2px #00000033;
+    box-shadow: -4px 4px 4px 2px #00000033;
     @include breakpoint(lg) {
-      width: 15em;
-      height: 20em;
+      width: 20dvw;
+      max-width: 384px;
+      height: auto;
     }
   }
   &-skills {
@@ -140,12 +141,13 @@ $radius-size: 20px;
     }
   }
   @include breakpoint(lg) {
-    min-height: 100dvh;
+    margin-bottom: 8em;
   }
 }
 //Work
 .work-experience {
-  padding-bottom: 2em;
+  margin-bottom: 2em;
+
   @include breakpoint(lg) {
     .content {
       padding: 2dvw;
@@ -201,7 +203,6 @@ $radius-size: 20px;
   display: grid;
   @include breakpoint(lg) {
     grid-template-columns: 2fr 1fr;
-    min-height: 100dvh;
   }
 }
 //Project
@@ -210,29 +211,19 @@ $radius-size: 20px;
   @extend .limit-section;
   .certifications-button {
     margin: auto;
-    margin-top: 1em;
+    margin-top: 2em;
   }
   @include breakpoint(lg) {
     border-top-left-radius: $radius-size;
     border-bottom-right-radius: $radius-size;
     padding-bottom: 3em;
-    min-height: 100dvh;
   }
   .projects-grid {
     display: grid;
     justify-items: center;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     gap: 1em;
-    margin: 1em auto;
-    @include breakpoint(md) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @include breakpoint(lg) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @include breakpoint(xl) {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    margin: 2em auto;
   }
 }
 //Contact
@@ -301,6 +292,7 @@ $radius-size: 20px;
   @include breakpoint(lg) {
     min-height: 100dvh;
     .content {
+      margin-top: 4em;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 5dvw;

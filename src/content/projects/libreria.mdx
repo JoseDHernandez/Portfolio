@@ -2,7 +2,8 @@
 Title: "Librería en JAVA"
 Date: 2023-10-25
 Short_description: "Página de reseñas de mis películas favoritas"
-Description: "Este proyecto es una página de películas con un sistema de reseñas, en el cual utilice.."
+Description: |
+  Este proyecto es una página de películas con un sistema de reseñas, en el cual utilice..
 Cover_path: "./libreria-java/libreria-java_cover.webp"
 Cover_path_md: "./libreria-java/libreria-java_cover-md.webp"
 Cover_path_xl: "./libreria-java/libreria-java_cover-xl.webp"
@@ -12,20 +13,52 @@ Technologies:
   - "Git"
   - "Java"
 Type: "Aplicación de escritorio"
-License: "CC"
+License: "CC-BY-NC-SA"
 Github_link: https://github.com/JoseDHernandez/Registro-libros
 ---
 
 import FeatureCard from "../../components/FeatureCard.astro";
 import HeroProject from "../../components/HeroProject.astro";
 import { Image } from "astro:assets";
+import Image1 from "./libreria-java/libreria-java.webp";
+import Image2 from "./libreria-java/libreria-java-1.webp";
+import Image3 from "./libreria-java/libreria-java-2.webp";
+import Image4 from "./libreria-java/libreria-java-3.webp";
+import Image5 from "./libreria-java/libreria-java-4.webp";
+import Image6 from "./libreria-java/libreria-java-5.webp";
+import Image7 from "./libreria-java/libreria-java-6.webp";
 
 <HeroProject
+  Tile={frontmatter.Title}
+  Img={Image5}
+  Release={frontmatter.Date}
   Description={frontmatter.Description}
   Technologies={frontmatter.Technologies}
   Github_link={frontmatter.Github_link}
   Demo_link={frontmatter?.Demo_link}
   License={frontmatter.License}
->
+/>
 
-</HeroProject>
+## Características
+
+<FeatureCard title="Interfaz inicial" image={Image1}>
+  s
+</FeatureCard>
+<FeatureCard title="Filtros" image={Image2}>
+  s
+</FeatureCard>
+<FeatureCard title="Registro de libros" image={Image3}>
+  s
+</FeatureCard>
+<FeatureCard title="Libro registrado" image={Image4}>
+  s
+</FeatureCard>
+<FeatureCard title="Información de cada libro" image={Image5}>
+  s
+</FeatureCard>
+<FeatureCard title="Actualizar libros" image={Image6}>
+  s
+</FeatureCard>
+<FeatureCard title="Eliminación de libros" image={Image7}>
+  s
+</FeatureCard>

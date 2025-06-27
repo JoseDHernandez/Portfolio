@@ -32,9 +32,8 @@ import GetLicense from "./GetLicense";
       class="hero--image"
       src={Img}
       alt={`Imagen de portada del proyecto ${Title}`}
-      widths={[400, 700, Img.width]}
-      sizes="(max-width: 768px) 100vw, 800px"
-      width="850"
+      widths={[400, 700]}
+      sizes="(max-width: 480px) 400px, 700px"
     />
     <div class="hero--information">
       {Description.split("\n").map((parrafo) => <p>{parrafo}</p>)}

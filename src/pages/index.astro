@@ -6,8 +6,8 @@ import Layout from "../layouts/Layout.astro";
 /* -- Images -- */
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import foto_sobre_mi from "../assets/josedhernandez.webp";
-import foto_principal from "../assets/josehernandez.webp";
+import foto_sobre_mi from "../assets/josedhernandez-about.webp";
+import foto_principal from "../assets/josedhernandez.webp";
 /* -- Components -- */
 import WorkExpCard from "../components/WorkExpCard.astro";
 import StudyCard from "../components/StudyCard.astro";
@@ -29,7 +29,8 @@ import ProjectCard from "../components/ProjectCard.astro";
           src={foto_principal}
           class="presentation-image"
           alt="null"
-          width="360"
+          widths={[360, 500, foto_principal.width]}
+          sizes={`(max-width: 480px) 360px, (max-width: 768px) 500px, ${foto_principal.width}px`}
           height="360"
           quality="max"
           loading="eager"
@@ -85,8 +86,8 @@ import ProjectCard from "../components/ProjectCard.astro";
       <div>
         <Image
           class="about-me-image"
-          width="370"
-          height="400"
+          widths={[370, foto_sobre_mi.width]}
+          sizes={`(max-width: 1024px) 370px, ${foto_sobre_mi.width}px`}
           src={foto_sobre_mi}
           alt="Foto de José David Hernández"
           quality="high"
@@ -167,7 +168,7 @@ import ProjectCard from "../components/ProjectCard.astro";
                 new Date(b.data.Date).getTime() -
                 new Date(a.data.Date).getTime()
             )
-            .slice(0, 8)
+            .slice(0, 10)
             .map((p) => <ProjectCard data={p.data} slug={p.slug} />)
         }
       </div>

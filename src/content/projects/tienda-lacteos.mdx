@@ -1,8 +1,10 @@
 ---
 Title: "Tienda virtual de lácteos"
 Date: 2024-05-02
-Short_description: "Página de reseñas de mis películas favoritas"
-Description: "Este proyecto es una página de películas con un sistema de reseñas, en el cual utilice.."
+Short_description: "Prototipo de tienda web para una empresa real de lácteos."
+Description: |
+  Este proyecto fue desarrollado como parte de la asignatura de la universidad, En donde desarrolle una tienda web para Lácteos Superior, basada en requerimientos reales y estructurada bajo la norma IEEE 830 - 1998.
+
 Cover_path: "./tienda-lacteos/tienda-lacteos_cover.webp"
 Cover_path_md: "./tienda-lacteos/tienda-lacteos_cover-md.webp"
 Cover_path_xl: "./tienda-lacteos/tienda-lacteos_cover-xl.webp"
@@ -17,20 +19,172 @@ Technologies:
   - "Bootstrap"
   - "Php"
 Type: "Aplicación web"
-License: "CC"
+License: "CC-BY-NC-ND"
 Github_link: https://github.com/JoseDHernandez/Lacteos-superior
 ---
 
 import FeatureCard from "../../components/FeatureCard.astro";
 import HeroProject from "../../components/HeroProject.astro";
 import { Image } from "astro:assets";
+import Image1 from "./tienda-lacteos/tienda-lacteos.webp";
+import Image2 from "./tienda-lacteos/tienda-lacteos-1.webp";
+import Image3 from "./tienda-lacteos/tienda-lacteos-2.webp";
+import Image4 from "./tienda-lacteos/tienda-lacteos-3.webp";
+import Image5 from "./tienda-lacteos/tienda-lacteos-4.webp";
+import Image6 from "./tienda-lacteos/tienda-lacteos-5.webp";
+import Image7 from "./tienda-lacteos/tienda-lacteos-6.webp";
+import Image8 from "./tienda-lacteos/tienda-lacteos-7.webp";
+import Image9 from "./tienda-lacteos/tienda-lacteos-8.webp";
+import Image10 from "./tienda-lacteos/tienda-lacteos-9.webp";
+import Image11 from "./tienda-lacteos/tienda-lacteos-10.webp";
 
 <HeroProject
+  Title={frontmatter.Title}
+  Img={Image5}
+  Release={frontmatter.Date}
   Description={frontmatter.Description}
   Technologies={frontmatter.Technologies}
   Github_link={frontmatter.Github_link}
   Demo_link={frontmatter?.Demo_link}
   License={frontmatter.License}
->
+/>
 
-</HeroProject>
+## Características
+
+<FeatureCard title="Landing page" image={Image1}>
+  La página de inicio da la bienvenida al usuario con el logo de la marca y un
+  eslogan. También se incluye un botón que invita a visitar el catálogo de
+  productos.
+</FeatureCard>
+
+<FeatureCard title="Landing page: categorías" image={Image2}>
+  Se muestran tarjetas con las principales categorías de productos disponibles. Al hacer clic, redirigen al catálogo filtrado por dicha categoría. Las categorías incluyen:
+
+- Yogures
+- Quesos
+- Bebidas personales
+- Cereales
+- Refrigerios escolares
+
+La última tarjeta lleva al formulario de contacto.
+
+</FeatureCard>
+
+<FeatureCard title="Landing page: información adicional" image={Image3}>
+  Al final de la página principal se presenta información sobre la tienda
+  física, como ubicación, dirección, horarios de atención y datos de contacto.
+  También hay un acceso al formulario de contacto.
+</FeatureCard>
+
+<FeatureCard title="Catálogo de productos" image={Image4}>
+  El catálogo permite buscar productos, filtrarlos por categoría y ordenarlos por precio. 
+  
+  Cada producto se muestra en una tarjeta con imagen, título, cantidad, precio y botones para agregar al carrito o ver más detalles. 
+  
+  Si el producto está en oferta, se resalta con un fondo amarillo y muestra el nuevo precio junto al porcentaje de descuento.
+
+</FeatureCard>
+
+<FeatureCard title="Vista individual del producto" image={Image5}>
+  Cada producto cuenta con su propia página con información detallada como:
+
+- Nombre
+- Calificación
+- Precio
+- Cantidad de contenido
+- Existencias
+- Categoría
+- Descripción
+
+El usuario puede seleccionar la cantidad deseada para agregar al carrito y dejar reseñas con comentarios y calificaciones.
+
+</FeatureCard>
+
+<FeatureCard title="Carrito de compras" image={Image6}>
+  El carrito muestra una tabla con los productos seleccionados, su imagen,
+  nombre, precio unitario, cantidad, descuento (si aplica) y el total. También
+  se incluye el resumen del pedido con impuestos y opciones para confirmar o
+  cancelar la compra.
+</FeatureCard>
+
+<FeatureCard title="Gestor de productos" image={Image7}>
+  El administrador puede gestionar todos los productos registrados: agregar
+  nuevos artículos, editar información o eliminar productos del catálogo.
+</FeatureCard>
+
+<FeatureCard title="Gestor de categorías" image={Image8}>
+  Además de los productos, el administrador puede gestionar las categorías,
+  creando o editando las disponibles en la tienda.
+</FeatureCard>
+
+<FeatureCard title="Formulario de contacto" image={Image9}>
+  Desde la landing page se accede a un formulario de contacto donde se solicitan los siguientes campos:
+
+- Nombre
+- Empresa (opcional)
+- Teléfono
+- Correo electrónico
+- Asunto
+- Mensaje
+
+</FeatureCard>
+
+<FeatureCard title="Gestión de consultas" image={Image10}>
+  Los administradores tienen acceso a una sección donde pueden visualizar todas
+  las consultas enviadas por los usuarios desde el formulario de contacto.
+</FeatureCard>
+
+<FeatureCard title="Detalle del pedido" image={Image11}>
+  Tanto clientes como administradores pueden acceder a la información de cada
+  pedido realizado. Se muestran los datos del cliente, el estado del pedido y
+  una tabla con los productos comprados.
+</FeatureCard>
+
+## Proceso de desarrollo
+
+Este prototipo fue desarrollado como parte de la asignatura de _Bases de Datos_, donde debíamos crear el aplicativo de una empresa real. Junto a un compañero, decidimos realizar una página web para _Lácteos Superior_.
+
+El proceso de codificación tomó aproximadamente _14 días_. Previamente, durante unas _dos semanas_, llevamos a cabo un análisis de requerimientos siguiendo la norma _IEEE 830 - 1998_, en el cual también elaboramos diagramas _UML_, el modelo _entidad-relación_ y el _modelo relacional_.
+
+Este proyecto se desarrolló en paralelo con otros trabajos como [_Sea Battle_](/proyectos/sea-battle) y [_La Cueva de Ana_](/proyectos/cinema-java). Fue además mi _segundo proyecto utilizando Bootstrap_. El primero fue una tienda de hot dogs desarrollada con _Flask_ y _Python_, donde exploré el uso de un _ORM_; en cambio, este proyecto se construyó con _PHP_.
+
+Inicialmente contemplamos utilizar _Oracle_ como gestor de base de datos, pero optamos por _MySQL_ debido a su disponibilidad mediante _XAMPP_ y su compatibilidad con _SQL_, aunque el sistema es adaptable para funcionar también en _Oracle_.
+
+Como reflexión personal, este proyecto me permitió aprender sobre la _planificación_ y _estructuración_ de bases de datos relacionales utilizando _UML_. Con la experiencia adquirida desde entonces, reconozco que tanto la _arquitectura de la información_ como el _diseño visual_ pueden mejorar, pero fue una base sólida para comprender procesos reales de desarrollo.
+
+## Instalación
+
+1. Clonar el repositorio:
+
+```bash
+git clone https://github.com/JoseDHernandez/Lacteos-superior
+```
+
+2. Importar el archivo sql (`lacteos.sql`) al gestor de base de datos.
+3. Modificar las siguientes variables en el archivo `DATABASE.php`.
+
+  <div class="table-responsive" >
+
+| Variable          | Descripción                                        |
+| ----------------- | -------------------------------------------------- |
+| `$_SERVER`        | Es la URL del servidor                             |
+| `$_DATABASE_NAME` | Nombre de la base de datos                         |
+| `$_USER_DB`       | Nombre de usuario de la cuenta de la base de datos |
+| `$_PASSWORD_DB`   | Contraseña de la base de datos                     |
+
+  </div>
+
+4. En la tabla `usuario` en la base de datos, puedes ver las credenciales de acceso a la aplicación. En las columnas: `contrasena` y `email` se encuentran las claves y correos de acceso. También puedes utilizar las siguientes cuentas:
+
+  <div class="table-responsive" >
+
+| Rol           | Correo           | Contraseña |
+| ------------- | ---------------- | ---------- |
+| Administrador | ana@example.com  | securepass |
+| Cliente       | juan@example.com | password   |
+
+  </div>
+
+**_Nota:_** Todas las imágenes, nombres y logotipos relacionados con _Lácteos Superior_ son propiedad de _Inversiones Fasulac Ltda._, y los demás logotipos pertenecen a sus respectivos titulares de marca registrada. _Lácteos Superior_ es una marca de _Inversiones Fasulac Ltda._
+
+Las figuras, elementos gráficos e información asociada a la marca fueron utilizados únicamente con fines educativos. El <abbr title="José David Hernández Hortúa">autor</abbr> reconoce únicamente los derechos sobre el desarrollo, diseño y estructuración del software presentado en esta página.
