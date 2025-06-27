@@ -1,8 +1,11 @@
 ---
 Title: "RACCB"
 Date: 2022-11-06
-Short_description: "Página de reseñas de mis películas favoritas"
-Description: "Este proyecto es una página de películas con un sistema de reseñas, en el cual utilice.."
+Short_description: "Aplicación web educativa desarrollada durante mi formación técnica en el SENA"
+Description: |
+  Este proyecto fue mi primera experiencia desarrollando una aplicación web fullstack. Fue realizado como entrega final para el programa de Técnico en Programación de Software del SENA. 
+
+  Durante su desarrollo aprendí sobre la manipulación del DOM, diseño responsive, uso de bases de datos y documentación de requerimientos técnicos siguiendo la norma IEEE 830.
 Cover_path: "./raccb/raccb_cover.webp"
 Cover_path_md: "./raccb/raccb_cover-md.webp"
 Cover_path_xl: "./raccb/raccb_cover-xl.webp"
@@ -16,20 +19,166 @@ Technologies:
   - "Git"
   - "Php"
 Type: "Aplicación web"
-License: "CC"
-Github_link: https://github.com/JoseDHernandez/RACCB
+License: "Copy"
 ---
 
 import FeatureCard from "../../components/FeatureCard.astro";
 import HeroProject from "../../components/HeroProject.astro";
 import { Image } from "astro:assets";
+import Image1 from "./raccb/raccb.webp";
+import Image2 from "./raccb/raccb-1.webp";
+import Image3 from "./raccb/raccb-2.webp";
+import Image4 from "./raccb/raccb-3.webp";
+import Image5 from "./raccb/raccb-4.webp";
+import Image6 from "./raccb/raccb-5.webp";
+import Image7 from "./raccb/raccb-6.webp";
+import Image8 from "./raccb/raccb-7.webp";
+import Image9 from "./raccb/raccb-8.webp";
+import Image10 from "./raccb/raccb-9.webp";
+import Image11 from "./raccb/raccb-10.webp";
+import Image12 from "./raccb/raccb-11.webp";
+import Image13 from "./raccb/raccb-12.webp";
+import Image14 from "./raccb/raccb-13.webp";
+import Image15 from "./raccb/raccb-14.webp";
+import Image16 from "./raccb/raccb-15.webp";
+import Image17 from "./raccb/raccb-16.webp";
+import Image18 from "./raccb/raccb-17.webp";
+import Image19 from "./raccb/raccb-18.webp";
+import Image20 from "./raccb/raccb-19.webp";
+import Image21 from "./raccb/raccb-20.webp";
 
 <HeroProject
+  Title={frontmatter.Title}
+  Img={Image1}
+  Release={frontmatter.Date}
   Description={frontmatter.Description}
   Technologies={frontmatter.Technologies}
   Github_link={frontmatter.Github_link}
   Demo_link={frontmatter?.Demo_link}
   License={frontmatter.License}
->
+/>
 
-</HeroProject>
+## Proceso de desarrollo
+
+Esta fue mi primera aplicación web _fullstack_, y representó un proyecto relativamente grande comparado con lo que estaba acostumbrado en ese momento. Antes de este trabajo, mi primer acercamiento al desarrollo _frontend_ fue la [fanpage de El Cuarteto de Nos](/proyectos/fanpage-cuarteto-de-nos#primer-versión). Este proyecto fue realizado como parte del programa de Técnico en Programación de Software del _SENA_, en donde nos enfocamos en una plataforma educativa, por ello se llama _Refuerzo de aprendizaje y comprensión de conocimientos básicos (RACCB)_.
+
+Gracias a esta experiencia aprendí conceptos fundamentales como la manipulación del _DOM_, el uso de CSS y los principios básicos del diseño _responsive_. También fue mi primer contacto con bases de datos y su integración en una aplicación completa. El proyecto estuvo acompañado de documentación técnica como una ficha técnica que incluía la justificación, análisis de mercado y otros aspectos relevantes, además de los requerimientos funcionales redactados bajo la norma _IEEE 830_.
+
+El desarrollo se extendió durante los dos años que duró mi formación técnica. Es de esperar que el proyecto tenga varios defectos y limitaciones, ya que fue mi punto de partida en este camino. Sin embargo, al igual que me ocurre con [la página dedicada a El Cuarteto de Nos](/proyectos/fanpage-cuarteto-de-nos), lo recuerdo con cariño como un reflejo de mis inicios y una muestra clara de cuánto he evolucionado como desarrollador.
+
+## Características
+
+<FeatureCard title="Landing page" image={Image1}>
+La página de inicio presenta el logo del proyecto, su nombre abreviado y los
+botones para ingresar o registrarse. Ambos redirigen a la misma vista,
+mostrando un formulario diferente según el caso.
+
+Este componente, que también cumple la función de navegación, se transforma de _hero_ a menú fijo
+al hacer scroll.
+
+</FeatureCard>
+
+<FeatureCard alternative="Landing page, parte 2" image={Image2}>
+  En la sección “Aprende con nosotros”, se muestra una ilustración de un hongo
+  verde (la mascota del proyecto), acompañada de un mensaje que invita al
+  usuario a registrarse y un enlace directo al formulario.
+</FeatureCard>
+
+<FeatureCard alternative="Landing page, parte 3" image={Image3}>
+  La landing también destaca las áreas afectadas por el analfabetismo funcional:
+  cálculo, lectura y escritura, ayudando a contextualizar el objetivo de la
+  plataforma.
+</FeatureCard>
+
+<FeatureCard title="Ingreso" image={Image10}>
+  Para ingresar al sistema, se solicitan el correo electrónico y la contraseña.
+  También está disponible la opción _Olvidé mi contraseña_ para recuperar el
+  acceso.
+</FeatureCard>
+
+<FeatureCard title="Registro" image={Image12}>
+  La vista de autenticación incluye tanto el formulario de ingreso como el de
+  registro. Un componente alterna entre ambos según el botón seleccionado.
+</FeatureCard>
+
+<FeatureCard title="Inicio - Estudiante" image={Image18}>
+  El panel inicial para estudiantes muestra su progreso en cada capacidad, un
+  resumen de sus calificaciones y los últimos mensajes recibidos.
+</FeatureCard>
+
+<FeatureCard title="Inicio - Administrador" image={Image5}>
+  Los administradores visualizan un dashboard con datos generales como usuarios
+  conectados, total de registros y accesos rápidos al panel de usuarios y
+  mensajes.
+</FeatureCard>
+
+<FeatureCard title="Inicio - Profesor" image={Image16}>
+  Los docentes visualizan estadísticas sobre estudiantes activos, desempeño
+  académico y un resumen de mensajes.
+</FeatureCard>
+
+<FeatureCard title="Menú de lecciones RACCB" image={Image4}>
+  En esta sección se presentan tres tarjetas que representan las capacidades a
+  desarrollar. Al hacer _hover_, se revela el nombre de cada una.
+</FeatureCard>
+
+<FeatureCard title="Progreso" image={Image6}>
+  El progreso se representa visualmente con el crecimiento de un hongo. Cada
+  capacidad avanza por seis etapas distintas.
+</FeatureCard>
+
+<FeatureCard title="Etapas de progreso" image={Image21}>
+  Las etapas del hongo fueron inspiradas en su ciclo de desarrollo real, usando
+  este recurso como metáfora visual del aprendizaje.
+</FeatureCard>
+
+<FeatureCard title="Búsqueda de usuarios" image={Image19}>
+  Los usuarios pueden buscar a otros miembros de la plataforma para consultar su
+  perfil y establecer contacto.
+</FeatureCard>
+
+<FeatureCard title="Información del usuario" image={Image7}>
+  Cada perfil muestra información básica del usuario. Dependiendo del rol
+  (estudiante, profesor o administrador), se personaliza el banner superior.
+</FeatureCard>
+
+<FeatureCard title="Pruebas" image={Image8}>
+  Las lecciones incluyen ejemplos interactivos como juegos o ejercicios, además
+  de menús laterales para tomar apuntes y personalizar estilos.
+</FeatureCard>
+
+<FeatureCard title="Configuración de los estilos" image={Image9}>
+  Los usuarios pueden cambiar el color de fondo y fuente. Se incluyen temas
+  predeterminados como claro, oscuro y nocturno.
+</FeatureCard>
+
+<FeatureCard title="Configuración de la cuenta" image={Image11}>
+  Es posible modificar los datos personales desde esta sección. También se
+  planeó incluir una suscripción para desbloquear funciones como estilos premium
+  y más apuntes.
+</FeatureCard>
+
+<FeatureCard title="Apuntes" image={Image13}>
+  Los apuntes se basan en el método Cornell y pueden ser creados directamente
+  durante las lecciones para apoyar el estudio.
+</FeatureCard>
+
+<FeatureCard title="Calificaciones" image={Image14}>
+  Los docentes pueden consultar y editar las calificaciones y comentarios de sus
+  estudiantes desde un panel dedicado.
+</FeatureCard>
+
+<FeatureCard title="Creador de pruebas" image={Image15}>
+  Herramienta para que los profesores diseñen pruebas de opción múltiple,
+  asignables a los estudiantes desde sus lecciones.
+</FeatureCard>
+
+<FeatureCard title="Mensajes" image={Image20}>
+  El sistema de mensajería permite enviar y recibir mensajes entre usuarios. Los
+  mensajes pueden marcarse como leídos, destacados, eliminados o guardados como
+  favoritos.
+</FeatureCard>
+
+## Instalación
+
+Dado que fue un trabajo en equipo —y aunque fui el líder de desarrollo—, por respeto a la propiedad intelectual minoritaria de quienes participaron en la planificación y documentación, no se provee acceso al código fuente ni a los archivos del proyecto. Solo se conservan algunas imágenes y registros visuales de la aplicación.

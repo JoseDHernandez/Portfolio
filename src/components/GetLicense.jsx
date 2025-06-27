@@ -4,6 +4,7 @@ import { ReactComponent as BY_SVG } from "../icons/creative-commons/by.svg";
 import { ReactComponent as NC_SVG } from "../icons/creative-commons/nc.svg";
 import { ReactComponent as ND_SVG } from "../icons/creative-commons/nd.svg";
 import { ReactComponent as SA_SVG } from "../icons/creative-commons/sa.svg";
+const profileURL = URL_PROFILE ?? "#";
 const creative_svg = {
   CC: {
     svg: CC_SVG,
@@ -28,12 +29,11 @@ const creative_svg = {
   },
 };
 export default function GetLicense({ License, Work_link, Title, Year }) {
+  const repoURL = Work_link ?? "#";
   if (License?.startsWith("CC")) {
     const CC = License.split("-");
     const licenseCode = License.slice(3).toLowerCase();
     const licenseName = License.replace("-", " ") + " 4.0";
-    const profileURL = URL_PROFILE ?? "#";
-    const repoURL = Work_link ?? "#";
     return (
       <details>
         <summary>
@@ -67,6 +67,16 @@ export default function GetLicense({ License, Work_link, Title, Year }) {
           </a>
         </div>
       </details>
+    );
+  } else if (License.toUpperCase() == "COPY") {
+    return (
+      <>
+        <strong>{Title}</strong> &copy; {Year}{" "}
+        <a href={profileURL} rel="noopener noreferrer">
+          Jos&eacute; Hern&aacute;ndez.
+        </a>
+        {"  "}Todos los derechos reservados.
+      </>
     );
   } else {
     return <span>José Hernández &copy;</span>;

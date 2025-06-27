@@ -1,0 +1,99 @@
+---
+Title: "Gestor de biblioteca"
+Date: 2023-10-25
+Short_description: "Aplicación para gestionar libros usando estructuras de datos."
+Description: |
+  Proyecto desarrollado como parte de la asignatura de estructura de datos. La aplicación permite registrar libros, filtrarlos, ordenarlos y realizar búsquedas aplicando estructuras como pilas y colas, además de algoritmos de ordenamiento y búsqueda.
+Cover_path: "./libreria-java/libreria-java_cover.webp"
+Cover_path_md: "./libreria-java/libreria-java_cover-md.webp"
+Cover_path_xl: "./libreria-java/libreria-java_cover-xl.webp"
+Cover_path_full: "./libreria-java/libreria-java-4.webp"
+Technologies:
+  - "Github"
+  - "Git"
+  - "Java"
+Type: "Aplicación de escritorio"
+License: "CC-BY-NC-SA"
+Github_link: https://github.com/JoseDHernandez/Registro-libros
+---
+
+import FeatureCard from "../../components/FeatureCard.astro";
+import HeroProject from "../../components/HeroProject.astro";
+import { Image } from "astro:assets";
+import Image1 from "./libreria-java/libreria-java.webp";
+import Image2 from "./libreria-java/libreria-java-1.webp";
+import Image3 from "./libreria-java/libreria-java-2.webp";
+import Image4 from "./libreria-java/libreria-java-3.webp";
+import Image5 from "./libreria-java/libreria-java-4.webp";
+import Image6 from "./libreria-java/libreria-java-5.webp";
+import Image7 from "./libreria-java/libreria-java-6.webp";
+
+<HeroProject
+  Tile={frontmatter.Title}
+  Img={Image5}
+  Release={frontmatter.Date}
+  Description={frontmatter.Description}
+  Technologies={frontmatter.Technologies}
+  Github_link={frontmatter.Github_link}
+  Demo_link={frontmatter?.Demo_link}
+  License={frontmatter.License}
+/>
+
+## Características
+
+<FeatureCard title="Interfaz inicial" image={Image1}>
+  La interfaz principal muestra una tabla con todos los libros registrados.
+  Además, incluye filtros, opciones de ordenamiento y un buscador para facilitar
+  la consulta de los datos.
+</FeatureCard>
+
+<FeatureCard title="Filtros" image={Image2}>
+  La aplicación permite filtrar los libros por _Categoría_ (o materia) y
+  seleccionar el _Método_ de búsqueda (_lineal_ o _binaria_). También se puede
+  ordenar por categoría y definir si el orden será _ascendente_ o _descendente_.
+</FeatureCard>
+
+<FeatureCard title="Registro de libros" image={Image3}>
+  Al registrar un nuevo libro se abre una ventana donde se deben ingresar los siguientes campos:
+
+- Código o ID (generado automáticamente según la materia)
+- Título del libro
+- Autor o autores
+- Materia o género literario
+- Número de páginas
+
+</FeatureCard>
+
+<FeatureCard title="Libro registrado" image={Image4}>
+  Una vez registrado, el libro se muestra automáticamente en la tabla principal
+  de la interfaz.
+</FeatureCard>
+
+<FeatureCard title="Información de cada libro" image={Image5}>
+  Al consultar un libro, se despliega una ventana con todos sus datos
+  registrados, además de las opciones para actualizar o eliminar la información.
+</FeatureCard>
+
+<FeatureCard title="Actualizar libros" image={Image6}>
+  Para actualizar un libro, se abre una ventana similar a la de registro con los
+  datos actuales precargados, permitiendo su modificación.
+</FeatureCard>
+
+<FeatureCard title="Eliminación de libros" image={Image7}>
+  Al eliminar un libro, se muestra una notificación de confirmación. Una vez
+  eliminado, este ya no aparece en la tabla de la interfaz principal.
+</FeatureCard>
+
+## Proceso de desarrollo
+
+Esta aplicación fue desarrollada como parte de la asignatura de _Estructura de Datos_, en la cual apliqué conceptos fundamentales como el uso de colas (FIFO) y pilas (LIFO), así como algoritmos de ordenamiento como burbuja (_bubble sort_), inserción y selección. Además, integré métodos de búsqueda lineal y binaria.
+
+El desarrollo tomó aproximadamente 10 días, y fue considerado el mejor proyecto de la clase. Para complementar el funcionamiento del programa, también elaboré un diagrama de clases que detalla su estructura interna. Este proyecto fue especialmente interesante ya que se basó en uno presentado en el curso _Java Foundations_ de _Oracle_, el cual estudié en paralelo al desarrollo del sistema.
+
+## Instalación
+
+1. Clona el repositorio con:
+
+```bash
+git clone https://github.com/JoseDHernandez/Registro-libros.git
+```

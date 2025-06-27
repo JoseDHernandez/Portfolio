@@ -30,10 +30,11 @@ import GetLicense from "./GetLicense";
   <div class="hero">
     <Image
       class="hero--image"
+      loading="eager"
       src={Img}
       alt={`Imagen de portada del proyecto ${Title}`}
-      widths={[400, 700]}
-      sizes="(max-width: 480px) 400px, 700px"
+      widths={[400, 700, Img.width]}
+      sizes=`(max-width: 480px) 400px, (max-width: 1280px) 700px, ${Img.width}px`
     />
     <div class="hero--information">
       {Description.split("\n").map((parrafo) => <p>{parrafo}</p>)}
