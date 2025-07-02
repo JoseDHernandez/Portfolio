@@ -9,20 +9,22 @@ const Certifications = await getCollection("certificates");
   title="Certificados"
   description="Certificaciones y formaciones académicas que respaldan mi proceso como desarrollador de software."
 >
-  <h1 class="text-primary text-center">Certificados</h1>
-  <p>
-    A lo largo de mi camino como desarrollador he obtenido diversos certificados
-    y títulos que reflejan mi compromiso con el aprendizaje continuo. En esta
-    línea de tiempo encontrarás tanto mi formación académica como los cursos y
-    programas que he completado para fortalecer mis habilidades técnicas y
-    profesionales.
-  </p><br />
-  <div class="certificates">
-    {
-      Certifications.sort(
-        (a, b) =>
-          new Date(b.data.Year).getTime() - new Date(a.data.Year).getTime()
-      ).map((certificate) => <Certificate Data={certificate.data} />)
-    }
-  </div>
+  <section>
+    <h1 class="text-primary text-center">Certificados</h1>
+    <p>
+      A lo largo de mi camino como desarrollador he obtenido diversos
+      certificados y títulos que reflejan mi compromiso con el aprendizaje
+      continuo. En esta línea de tiempo encontrarás tanto mi formación académica
+      como los cursos y programas que he completado para fortalecer mis
+      habilidades técnicas y profesionales.
+    </p><br />
+    <div class="certificates">
+      {
+        Certifications.sort(
+          (a, b) =>
+            new Date(b.data.Year).getTime() - new Date(a.data.Year).getTime()
+        ).map((certificate) => <Certificate Data={certificate.data} />)
+      }
+    </div>
+  </section>
 </PageLayout>
