@@ -250,7 +250,7 @@ $radius-size: 20px;
     box-shadow: 2px 2px 4px 4px #00000033;
     max-width: 500px;
     margin: auto;
-    & div {
+    & > div {
       background: rgb(228, 228, 228);
       box-shadow: 4px 4px 4px #0000002d;
       padding: 10px;

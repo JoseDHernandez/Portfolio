@@ -245,13 +245,24 @@ import ProjectCard from "../components/ProjectCard.astro";
         </blockquote>
       </div>
       <div>
-        <form action="">
+        <form
+          method="post"
+          name="contact"
+          data-netlify="true"
+          action="/success"
+          data-netlify-recaptcha="true"
+        >
+          <input
+            type="hidden"
+            name="subject"
+            value="%{title} - %{name}"
+            data-remove-prefix
+          />
           <div>
             <label for="name">Nombre</label>
             <input
               type="text"
               name="name"
-              id="name"
               placeholder="Ingrese su nombre o el de compañía"
               maxlength="50"
               minlength="3"
@@ -263,7 +274,6 @@ import ProjectCard from "../components/ProjectCard.astro";
             <input
               type="email"
               name="email"
-              id="email"
               placeholder="Ingrese su dirección de correo electrónico"
               maxlength="300"
               minlength="5"
@@ -275,7 +285,6 @@ import ProjectCard from "../components/ProjectCard.astro";
             <input
               type="text"
               name="title"
-              id="title"
               placeholder="Ingrese el asunto del mensaje"
               maxlength="300"
               minlength="3"
@@ -286,17 +295,17 @@ import ProjectCard from "../components/ProjectCard.astro";
             <label for="message">Mensaje</label>
             <textarea
               name="message"
-              id="message"
               placeholder="Ingrese su nombre o el de compañía"
-              maxlength="1000"
+              maxlength="3000"
               minlength="3"
               required></textarea>
           </div>
-          <input
-            type="submit"
-            value="Enviar"
-            class="button-text-background-primary"
-          />
+          <div>
+            <div data-netlify-recaptcha="true"></div>
+          </div>
+          <button type="submit" class="button-text-background-primary"
+            >Enviar</button
+          >
         </form>
       </div>
     </div>
