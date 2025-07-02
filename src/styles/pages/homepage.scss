@@ -202,11 +202,12 @@ $radius-size: 20px;
   display: grid;
   @include breakpoint(lg) {
     grid-template-columns: 2fr 1fr;
+    min-height: 90dvh;
   }
 }
 //Project
 .project-section {
-  min-height: 80dvh;
+  min-height: 100dvh;
   @extend .limit-section;
   .certifications-button {
     margin: auto;
@@ -265,6 +266,7 @@ $radius-size: 20px;
         width: 100%;
         font-size: 18px;
         padding: 5px;
+        background-color: transparent;
       }
       input {
         background-color: transparent;

@@ -1,11 +1,22 @@
 ---
+import { ClientRouter } from "astro:transitions";
 /* -- Props -- */
 interface Props {
   title: string;
+  description?: string;
 }
-const { title } = Astro.props;
+const { title, description = SITE_DESCRIPTION } = Astro.props;
 /* -- Metadata -- */
-import { SITE_DESCRIPTION, SITE_KEYWORDS } from "../consts";
+import {
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_AUTHOR,
+  SITE_NAME,
+} from "../consts";
+const og_title =
+  title == "JoséDHernández"
+    ? "Desarrollador web e ingeniero en desarrollo 😉."
+    : description;
 /* -- Fonts -- */
 import { AstroFont } from "astro-font";
 /* -- Components -- */
@@ -18,11 +29,26 @@ import Header from "../components/Header.jsx";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={SITE_DESCRIPTION} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <meta name="keywords" content={SITE_KEYWORDS} />
+    <meta name="author" content={SITE_AUTHOR} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
-    <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={og_title} />
+    <meta property="og:image" content="/Images/default-og.jpg" />
+    <meta property="og:url" content="https://josedhernandez.com" />
+    <meta property="og:site_name" content={SITE_NAME} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={og_title} />
+    <meta name="twitter:image" content="/Images/default-og.jpg" />
     <AstroFont
       config={[
         {
@@ -88,10 +114,11 @@ import Header from "../components/Header.jsx";
         },
       ]}
     />
+    <ClientRouter />
   </head>
   <body>
     <Header client:load />
-    <main id="swup" class="transition-fade">
+    <main>
       <slot />
     </main>
     <Footer />

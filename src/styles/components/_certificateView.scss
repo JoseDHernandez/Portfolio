@@ -21,11 +21,13 @@
       display: grid;
       grid-template-columns: 1fr 60px;
       gap: 10px;
-      @include breakpoint(lg) {
-        h4,
-        strong {
-          width: 70%;
-        }
+      & > div > :first-child {
+        font-size: clamp(1.5rem, 3vw, 2.25rem);
+        line-height: 1.2;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        text-wrap: balance;
+        margin: 0.5em 0;
       }
     }
     &--body {

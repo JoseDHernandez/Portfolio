@@ -1,8 +1,12 @@
 ---
 Title: "Portafolio"
-Date: 2025-06-30
-Short_description: "Página de reseñas de mis películas favoritas"
-Description: "Este proyecto fue el resultado de una tarea de mi universidad y es una página de películas con un sistema de reseñas, en el cual se muestran mis peliculas favritas, junto con reseñas y calificaciones. en este proyecto aprendi el uso de SASS y los placeholders o esqueletos para mejorar el diseño y evitar el desplazmiento de componenetes. Al principio se desarrollo solo con bootstrap (cnd) pero despues exigieron el uso de sass"
+Date: 2025-07-05 13:00:00 -5
+Short_description: "Portafolio web personal donde reúno mis proyectos, certificaciones y experiencias."
+Description: |
+  Este proyecto es mi portafolio web, nació de la necesidad de presentar mi trabajo y aprendizajes de forma personalizada y optimizada. 
+
+  Incluye secciones para proyectos detallados, certificaciones y un enfoque especial en experiencia de usuario.
+
 Cover_path: "./portfolio/portfolio_cover.webp"
 Cover_path_md: "./portfolio/portfolio_cover-md.webp"
 Cover_path_xl: "./portfolio/portfolio_cover-xl.webp"
@@ -16,26 +20,30 @@ Technologies:
   - "Astro"
   - "Markdown"
   - "Penpot"
+  - "Figma"
   - "Sass"
 Type: "Aplicación web"
-License: "CC"
-Github_link: https://github.com/JoseDHernandez/CineFan
-Demo_link: https://josedhernandez.github.io/CineFan/
+License: "CC-BY-NC-ND"
+Github_link: https://github.com/JoseDHernandez/Portfolio
+Demo_link: https://josedhernandez.com
 ---
 
 import FeatureCard from "../../components/FeatureCard.astro";
 import HeroProject from "../../components/HeroProject.astro";
 import { Image } from "astro:assets";
-import Imagen from "./cinefan/cinefan.webp";
-import Image1 from "./cinefan/cinefan-1.webp";
-import Image2 from "./cinefan/cinefan-2.webp";
-import Image3 from "./cinefan/cinefan-3.webp";
-import Image4 from "./cinefan/cinefan-4.webp";
-import Image5 from "./cinefan/cinefan-5.webp";
-import Image6 from "./cinefan/cinefan-6.webp";
-import Image7 from "./cinefan/cinefan-7.webp";
+import Imagen from "./portfolio/portfolio.webp";
+import Imagen1 from "./portfolio/portfolio-1.webp";
+import Imagen2 from "./portfolio/portfolio-2.webp";
+import Imagen3 from "./portfolio/portfolio-3.webp";
+import Imagen4 from "./portfolio/portfolio-4.webp";
+import Imagen5 from "./portfolio/portfolio-5.webp";
+import Imagen6 from "./portfolio/portfolio-6.webp";
+import Imagen7 from "./portfolio/portfolio-7.webp";
+import Imagen8 from "./portfolio/portfolio-8.webp";
+import Imagen9 from "./portfolio/portfolio-9.webp";
 
 <HeroProject
+  Title={frontmatter.Title}
   Description={frontmatter.Description}
   Technologies={frontmatter.Technologies}
   Github_link={frontmatter.Github_link}
@@ -47,94 +55,76 @@ import Image7 from "./cinefan/cinefan-7.webp";
 
 ## Características
 
-<FeatureCard title="Película destacada" image={Imagen}>
-  En la pantalla principal se muestra una película destacada y, debajo de ella,
-  están listadas todas las películas junto con un buscador.
+<FeatureCard title="Página de inicio" image={Imagen}>
+  En la página inicial se presenta un encabezado con mi nombre, una breve
+  descripción sobre mí, una fotografía, enlaces a LinkedIn y GitHub, junto con
+  un botón para descargar mi CV.
 </FeatureCard>
 
-<FeatureCard title="Listado de películas" image={Image1}>
-  En la sección de películas están disponibles todas las películas, acompañadas
-  de su calificación en estrellas y el año de estreno.
+<FeatureCard alternative="Sobre mí" image={Imagen1}>
+  Debajo del encabezado se muestra una sección *Sobre mí*, donde comparto quién
+  soy y destaco algunas de mis habilidades blandas.
 </FeatureCard>
 
-<FeatureCard title="Filtrado de películas" image={Image2}>
-  Según la categoría de la película, puedes filtrarlos para encontrar más rápido
-  lo que buscas.
+<FeatureCard alternative="Proyectos recientes" image={Imagen2}>
+  En la sección de proyectos se visualizan los 10 proyectos más recientes en una
+  grilla. Debajo se encuentra un enlace que dirige a la página completa de
+  proyectos.
 </FeatureCard>
 
-<FeatureCard title="Buscador de películas" image={Image3}>
-  La aplicación cuenta con un buscador que primero intenta encontrar una
-  coincidencia exacta; pero, si no obtiene resultados, busca coincidencias
-  aproximadas.
+<FeatureCard title="Página de proyectos" image={Imagen6}>
+En la página *Proyectos* se lista todos mis proyectos. Cuenta con un buscador
+y filtros por tipo y tecnología.
+
+Es un componente dinámico desarrollado en
+_React_. Ademas, Como el portafolio está construido con _Astro_, optimicé tanto los
+datos como las imágenes para mejorar el rendimiento.
+
 </FeatureCard>
 
-<FeatureCard title="Tema oscuro" image={Image4}>
-  Por medio de SASS y algo de Javascript se implementó la funcionalidad de
-  cambiar de tema, entre claro y oscuro.
+<FeatureCard alternative="Tarjetas de proyectos" image={Imagen7}>
+  Cada tarjeta de un proyecto muestra el título, una imagen de portada, una
+  breve descripción y los íconos de las tecnologías utilizadas.
 </FeatureCard>
 
-<FeatureCard title="Información detallada de la película" image={Image5}>
-  Al seleccionar una película, se muestra una pantalla con información más
-  exhaustiva, como el año de lanzamiento, duración, calificación general,
-  géneros, sinopsis, reparto, entre otros.
+<FeatureCard title="Página individual de un proyecto" image={Imagen3}>
+  Al seleccionar un proyecto, se muestra un encabezado con información
+  detallada, junto con enlaces al repositorio y/o demo, si están disponibles.
 </FeatureCard>
 
-<FeatureCard title="Tráiler y galería de fotos" image={Image6}>
-  Puedes ver el tráiler junto con algunas fotografías relacionados con la
-  película.
+<FeatureCard alternative="Características del proyecto" image={Imagen4}>
+  También se incluye una sección donde explico las principales características
+  del proyecto mediante tarjetas ilustradas.
 </FeatureCard>
 
-<FeatureCard title="Reseñas" image={Image7}>
-  En la parte inferior están las reseñas y calificaciones de los usuarios.
-  Además, puedes dejar tu propia opinión en el formulario destinado para eso.
+<FeatureCard alternative="Proceso de desarrollo" image={Imagen5}>
+  Cada proyecto cuenta con una sección llamada: *Proceso de desarrollo*, donde
+  explico brevemente cómo fue su construcción y qué aprendizajes obtuve durante
+  su realización.
+</FeatureCard>
+
+<FeatureCard title="Certificados" image={Imagen8}>
+  La página de certificados presenta mis formaciones y cursos mediante una línea
+  del tiempo en orden descendente.
+</FeatureCard>
+
+<FeatureCard title="Visualizador de certificado" image={Imagen9}>
+  Al hacer clic en *Ver certificado* se abre un modal que muestra la imagen del
+  documento, su fecha y enlaces para ver la versión digital o descargarlo.
 </FeatureCard>
 
 ## Proceso de desarrollo
 
-Este proyecto nació como parte de un trabajo para la Universidad. La aplicación pasó por tres fases de desarrollo:
+La necesidad de crear mi portafolio surgió al sentir que GitHub, aunque útil, limitaba la forma en que podía presentar mis proyectos y darle un enfoque más personal. Comencé estructurando la información con base en principios de _arquitectura de la información_, una habilidad que había aprendido recientemente, y la acompañé del uso de _wireframes_ y _mockups_.
 
-- **En la primera**, se implementó utilizando **HTML**, **Javascript** y **CSS de Bootstrap** (mediante CDN).
-- **En la segunda**, se integró **SASS** para dar estilo de forma más organizada.
-- **En la última**, el proyecto se migró a **Angular** para dar paso a una estructura más robusta y dinámica.
+Durante este proceso, aprendí a utilizar _Figma_ y también experimenté con _Penpot_, una herramienta similar. En Penpot creé un <a target="_blank" rel="noreferrer noopener" href="https://design.penpot.app/#/view?file-id=df10150d-301f-805e-8005-f801c0991306&page-id=df10150d-301f-805e-8005-f801c0991307&section=interactions&index=0&share-id=53ae55ce-c456-815d-8006-6e8873129d24">mockup inicial</a>, para definir las versiones móvil y escritorio del diseño. Aunque más adelante me sentí más cómodo utilizando _Figma_.
 
-Debido a que era necesario demostrar la evolución del proyecto, en la aplicación están presentes tanto clases de Bootstrap como estilos en SASS. Esto no es lo más óptimo, ya que Bootstrap también ofrece una variante en SASS, pero así se puede notar el progreso en cada etapa. Por otro lado, el paso de HTML a Angular fue más sencillo de lo que esperaba, puesto que toda la estructura estaba ya organizada en componentes de Javascript (ES6).
+Con los mockups definidos, investigué qué tecnologías podría usar para desarrollar el sitio. Consideré _Next.js_, _Angular_ y _Astro_. Finalmente elegí _Astro_ por su simplicidad, rapidez y facilidad para integrar componentes de _React_, una tecnología con la que ya me sentía familiarizado.
 
-Este proyecto me ayudó tanto a aprender **SASS** como a tener un **acercamiento a Angular**, que, aunque actualmente no lo utilizo, me proporciona una base más clara en el manejo de frameworks. Esta holística me hubiera sido util para mi otro proyecto de [Cartas contra la humanidad](/proyectos/cards-against-humanity) con React, puesto que no estaba tan familiarizado con frameworks robustos como Next.js o Angular.
+En paralelo, mientras finalizaba el quinto semestre de Ingeniería de Software, aprendí sobre _SASS_, que decidí incorporar como preprocesador CSS en el proyecto. Una vez terminado el semestre, comencé la codificación del portafolio, primero con un proyecto de práctica: [fanpage del Cuarteto de Nos](/proyectos/fanpage-cuarteto-de-nos), con el que inicié mi aprendizaje en Astro.
 
-## Instalación
+Con la fanpage finalizada, retomé el desarrollo del portafolio. A medida que avanzaba, ajusté algunos elementos visuales y de color respecto a lo previsto en el mockup. A diferencia de proyectos anteriores en los que no usé diseño previo, el uso de mockups permitió reducir el tiempo de diseño y centrarme más en la implementación y en resolver problemas.
 
-1. **Clona el repositorio:**
+Durante la digitalización de información para cada proyecto, aprendí sobre la optimización de imágenes. Reemplacé muchas imágenes originales por versiones mejoradas, incluyendo algunas fotos personales que se veían de baja calidad (las originales aún se conservan en el mockup).
 
-   ```bash
-   git clone https://github.com/JoseDHernandez/CineFan
-   ```
-
-2. Ejecuta un servidor local y accede al proyecto, puedes usar _Live Server_ o un sistema similar.
-
-## Estructura del Proyecto
-
-A continuación se describe la estructura de archivos y carpetas de la aplicación:
-
-| Archivo      | Descripción                                                                |
-| ------------ | -------------------------------------------------------------------------- |
-| `index.html` | Plantilla de la pantalla principal                                         |
-| `movie.html` | Plantilla de la pantalla de una película, utiliza el `id` pasado en la URL |
-| `404.html`   | Página mostrada cuando el `id` de la película no existe                    |
-
-| Carpeta            | Descripción                                                              |
-| ------------------ | ------------------------------------------------------------------------ |
-| `css/`             | Almacena el CSS resultante de compilar SASS                              |
-| `images/`          | Contiene las imágenes de las películas                                   |
-| `js/`              | Incluye los scripts de la aplicación                                     |
-| `js/components/`   | Contiene los componentes usados en varias páginas, como cartas o reseñas |
-| `scss/`            | Archivos fuente en SASS                                                  |
-| `scss/components/` | Styles específicos de cada componente                                    |
-
-| Componente         | Descripción                                                                      |
-| ------------------ | -------------------------------------------------------------------------------- |
-| `formReview.js`    | Formulario para dejar reseñas; valida y almacena en `sessionStorage`             |
-| `movieCard.js`     | Muestra la información de una película en forma de tarjeta                       |
-| `movieCardMini.js` | Versión más compacta de `movieCard.js`; usada en recomendaciones                 |
-| `reviewHTML.js`    | Genera la plantilla HTML de cada reseña                                          |
-| `score.js`         | Convierte una calificación numérica en iconos de estrellas                       |
-| `theme.js`         | Implementa el cambio de tema (claro/oscuro) y lo deja guardado en `localStorage` |
+Este proyecto me permitió afianzar conocimientos sobre optimización de recursos, estructuración de contenido, despliegue web y reflexionar sobre mi evolución como desarrollador. También me mostró claramente las áreas en las que aún quiero mejorar.

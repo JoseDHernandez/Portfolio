@@ -21,7 +21,7 @@ const {
   Title,
   Release,
 } = Astro.props;
-
+const transition_name = Title.toLowerCase().replaceAll(" ", "-");
 import GetLicense from "./GetLicense";
 ---
 
@@ -34,6 +34,7 @@ import GetLicense from "./GetLicense";
       alt={`Imagen de portada del proyecto ${Title}`}
       widths={[400, 700, Img.width]}
       sizes=`(max-width: 480px) 400px, (max-width: 1280px) 700px, ${Img.width}px`
+      transition:name={`project-${transition_name}`}
     />
     <div class="hero--information">
       {Description.split("\n").map((parrafo) => <p>{parrafo}</p>)}
@@ -83,6 +84,7 @@ import GetLicense from "./GetLicense";
             year: "numeric",
             month: "long",
             day: "numeric",
+            timeZone: "America/Bogota",
           })
         }
       </p>

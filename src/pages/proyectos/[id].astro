@@ -14,7 +14,7 @@ const { Title } = project.data;
 const { Content } = await render(project);
 ---
 
-<PageLayout title={Title}>
+<PageLayout title={Title} description={project.data.Short_description}>
   <h1 class="text-center text-primary">{Title}</h1>
   <div class="project-page-mdx">
     <Content />

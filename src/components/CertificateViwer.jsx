@@ -61,9 +61,10 @@ export default function CertificateViwer({ Data }) {
           <div className="certificate-view--dialog--content">
             <div className="certificate-view--dialog--head">
               <div>
-                <h4 id="dialog-title" className="text-primary">
+                <strong id="dialog-title" className="text-primary">
                   {Data.Title}
-                </h4>
+                </strong>
+                <br />
                 <strong>{Data.Academy}</strong>
               </div>
               <div>

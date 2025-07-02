@@ -35,6 +35,10 @@ export default function ProjectCard({ slug, data, index }) {
           decoding="async"
           width={index == 0 ? "620" : "600"}
           className="project--card-image"
+          transition:name={`project-${data.Title.toLowerCase().replaceAll(
+            " ",
+            "-"
+          )}`}
         />
       </picture>
 
