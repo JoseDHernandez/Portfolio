@@ -8,8 +8,40 @@
   &--dialog {
     z-index: 1;
     position: fixed;
+    border: none;
     top: 0%;
     height: 100dvh;
-    overflow-y: scroll;
+    width: 100dvw;
+    &--content {
+      padding: 1em;
+      max-width: 1024px;
+      margin: auto;
+    }
+    &--head {
+      display: grid;
+      grid-template-columns: 1fr 60px;
+      gap: 10px;
+      @include breakpoint(lg) {
+        h4,
+        strong {
+          width: 70%;
+        }
+      }
+    }
+    &--body {
+      & > img {
+        object-fit: contain;
+        width: 100%;
+        height: 60dvh;
+      }
+    }
+    &--footer {
+      display: flex;
+      justify-content: space-around;
+      @include breakpoint(lg) {
+        justify-content: start;
+        gap: 1em;
+      }
+    }
   }
 }

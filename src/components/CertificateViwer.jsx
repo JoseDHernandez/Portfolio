@@ -1,52 +1,126 @@
 import "../styles/components/_certificateView.scss";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ReactComponent as Close_SVG } from "../icons/close.svg";
+import { ReactComponent as Download_SVG } from "../icons/download.svg";
+import { ReactComponent as Web_SVG } from "../icons/external-page.svg";
 
 export default function CertificateViwer({ Data }) {
   const [isOpen, setIsOpen] = useState(false);
+  const dialogRef = useRef(null);
+  const openButtonRef = useRef(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && isOpen) {
+        e.preventDefault();
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.body.style.overflow = "hidden"; // Bloquea scroll del fondo
+      dialogRef.current?.focus(); // Enfoca el diálogo
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = ""; // Restaura scroll
+      openButtonRef.current?.focus(); // Devuelve el foco al botón
+      window.removeEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
   return (
     <div className="certificate-view">
       <button
-        className="button-text-background-accent certificate-view--open-button"
+        ref={openButtonRef}
+        className="button-text-icon-border-accent certificate-view--open-button"
         onClick={() => setIsOpen(true)}
+        aria-haspopup="dialog"
+        aria-expanded={isOpen}
+        aria-controls="certificate-dialog"
+        aria-label={`Ver certificado de ${Data.Title}`}
       >
         Ver certificado
       </button>
-      <dialog open={isOpen} className="certificate-view--dialog">
-        <div className="certificate-view--dialog--head">
-          <div>
-            <h4 className="text-primary">{Data.Title}</h4>
-            <strong>{Data.Academy}</strong>
+
+      {isOpen && (
+        <dialog
+          id="certificate-dialog"
+          open
+          className="certificate-view--dialog"
+          ref={dialogRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="dialog-title"
+          aria-describedby="dialog-description"
+          tabIndex={-1}
+        >
+          <div className="certificate-view--dialog--content">
+            <div className="certificate-view--dialog--head">
+              <div>
+                <h4 id="dialog-title" className="text-primary">
+                  {Data.Title}
+                </h4>
+                <strong>{Data.Academy}</strong>
+              </div>
+              <div>
+                <button
+                  className="button-icon-background-accent"
+                  onClick={() => setIsOpen(false)}
+                  title="Cerrar ventana emergente"
+                  aria-label="Cerrar ventana emergente"
+                >
+                  <Close_SVG />
+                </button>
+              </div>
+            </div>
+
+            <div
+              id="dialog-description"
+              className="certificate-view--dialog--body"
+            >
+              <img
+                src={Data.Image.src}
+                alt={`Certificado de ${Data.Title}`}
+                loading="lazy"
+                decoding="async"
+              />
+              <p>
+                <strong>Fecha: </strong>&nbsp;
+                {Data.Year.toLocaleDateString("es-CO", {
+                  timeZone: "America/Bogota",
+                  year: "numeric",
+                  day: "numeric",
+                  month: "long",
+                })}
+              </p>
+            </div>
+
+            <div className="certificate-view--dialog--footer">
+              <a
+                className="button-text-icon-border-secondary"
+                download
+                href={Data.PDF_link}
+              >
+                Descargar PDF <Download_SVG />
+              </a>
+              {Data.WEB_link && (
+                <a
+                  href={Data.WEB_link}
+                  rel="noreferrer noopener"
+                  target="_blank"
+                  className="button-text-icon-border-accent"
+                >
+                  Versi&oacute;n web <Web_SVG />
+                </a>
+              )}
+            </div>
           </div>
-          <button onClick={() => setIsOpen(false)}>X</button>
-        </div>
-        <div className="certificate-view--dialog--body">
-          <span>
-            {Data.Year.toLocaleDateString("es-CO", {
-              timeZone: "America/Bogota",
-              year: "numeric",
-              day: "numeric",
-              month: "long",
-            })}
-          </span>{" "}
-          <br />
-          <img
-            src={Data.Image.src}
-            alt={`${Data.Title} - ${Data.Academy}`}
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div className="certificate-view--dialog--footer">
-          <a className="button-text-accent" download href={Data.PDF_link}>
-            Descargar PDF
-          </a>
-          {Data.WEB_link && (
-            <a href={Data.WEB_link} rel="noreferrer noopener" target="_blank">
-              Versi&oacute;n web
-            </a>
-          )}
-        </div>
-      </dialog>
+        </dialog>
+      )}
     </div>
   );
 }

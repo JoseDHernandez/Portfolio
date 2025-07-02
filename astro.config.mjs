@@ -20,7 +20,6 @@ export default defineConfig({
   },
   env: {
     schema: {
-      URL_CV: envField.string({ context: "server", access: "public" }),
       URL_PROFILE: envField.string({ context: "server", access: "public" }),
     },
   },
