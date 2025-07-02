@@ -55,6 +55,7 @@
     left: -1000%;
     z-index: 1;
     border: 0;
+    border-radius: 5px 5px 15px 15px;
     background-color: rgba(0, 0, 0, 0);
     transition: left 0.5s ease;
     transition: background-color 0.3s ease;
@@ -66,16 +67,12 @@
       left: 0px;
       background-color: rgba(0, 0, 0, 0.295);
     }
-    @include breakpoint(md) {
-      border-radius: 15px;
-    }
   }
 }
 // Filter menu styles
 .project--filters-panel {
   padding: 1em;
   background: white;
-  border-radius: 10px;
   padding-bottom: 2em;
   width: 80dvw;
   max-width: 400px;
@@ -116,6 +113,9 @@
       width: 20px !important;
       height: 20px !important;
     }
+  }
+  @include breakpoint(md) {
+    border-radius: 10px;
   }
 }
 //Grid section

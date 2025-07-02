@@ -91,6 +91,9 @@
 .button-text-icon-accent {
   @include button-text-icon(#fff, $accent-color);
 }
+.button-text-icon-primary {
+  @include button-text-icon(#fff, $primary-color);
+}
 .button-text-icon-background-secondary {
   @include button-text-icon($secondary-color, $labels-color);
 }
@@ -99,4 +102,17 @@
 }
 .button-text-icon-background-accent {
   @include button-text-icon($accent-color, #fff);
+}
+
+.button-text-icon-border-secondary {
+  @extend .button-text-icon-secondary;
+  border: 2px $secondary-color solid;
+}
+.button-text-icon-border-primary {
+  @extend .button-text-icon-primary;
+  border: 2px $primary-color solid;
+}
+.button-text-icon-border-accent {
+  @extend .button-text-icon-accent;
+  border: 2px $accent-color solid;
 }

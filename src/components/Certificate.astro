@@ -22,9 +22,11 @@ Data.Year = new Date(Data.Year);
     </div>
   </div>
   <div class="certificate-card--info">
-    <h3 class="text-primary">{Data.Title}</h3>
-    <strong class="text-secondary">{Data.Academy}</strong>
-    <p>{Data.Description}</p>
+    <div class="certificate-card--info-text">
+      <h3 class="text-primary">{Data.Title}</h3>
+      <strong class="text-secondary">{Data.Academy}</strong>
+      <p>{Data.Description}</p>
+    </div>
     <CertificateViwer client:visible Data={Data} />
   </div>
 </article>

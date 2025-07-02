@@ -23,7 +23,7 @@
     &::after {
       left: 50%;
     }
-    & :nth-child(odd) {
+    & > :nth-child(odd) {
       justify-items: end;
     }
   }

@@ -1,6 +1,4 @@
 ---
-/* -- Env -- */
-import { URL_CV } from "astro:env/server";
 /* -- Layout -- */
 import Layout from "../layouts/Layout.astro";
 /* -- Images -- */
@@ -52,9 +50,9 @@ import ProjectCard from "../components/ProjectCard.astro";
         <div class="presentation-buttons">
           <a
             class="button-text-background-secondary"
-            href={URL_CV}
+            href="/CV-Jose-hernandez.pdf"
             target="_blank"
-            rel="noopener noreferrer">Descargar CV</a
+            download>Descargar CV</a
           >
           <a
             class="button-icon-primary"
@@ -195,7 +193,8 @@ import ProjectCard from "../components/ProjectCard.astro";
         </p>
         <a
           class="button-text-icon-background-secondary contact-button"
-          href={URL_CV}>Descargar CV &nbsp; <Icon name="download" /></a
+          href="/CV-Jose-hernandez.pdf"
+          download>Descargar CV &nbsp; <Icon name="download" /></a
         >
         <br /><br />
         <article>
