@@ -1,0 +1,15 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.certificate-view {
+  &--open-button {
+    margin: auto;
+  }
+  &--dialog {
+    z-index: 1;
+    position: fixed;
+    top: 0%;
+    height: 100dvh;
+    overflow-y: scroll;
+  }
+}

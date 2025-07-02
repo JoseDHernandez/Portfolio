@@ -1,0 +1,30 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.certificates {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    background-color: $secondary-color;
+    top: 0;
+    bottom: 0;
+    left: 0%;
+    margin-left: -3px;
+    z-index: -1;
+    border-radius: 5px;
+  }
+
+  @include breakpoint(lg) {
+    &::after {
+      left: 50%;
+    }
+    & :nth-child(odd) {
+      justify-items: end;
+    }
+  }
+}

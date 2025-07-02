@@ -1,0 +1,33 @@
+---
+import CertificateViwer from "./CertificateViwer";
+interface Props {
+  Data: {
+    Title: string;
+    Academy: string;
+    Year: Date;
+    Description: string;
+    Image: ImageMetadata;
+    PDF_link?: string;
+    WEB_link?: string;
+  };
+}
+let { Data } = Astro.props;
+Data.Year = new Date(Data.Year);
+---
+
+<article class="certificate-card">
+  <div class="certificate-card--year">
+    <div>
+      <strong class="text-secondary">{Data.Year.getFullYear()}</strong>
+    </div>
+  </div>
+  <div class="certificate-card--info">
+    <h3 class="text-primary">{Data.Title}</h3>
+    <strong class="text-secondary">{Data.Academy}</strong>
+    <p>{Data.Description}</p>
+    <CertificateViwer client:visible Data={Data} />
+  </div>
+</article>
+<style lang="scss">
+  @use "../styles/components/_certificateCard.scss";
+</style>

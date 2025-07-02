@@ -59,6 +59,7 @@ import ProjectCard from "../components/ProjectCard.astro";
           <a
             class="button-icon-primary"
             aria-label="Ir al perfil de Git Hub"
+            title="GitHub"
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/JoseDHernandez"
@@ -68,6 +69,7 @@ import ProjectCard from "../components/ProjectCard.astro";
           <a
             class="button-icon-primary"
             aria-label="Ir al perfil de linkedin"
+            title="LinkedIn"
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/josedhernandezh/"
@@ -90,7 +92,6 @@ import ProjectCard from "../components/ProjectCard.astro";
           sizes={`(max-width: 1024px) 370px, ${foto_sobre_mi.width}px`}
           src={foto_sobre_mi}
           alt="Foto de José David Hernández"
-          quality="high"
         />
       </div>
       <div class="about-me-text">
@@ -151,7 +152,8 @@ import ProjectCard from "../components/ProjectCard.astro";
           }
         </div>
         <aside>
-          <a class="button-text-accent" href="/certificados/">Ir certificados</a
+          <a class="button-text-accent" href="/certificados/"
+            >Ir a los certificados</a
           >
         </aside>
       </div>

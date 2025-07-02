@@ -1,13 +1,25 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
+import Certificate from "../components/Certificate.astro";
+import { getCollection } from "astro:content";
+const Certifications = await getCollection("certificates");
 ---
 
 <PageLayout title="Certificados">
   <h2 class="text-primary text-center">Certificados</h2>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias omnis quis
-    blanditiis tenetur harum voluptas minima delectus? Quod, numquam
-    consequatur. Dolor, alias! Numquam ducimus delectus cupiditate ipsum id ad
-    inventore.
-  </p>
+    A lo largo de mi camino como desarrollador he obtenido diversos certificados
+    y títulos que reflejan mi compromiso con el aprendizaje continuo. En esta
+    línea de tiempo encontrarás tanto mi formación académica como los cursos y
+    programas que he completado para fortalecer mis habilidades técnicas y
+    profesionales.
+  </p><br />
+  <div class="certificates">
+    {
+      Certifications.sort(
+        (a, b) =>
+          new Date(b.data.Year).getTime() - new Date(a.data.Year).getTime()
+      ).map((certificate) => <Certificate Data={certificate.data} />)
+    }
+  </div>
 </PageLayout>

@@ -38,8 +38,22 @@ const projects = defineCollection({
       Demo_link: z.string().url().optional(),
     }),
 });
+//Certificates
+const certificates = defineCollection({
+  schema: ({ image }) =>
+    z.object({
+      Title: z.string(),
+      Academy: z.string(),
+      Year: z.date(),
+      Description: z.string(),
+      Image: image(),
+      PDF_link: z.string().optional(),
+      WEB_link: z.string().url().optional(),
+    }),
+});
 export const collections = {
   work_experience,
   studies,
   projects,
+  certificates,
 };
