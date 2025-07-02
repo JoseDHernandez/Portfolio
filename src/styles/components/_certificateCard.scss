@@ -21,9 +21,10 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     &-text {
       text-align: center;
-    }
-    & > h3 {
-      margin-bottom: 0px;
+      & > h2 {
+        margin-bottom: 5px;
+        font-size: clamp(1.25rem, 2.5vw, 2rem) !important;
+      }
     }
     @include breakpoint(lg) {
       width: 46%;

@@ -53,7 +53,10 @@ const projects: Projects[] = projectsCollection
   );
 ---
 
-<PageLayout title="Proyectos">
+<PageLayout
+  title="Proyectos"
+  description="Proyectos personales y académicos que muestran mi experiencia en desarrollo FullStack"
+>
   <h1 class="text-primary text-center">Proyectos</h1>
 
   <ProjectComponent projects={projects} client:only="react">
