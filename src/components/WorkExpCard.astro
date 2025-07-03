@@ -6,12 +6,12 @@ const { Role, Where, Duration, Description, Functions } = Information;
 <article class="workCard">
   <h3>{Role}</h3>
   <p>
-    <strong>{Where}</strong> &nbsp;
+    <strong class="text-accent">{Where}</strong> &nbsp;
     {Duration}
   </p>
   <p>{Description}</p>
   <p>
-    <b>Funciones:</b>
+    <b class="text-accent">Funciones:</b>
     <ul>{Functions.map((f: string) => <li>{f}</li>)}</ul>
   </p>
 </article>

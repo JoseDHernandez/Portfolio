@@ -21,7 +21,6 @@ const {
   Title,
   Release,
 } = Astro.props;
-const transition_name = Title.toLowerCase().replaceAll(" ", "-");
 import GetLicense from "./GetLicense";
 ---
 
@@ -34,7 +33,7 @@ import GetLicense from "./GetLicense";
       alt={`Imagen de portada del proyecto ${Title}`}
       widths={[400, 700, Img.width]}
       sizes=`(max-width: 480px) 400px, (max-width: 1280px) 700px, ${Img.width}px`
-      transition:name={`project-${transition_name}`}
+      transition:name={`project-${Title}`}
     />
     <div class="hero--information">
       {Description.split("\n").map((parrafo) => <p>{parrafo}</p>)}
@@ -68,7 +67,7 @@ import GetLicense from "./GetLicense";
       </div>
       <br />
       <b class="text-primary">Tecnologías utilizadas</b>
-      <ul>
+      <ul transition:name={`project-technologies-${Title}`}>
         {
           Technologies.sort().map((tech) => (
             <li aria-label={`Tecnología: ${tech}`} title={tech}>
