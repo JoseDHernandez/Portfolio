@@ -6,24 +6,12 @@ import svgr from "@svgr/rollup";
 import icon from "astro-icon";
 import react from "@astrojs/react";
 import aiRobotsTxt from "astro-ai-robots-txt";
-import min from "astro-min";
-
 import netlify from "@astrojs/netlify";
-
-import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://josedhernandez.com",
-  integrations: [
-    mdx(),
-    sitemap(),
-    icon(),
-    react(),
-    aiRobotsTxt(),
-    min(),
-    compressor(),
-  ],
+  integrations: [mdx(), sitemap(), icon(), react(), aiRobotsTxt()],
 
   vite: {
     plugins: [svgr()],

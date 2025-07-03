@@ -16,7 +16,12 @@ const { Content } = await render(project);
 
 <PageLayout title={Title} description={project.data.Short_description}>
   <section>
-    <h1 class="text-center text-primary">{Title}</h1>
+    <h1
+      class="text-center text-primary"
+      transition:name=`project-title-${Title}`
+    >
+      {Title}
+    </h1>
     <div class="project-page-mdx">
       <Content />
     </div>
