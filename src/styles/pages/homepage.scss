@@ -46,6 +46,20 @@ $radius-size: 20px;
       gap: 12px;
     }
   }
+  .available-work {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #b9fbc0;
+    background-color: rgba(0, 255, 128, 0.1);
+    border-left: 4px solid #00c853;
+    padding: 0.25em 0.75em;
+    margin-top: 0.75rem;
+    border-radius: 4px;
+    display: inline-block;
+    font-style: italic;
+    letter-spacing: 0.25px;
+  }
+
   @include breakpoint(lg) {
     grid-template-columns: 1fr 1fr;
     padding-top: 0;
