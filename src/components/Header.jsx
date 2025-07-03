@@ -29,12 +29,12 @@ export default function Header() {
               </a>
             </li>
             <li role="presentation">
-              <a role="menuitem" href="/proyectos">
+              <a role="menuitem" href="/proyectos/">
                 Proyectos
               </a>
             </li>
             <li role="presentation">
-              <a role="menuitem" href="/certificados">
+              <a role="menuitem" href="/certificados/">
                 Certificados
               </a>
             </li>

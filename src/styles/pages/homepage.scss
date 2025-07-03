@@ -306,6 +306,8 @@ $radius-size: 20px;
     .captcha {
       min-height: 98px;
       overflow-x: auto;
+      display: flex;
+      justify-content: center;
     }
   }
   @include breakpoint(lg) {

@@ -18,7 +18,7 @@ const { slug, data } = Astro.props;
 ---
 
 <a
-  href={`/proyectos/${slug}`}
+  href={`/proyectos/${slug}/`}
   class="project-card"
   aria-label={`Ir a la página del proyecto: ${data.Title}`}
   transition:name={`project-bg-${data.Title}`}
