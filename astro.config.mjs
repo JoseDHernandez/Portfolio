@@ -19,6 +19,7 @@ export default defineConfig({
   env: {
     schema: {
       URL_PROFILE: envField.string({ context: "server", access: "public" }),
+      AVAILABLE: envField.boolean({ context: "server", access: "public" }),
     },
   },
   adapter: netlify(),

@@ -1,4 +1,5 @@
 ---
+import { AVAILABLE } from "astro:env/server";
 /* -- Layout -- */
 import Layout from "../layouts/Layout.astro";
 /* -- Images -- */
@@ -42,7 +43,19 @@ import ProjectCard from "../components/ProjectCard.astro";
           <span class="text-white">Hern&aacute;ndez</span>
           <span class="text-secondary">Hort&uacute;a</span>
         </h1>
+
         <p class="presentation-description text-white">
+          {
+            AVAILABLE && (
+              <>
+                <strong class="available-work">Disponible para trabajar</strong>{" "}
+                <>
+                  <br />
+                  <br />
+                </>
+              </>
+            )
+          }
           <strong>Ingeniero de Software</strong> en desarrollo, con experiencia en
           el desarrollo de aplicaciones web FullStack. Poseo conocimiento en tecnolog&iacute;as
           FrontEnd y BackEnd , priorizando la experiencia de usuario (UX) y el dise&ntilde;o

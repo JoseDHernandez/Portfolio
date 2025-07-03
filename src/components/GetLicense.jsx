@@ -56,8 +56,8 @@ export default function GetLicense({ License, Work_link, Title, Year }) {
             href={repoURL}
             target="_blank"
             rel="noopener noreferrer"
-          >{`${Title}`}</a>{" "}
-          &copy; {Year} por{" "}
+          >{`${Title}`}</a>
+          &nbsp; &copy; {Year} por{" "}
           <a href={profileURL} rel="noopener noreferrer">
             Jos&eacute; Hern&aacute;ndez
           </a>{" "}
