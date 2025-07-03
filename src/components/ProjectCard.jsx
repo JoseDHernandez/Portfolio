@@ -22,7 +22,9 @@ export default function ProjectCard({ slug, data, index }) {
       aria-label={`Ir a la página del proyecto: ${data.Title}`}
     >
       <div className="project--card-title ">
-        <strong>{data.Title}</strong>
+        <strong transition:name={`project-title-${data.Title}`}>
+          {data.Title}
+        </strong>
       </div>
       <picture>
         <source srcSet={data.Cover_path_full.src} media="(min-width: 1200px)" />
@@ -35,15 +37,17 @@ export default function ProjectCard({ slug, data, index }) {
           decoding="async"
           width={index == 0 ? "620" : "600"}
           className="project--card-image"
-          transition:name={`project-${data.Title.toLowerCase().replaceAll(
-            " ",
-            "-"
-          )}`}
+          transition:name={`project-${data.Title}`}
         />
       </picture>
 
       <div className="project--card-description">{data.Short_description}</div>
-      <div className="project--card-technologies">{technologies}</div>
+      <div
+        className="project--card-technologies"
+        transition:name={`project-technologies-${data.Title}`}
+      >
+        {technologies}
+      </div>
     </a>
   );
 }

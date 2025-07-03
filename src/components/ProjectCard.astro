@@ -27,11 +27,11 @@ const { slug, data } = Astro.props;
     alt={data.Title}
     widths={[400, data.Cover_path_xl.width]}
     sizes={`(max-width: 500px) 400px, ${data.Cover_path_xl.width}px`}
-    transition:name={`project-${data.Title.toLowerCase().replaceAll(" ", "-")}`}
+    transition:name={`project-${data.Title}`}
   />
-  <strong>{data.Title}</strong>
+  <strong transition:name={`project-title-${data.Title}`}>{data.Title}</strong>
   <small>{data.Short_description}</small>
-  <span>
+  <span transition:name={`project-technologies-${data.Title}`}>
     {
       data.Technologies.sort().map((tech: string) => (
         <Icon name={`technologies/${tech}`} title={tech} />

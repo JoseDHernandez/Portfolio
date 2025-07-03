@@ -27,11 +27,12 @@ import ProjectCard from "../components/ProjectCard.astro";
           src={foto_principal}
           class="presentation-image"
           alt="null"
-          widths={[360, 500, foto_principal.width]}
-          sizes={`(max-width: 480px) 360px, (max-width: 768px) 500px, ${foto_principal.width}px`}
+          widths={[500, foto_principal.width]}
+          sizes={`(max-width: 768px) 500px, ${foto_principal.width}px`}
           height="360"
           quality="max"
           loading="eager"
+          fetchpriority="high"
         />
       </div>
       <div class="presentation-info">
@@ -300,7 +301,7 @@ import ProjectCard from "../components/ProjectCard.astro";
               minlength="3"
               required></textarea>
           </div>
-          <div>
+          <div class="captcha">
             <div data-netlify-recaptcha="true"></div>
           </div>
           <button type="submit" class="button-text-background-primary"

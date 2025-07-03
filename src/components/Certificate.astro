@@ -18,13 +18,13 @@ Data.Year = new Date(Data.Year);
 <article class="certificate-card">
   <div class="certificate-card--year">
     <div>
-      <strong class="text-secondary">{Data.Year.getFullYear()}</strong>
+      <strong class="text-accent">{Data.Year.getFullYear()}</strong>
     </div>
   </div>
   <div class="certificate-card--info">
     <div class="certificate-card--info-text">
       <h2 class="text-primary">{Data.Title}</h2>
-      <strong class="text-secondary">{Data.Academy}</strong>
+      <strong>{Data.Academy}</strong>
       <p>{Data.Description}</p>
     </div>
     <CertificateViwer client:visible Data={Data} />

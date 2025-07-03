@@ -69,7 +69,7 @@ export default function CertificateViwer({ Data }) {
               </div>
               <div>
                 <button
-                  className="button-icon-background-accent"
+                  className="button-icon-background-secondary"
                   onClick={() => setIsOpen(false)}
                   title="Cerrar ventana emergente"
                   aria-label="Cerrar ventana emergente"
@@ -102,7 +102,7 @@ export default function CertificateViwer({ Data }) {
 
             <div className="certificate-view--dialog--footer">
               <a
-                className="button-text-icon-border-secondary"
+                className="button-text-icon-border-primary"
                 download
                 href={Data.PDF_link}
               >

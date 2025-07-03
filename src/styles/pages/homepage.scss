@@ -276,7 +276,7 @@ $radius-size: 20px;
         border-color: transparent;
         border-radius: 10px;
         margin-top: 10px;
-        overflow-y: scroll;
+        overflow-y: auto;
         resize: vertical;
         min-height: 5rem;
         max-height: 20rem;
@@ -288,6 +288,10 @@ $radius-size: 20px;
     }
     .button-text-background-primary {
       margin: auto;
+    }
+    .captcha {
+      min-height: 98px;
+      overflow-x: auto;
     }
   }
   @include breakpoint(lg) {
