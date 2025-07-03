@@ -17,7 +17,7 @@ export default function ProjectCard({ slug, data, index }) {
 
   return (
     <a
-      href={`/proyectos/${slug}`}
+      href={`/proyectos/${slug}/`}
       className="project--card"
       aria-label={`Ir a la página del proyecto: ${data.Title}`}
     >
