@@ -4,7 +4,6 @@ import { ReactComponent as MenuIcon } from "../icons/menu.svg";
 import { ReactComponent as CloseIcon } from "../icons/close.svg";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <header className="bg-primary">
       <div className={`navbar-${isOpen ? "open" : "close"} limit-section`}>
