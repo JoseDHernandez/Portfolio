@@ -8,6 +8,8 @@ import react from "@astrojs/react";
 import aiRobotsTxt from "astro-ai-robots-txt";
 import netlify from "@astrojs/netlify";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://josedhernandez.com",
@@ -22,5 +24,5 @@ export default defineConfig({
       AVAILABLE: envField.boolean({ context: "server", access: "public" }),
     },
   },
-  adapter: netlify(),
+  adapter: cloudflare(),
 });
