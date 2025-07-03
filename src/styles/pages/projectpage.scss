@@ -2,7 +2,6 @@
 @use "../abstracts/variables" as *;
 .project-page-mdx {
   & h2 {
-    color: $secondary-color;
     margin-top: 4dvh;
   }
   & h3 {
