@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../styles/pages/projects.scss";
 import ProjectCard from "./ProjectCard";
 import { ReactComponent as SearchIcon } from "../icons/search.svg";
 import { ReactComponent as FilterIcon } from "../icons/filter.svg";
@@ -140,9 +141,16 @@ export default function ProjectSection({ projects }) {
       {/*Cards*/}
       <div className="projects--grid-section">
         <div className="projects--grid">
-          {filtered.map(({ data, slug }, index) => (
-            <ProjectCard slug={slug} data={data} key={slug} index={index} />
-          ))}
+          {filtered.length > 0 ? (
+            filtered.map(({ data, slug }, index) => (
+              <ProjectCard slug={slug} data={data} key={slug} index={index} />
+            ))
+          ) : (
+            <p className="text-center">
+              🤔 Parece que este proyecto aún no ha sido desarrollado... <br />
+              <b>Cambia la búsqueda o elimina algunos filtros.</b>
+            </p>
+          )}
         </div>
       </div>
     </div>

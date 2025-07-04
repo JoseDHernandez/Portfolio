@@ -27,8 +27,8 @@ const { slug, data } = Astro.props;
     <Image
       src={data.Cover_path_xl}
       alt={data.Title}
-      widths={[400, data.Cover_path_xl.width]}
-      sizes={`(max-width: 500px) 400px, ${data.Cover_path_xl.width}px`}
+      widths={[300, 500, data.Cover_path_xl.width]}
+      sizes={`(max-width: 768px) 300px, (max-width: 1024px) 500px, ${data.Cover_path_xl.width}px`}
       transition:name={`project-${data.Title}`}
     />
   </div>

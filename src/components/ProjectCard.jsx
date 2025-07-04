@@ -40,6 +40,7 @@ export default function ProjectCard({ slug, data, index }) {
             loading={index == 0 ? "eager" : "lazy"}
             decoding="async"
             width={index == 0 ? "620" : "600"}
+            fetchPriority={index == 0 ? "high" : "auto"}
             className="project--card-image"
             transition:name={`project-${data.Title}`}
           />

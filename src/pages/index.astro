@@ -27,13 +27,11 @@ import ProjectCard from "../components/ProjectCard.astro";
         <Image
           src={foto_principal}
           class="presentation-image"
-          alt="null"
-          widths={[500, foto_principal.width]}
-          sizes={`(max-width: 768px) 500px, ${foto_principal.width}px`}
-          height="360"
+          alt="Foto de José David Hernández"
+          widths={[240, 360, 500, foto_principal.width]}
+          sizes=`(max-width: 480px) 240px, (max-width: 768px) 360px, (max-width: 1024px) 500px, ${foto_principal.width}px`
           quality="max"
-          loading="eager"
-          fetchpriority="high"
+          priority
         />
       </div>
       <div class="presentation-info">
@@ -325,3 +323,43 @@ import ProjectCard from "../components/ProjectCard.astro";
     </div>
   </section>
 </Layout>
+<style lang="scss">
+  @use "../styles/pages/homepage.scss";
+</style>
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+  let index_tl = gsap.timeline();
+  gsap.fromTo(
+    ".presentation-image",
+    { rotation: 0 },
+    {
+      rotation: 5,
+      duration: 0.5,
+    }
+  );
+  index_tl.from(".presentation-title", {
+    scale: 0.5,
+    ease: "power2.out",
+  });
+  index_tl.from(".presentation-description", {
+    x: -1000,
+  });
+  index_tl.from(".presentation-buttons", {
+    x: -1000,
+  });
+  gsap.from(".project-card", {
+    opacity: 0,
+    y: 50,
+    duration: 0.4,
+    stagger: 0.2,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".projects-grid",
+      start: "top 80%",
+      toggleActions: "play none none none",
+      once: true,
+    },
+  });
+</script>
