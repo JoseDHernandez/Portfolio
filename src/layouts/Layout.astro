@@ -17,6 +17,7 @@ const og_title =
   title == "JoséDHernández"
     ? "Desarrollador web e ingeniero en desarrollo 😉."
     : description;
+import { localizedHTML as favicons } from "astro-favicons/middleware";
 /* -- Fonts -- */
 import { AstroFont } from "astro-font";
 /* -- Components -- */
@@ -34,7 +35,7 @@ import Header from "../components/Header.jsx";
     <meta name="keywords" content={SITE_KEYWORDS} />
     <meta name="author" content={SITE_AUTHOR} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
+    <Fragment set:html={favicons(Astro.currentLocale)} />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
