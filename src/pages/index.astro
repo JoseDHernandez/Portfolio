@@ -27,7 +27,7 @@ import ProjectCard from "../components/ProjectCard.astro";
         <Image
           src={foto_principal}
           class="presentation-image"
-          alt="Foto de José David Hernández"
+          alt="José Hernández"
           widths={[240, 360, 500, foto_principal.width]}
           sizes=`(max-width: 480px) 240px, (max-width: 768px) 360px, (max-width: 1024px) 500px, ${foto_principal.width}px`
           quality="max"
@@ -64,6 +64,7 @@ import ProjectCard from "../components/ProjectCard.astro";
             class="button-text-background-secondary"
             href="/CV-Jose-hernandez.pdf"
             target="_blank"
+            rel="nofollow noreferrer"
             download>Descargar CV</a
           >
           <a
@@ -101,7 +102,7 @@ import ProjectCard from "../components/ProjectCard.astro";
           widths={[370, foto_sobre_mi.width]}
           sizes={`(max-width: 1024px) 370px, ${foto_sobre_mi.width}px`}
           src={foto_sobre_mi}
-          alt="Foto de José David Hernández"
+          alt="José David Hernández"
         />
       </div>
       <div class="about-me-text">
@@ -206,6 +207,7 @@ import ProjectCard from "../components/ProjectCard.astro";
         <a
           class="button-text-icon-background-secondary contact-button"
           href="/CV-Jose-hernandez.pdf"
+          rel="nofollow noreferrer"
           download>Descargar CV &nbsp; <Icon name="download" /></a
         >
         <br /><br />

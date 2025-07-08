@@ -123,8 +123,10 @@ small {
   @extend .content;
   @extend .limit-section;
   min-height: 90dvh;
-  padding-top: 2dvh;
   padding-bottom: 10dvh;
+  & > section {
+    padding-top: 0px !important;
+  }
 }
 /* Secciones */
 section {

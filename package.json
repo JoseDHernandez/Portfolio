@@ -19,6 +19,8 @@
     "@types/react-dom": "^19.1.6",
     "astro": "^5.11.0",
     "astro-ai-robots-txt": "^0.1.2",
+    "astro-breadcrumbs": "^3.3.1",
+    "astro-favicons": "^3.1.5",
     "astro-font": "^1.1.0",
     "astro-icon": "^1.1.5",
     "astro-sitemap": "^1.0.0",
