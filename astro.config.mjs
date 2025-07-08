@@ -7,10 +7,11 @@ import icon from "astro-icon";
 import react from "@astrojs/react";
 import aiRobotsTxt from "astro-ai-robots-txt";
 import netlify from "@astrojs/netlify";
+import favicons from "astro-favicons";
 
 export default defineConfig({
   site: "https://josedhernandez.com",
-  integrations: [mdx(), sitemap(), icon(), react(), aiRobotsTxt()],
+  integrations: [favicons(), mdx(), sitemap(), icon(), react(), aiRobotsTxt()],
 
   vite: {
     plugins: [svgr()],

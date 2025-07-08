@@ -1,7 +1,7 @@
 export const SITE_AUTHOR = "José David Hernández Hortúa";
 export const SITE_NAME = "JoséDHernández";
 export const SITE_DESCRIPTION =
-  "Portafolio de José David Hernández Hortúa, Ingeniero de Software en formación con experiencia en desarrollo web FullStack, centrado en la experiencia de usuario (UX) y diseño de interfaces (UI).";
+  "Desarrollo web FullStack e ingeniero de software en formación, centrado en la experiencia de usuario (UX) y diseño de interfaces (UI).";
 export const SITE_KEYWORDS = [
   "José David Hernández Hortúa",
   "Ingeniero de Software",
@@ -40,7 +40,6 @@ export const SITE_KEYWORDS = [
   "Proyectos académicos",
   "Portafolio web",
   "Software educativo",
-  "José David Hernández Hortúa",
   "José David Hernández",
   "José Hernández",
   "JoseDHernandez",
@@ -67,4 +66,18 @@ export const SITE_KEYWORDS = [
   "Sea Battle",
   "juego Sea Battle",
   "juego Batalla Naval",
+  "portafolio desarrollador fullstack",
+  "desarrollador web junior Colombia",
+  "ingeniero de software",
+  "aplicaciones web con React y Node.js",
+  "MongoDB, MySQL, JavaScript",
+  "Tailwind CSS, SASS, Bootstrap",
+  "proyectos de programación",
+  "experiencia de usuario (UX)",
+  "responsive design",
+  "accesibilidad web",
+  "portafolio José Hernández",
+  "CineFan, Sea Battle, Cartas Contra la Humanidad",
+  "desarrollador freelance Colombia",
+  "josedhernandez.com",
 ].join(", ");

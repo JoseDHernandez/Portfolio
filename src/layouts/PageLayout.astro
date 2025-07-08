@@ -5,8 +5,32 @@ interface Props {
 }
 const { title, description } = Astro.props;
 import Layout from "./Layout.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.scss";
+import "../styles/components/_breadcrumbs.scss";
+const customLinks = [
+  {
+    "data-link": "home",
+    text: "Inicio",
+  },
+];
 ---
 
 <Layout title={"JoséDHernández | " + title} description={description}>
+  <Breadcrumbs customizeLinks={customLinks}>
+    <svg
+      slot="separator"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      ><polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </Breadcrumbs>
   <div class="container"><slot /></div>
 </Layout>
