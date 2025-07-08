@@ -11,7 +11,17 @@ import favicons from "astro-favicons";
 
 export default defineConfig({
   site: "https://josedhernandez.com",
-  integrations: [favicons(), mdx(), sitemap(), icon(), react(), aiRobotsTxt()],
+  integrations: [
+    favicons({
+      name: "Portafolio José hernández",
+      short_name: "Josedhernandez",
+    }),
+    mdx(),
+    sitemap(),
+    icon(),
+    react(),
+    aiRobotsTxt(),
+  ],
 
   vite: {
     plugins: [svgr()],
