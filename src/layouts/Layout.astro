@@ -21,8 +21,10 @@ import { localizedHTML as favicons } from "astro-favicons/middleware";
 /* -- Fonts -- */
 import { AstroFont } from "astro-font";
 /* -- Components -- */
+import TopButton from "../components/TopButton";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.jsx";
+import { Icon } from "astro-icon/components";
 ---
 
 <!doctype html>
@@ -118,6 +120,7 @@ import Header from "../components/Header.jsx";
   </head>
   <body>
     <Header client:load />
+    <TopButton client:only="react" />
     <main>
       <slot />
     </main>

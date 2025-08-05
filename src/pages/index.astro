@@ -266,6 +266,7 @@ import ProjectCard from "../components/ProjectCard.astro";
           action="/success"
           data-netlify-recaptcha="true"
         >
+          <h3 class="text-center text-primary">Formulario de contacto</h3>
           <input
             type="hidden"
             name="subject"
@@ -328,40 +329,3 @@ import ProjectCard from "../components/ProjectCard.astro";
 <style lang="scss">
   @use "../styles/pages/homepage.scss";
 </style>
-<script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-  gsap.registerPlugin(ScrollTrigger);
-  let index_tl = gsap.timeline();
-  gsap.fromTo(
-    ".presentation-image",
-    { rotation: 0 },
-    {
-      rotation: 5,
-      duration: 0.5,
-    }
-  );
-  index_tl.from(".presentation-title", {
-    scale: 0.5,
-    ease: "power2.out",
-  });
-  index_tl.from(".presentation-description", {
-    x: -1000,
-  });
-  index_tl.from(".presentation-buttons", {
-    x: -1000,
-  });
-  gsap.from(".project-card", {
-    opacity: 0,
-    y: 50,
-    duration: 0.4,
-    stagger: 0.2,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".projects-grid",
-      start: "top 80%",
-      toggleActions: "play none none none",
-      once: true,
-    },
-  });
-</script>

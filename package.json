@@ -24,7 +24,6 @@
     "astro-font": "^1.1.0",
     "astro-icon": "^1.1.5",
     "astro-sitemap": "^1.0.0",
-    "gsap": "^3.13.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "sass": "^1.89.1",

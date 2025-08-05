@@ -1,0 +1,17 @@
+@use "../abstracts/mixins" as *;
+#Top-btn {
+  z-index: 1;
+  position: fixed;
+  right: 2dvw;
+  bottom: 2dvw;
+  padding: 0;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+  & > svg {
+    rotate: -90deg;
+    width: 35px;
+    height: 35px;
+  }
+}

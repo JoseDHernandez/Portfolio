@@ -25,6 +25,7 @@ Page: https://josedhernandez.com
 ## Screenshots
 
 **Landing page**
+
 ![Landing page](https://github.com/user-attachments/assets/74c88723-320d-4fe8-9391-fa2e75dd4ae8)
 
 ![About me](https://github.com/user-attachments/assets/0b2d730c-89fd-41ca-9cb2-42c9013a76f2)
@@ -32,12 +33,15 @@ Page: https://josedhernandez.com
 ![projects](https://github.com/user-attachments/assets/723d893d-1405-413b-8edf-e35208dd3219)
 
 **Projects page**
+
 ![projects page](https://github.com/user-attachments/assets/23cc98f3-07c5-467b-867b-56cccbe9541b)
 
 **Project page**
+
 ![Project page](https://github.com/user-attachments/assets/90a7b55e-54a4-4a05-8816-a6803002e64b)
 
 **Certificates**
+
 ![Timeline](https://github.com/user-attachments/assets/decacd9d-a55c-4d32-879e-00ebd5bce96d)
 
 ![Certificate](https://github.com/user-attachments/assets/1ab83c2f-8f77-4df3-97be-9ffa02af1d1c)
