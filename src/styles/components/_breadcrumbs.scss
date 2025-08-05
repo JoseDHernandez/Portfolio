@@ -7,10 +7,10 @@
 .c-breadcrumbs {
   margin: 1.5em;
   font-size: 1.2rem !important;
-  &__link::first-letter {
-    text-transform: uppercase;
-  }
   .is-current {
     font-weight: bold;
+  }
+  &__crumb {
+    margin-bottom: 0.7rem;
   }
 }

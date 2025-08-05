@@ -3,6 +3,7 @@
 .project-page-mdx {
   & h2 {
     margin-top: 4dvh;
+    color: $primary-color;
   }
   & h3 {
     color: $accent-color;
@@ -10,7 +11,7 @@
   & h4 {
     color: $labels-color;
     @include breakpoint(md) {
-      margin-left: 5dvw;
+      margin-left: 2dvw;
     }
   }
   & .table-responsive,
@@ -21,14 +22,10 @@
       margin: 1em auto;
     }
   }
-  & > h3 {
-    @include breakpoint(md) {
-      margin-left: 2.5dvw;
-    }
-  }
+
   & > ol {
     li {
-      margin-top: 4dvw;
+      margin-bottom: 4dvw;
     }
     & > li::marker {
       color: $accent-color;
