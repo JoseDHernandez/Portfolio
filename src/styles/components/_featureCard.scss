@@ -1,12 +1,10 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
 .feature-card {
-  width: 100%;
   background-color: #fff;
-  box-shadow: 0px 13px 38px -9px rgba(0, 0, 0, 0.37);
-  border-radius: 1em;
-  padding: 1em 2em;
-  margin: 2em auto;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
   & h3 {
     text-align: center;
   }
@@ -15,9 +13,30 @@
   }
   & img {
     width: 100%;
+    border-radius: 5px;
     height: max-content;
+    box-shadow: 0px 13px 38px -9px rgba(0, 0, 0, 0.37);
   }
-  @include breakpoint(md) {
-    width: 55dvw;
+  @include breakpoint(xl) {
+    & figcaption {
+      width: 100%;
+    }
+    flex-direction: row;
+    gap: 2em;
+    justify-items: center;
+    & h3,
+    & p {
+      text-align: left;
+    }
+  }
+}
+.card-align-left {
+  flex-direction: column-reverse;
+  @include breakpoint(xl) {
+    flex-direction: row-reverse;
+    & h3,
+    & p {
+      text-align: right !important;
+    }
   }
 }

@@ -68,6 +68,12 @@
       background-color: rgba(0, 0, 0, 0.295);
     }
   }
+  &--filters-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+  }
 }
 // Filter menu styles
 .project--filters-panel {
@@ -122,6 +128,7 @@
 .projects--grid-section {
   min-height: 100dvh;
   margin-top: 2em;
+  margin-bottom: 4em;
 }
 //Grid
 .projects--grid {
@@ -132,18 +139,24 @@
     grid-template-columns: repeat(2, 1fr);
     & > :first-child {
       grid-column: span 2;
-      grid-template-rows: 2em auto 1.5em 2em;
+      grid-template-rows: max-content 2em max-content 2em;
 
       & img {
         height: max-content !important;
         object-fit: contain;
       }
+      & .project--card-technologies svg {
+        width: 35px;
+        height: 35px;
+      }
     }
   }
-  @include breakpoint(lg) {
+  @include breakpoint(2xl) {
+    grid-template-columns: repeat(3, 1fr);
     gap: 3em;
     & > :first-child {
-      padding: 1em;
+      grid-row: span 2;
+      padding: 2em;
       & strong {
         font-size: 1.5em;
         color: $accent-color;

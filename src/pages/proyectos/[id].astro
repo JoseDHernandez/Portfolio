@@ -2,6 +2,7 @@
 import { render } from "astro:content";
 import PageLayout from "../../layouts/PageLayout.astro";
 import { getCollection } from "astro:content";
+import GalleryModal from "../../components/GalleryModal";
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   return projects.map((project) => ({
@@ -26,6 +27,7 @@ const { Content } = await render(project);
       <Content />
     </div>
   </section>
+  <GalleryModal client:only="react" />
 </PageLayout>
 <style lang="scss" is:global>
   @use "../../styles/pages/projectpage.scss";

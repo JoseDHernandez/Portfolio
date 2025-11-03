@@ -4,24 +4,24 @@ interface Props {
   title: string;
   image: any;
   alternative?: string;
+  align?: string;
 }
-const { title, image, alternative } = Astro.props;
+const { title, image, alternative, align } = Astro.props;
 ---
 
-<div class="feature-card">
-  {title && <h3 class="text-accent">{title}</h3>}
-  <figure>
-    <Image
-      src={image}
-      alt={alternative ? alternative : title}
-      widths={[400, 700, image.width]}
-      sizes={`(max-width:500px) 400px, (max-width:1024) 700px, ${image.width}px`}
-    />
-    <figcaption>
-      <slot />
-    </figcaption>
-  </figure>
-</div>
+<figure class={`feature-card card-align-${align == "left" ? "left" : "right"}`}>
+  <Image
+    src={image}
+    alt={alternative ? alternative : title}
+    widths={[400, 700, image.width]}
+    sizes={`(max-width:500px) 400px, (max-width:1024) 700px, ${image.width}px`}
+    tabindex="0"
+  />
+  <figcaption>
+    {title && <h3 class="text-accent">{title}</h3>}
+    <slot />
+  </figcaption>
+</figure>
 <style lang="scss">
   @use "../styles/components/featureCard.scss";
 </style>

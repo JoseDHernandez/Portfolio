@@ -1,42 +1,22 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
 .studyCard {
+  border: 2px solid $accent-color;
   background-color: #fff;
   width: 100%;
-  max-width: 320px;
-  padding: 10px;
+  padding: 2em 2em;
   border-radius: 5px;
+  display: grid;
+  gap: 2em;
+  grid-template-columns: 80px 1fr;
+
   &-logo {
-    padding: 5px;
-    margin: auto;
-    width: 5em;
-    height: 5em;
-    object-fit: cover;
-    border-radius: 5px;
-    @include breakpoint(lg) {
-      width: 4em;
-      height: 4em;
-    }
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
   }
-  & p {
-    margin: 0;
-    text-wrap: wrap;
-  }
-  & > div {
-    display: grid;
-    grid-template-columns: 90px 1fr;
-    & p {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    @include breakpoint(lg) {
-      grid-template-columns: 70px 1fr;
-    }
-  }
-  &-where {
-    width: 100%;
-    font-size: 14px;
-    color: $labels-color;
+
+  & > div > p {
+    margin-top: 0px;
   }
 }

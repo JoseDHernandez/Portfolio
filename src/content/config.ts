@@ -14,9 +14,10 @@ const studies = defineCollection({
   schema: z.object({
     Title: z.string(),
     Duration: z.string(),
-    Where: z.string(),
+    Location: z.string(),
     Image_path: z.string(),
     Position: z.number(),
+    Description: z.string(),
   }),
 });
 //Projects

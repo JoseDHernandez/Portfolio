@@ -46,12 +46,16 @@ import Image8 from "./cinema-java/cinema-java-7.webp";
 
 ## Características
 
-<FeatureCard title="Inicio" image={Image1}>
+<FeatureCard title="Inicio" image={Image1} align="left">
   En la vista inicial se presentan los campos de ingreso. Dependiendo del rol
   (cajero o administrador), el sistema mostrará distintas opciones disponibles.
 </FeatureCard>
 
-<FeatureCard title="Configuración de la base de datos" image={Image2}>
+<FeatureCard
+  title="Configuración de la base de datos"
+  image={Image2}
+  align="left"
+>
   Desde el botón de *Opciones*, ubicado en la esquina superior derecha, se
   configuran los parámetros de la base de datos (MongoDB), como la URI y el
   nombre. También es posible cargar datos de prueba o realizar una prueba de
@@ -63,7 +67,7 @@ import Image8 from "./cinema-java/cinema-java-7.webp";
   del sistema.
 </FeatureCard>
 
-<FeatureCard title="Menú de películas" image={Image5}>
+<FeatureCard title="Menú de películas" image={Image5} align="left">
   Luego del inicio, ambos tipos de usuario acceden al menú de películas, desde
   donde se puede consultar la información individual de cada título registrado.
 </FeatureCard>
@@ -73,7 +77,7 @@ import Image8 from "./cinema-java/cinema-java-7.webp";
   de las películas registradas.
 </FeatureCard>
 
-<FeatureCard title="Selección de asientos" image={Image6}>
+<FeatureCard title="Selección de asientos" image={Image6} align="left">
   El cajero puede registrar ventas o reservaciones. En esta interfaz selecciona
   los asientos y completa los datos del cliente.
 </FeatureCard>
@@ -83,7 +87,7 @@ import Image8 from "./cinema-java/cinema-java-7.webp";
   sistema.
 </FeatureCard>
 
-<FeatureCard title="Horarios de proyección" image={Image8}>
+<FeatureCard title="Horarios de proyección" image={Image8} align="left">
   Los horarios de proyección son gestionados por el administrador, quien define
   sala, fecha y película. La duración se calcula automáticamente.
 </FeatureCard>

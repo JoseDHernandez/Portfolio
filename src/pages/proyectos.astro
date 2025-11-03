@@ -3,6 +3,9 @@ import { getCollection } from "astro:content";
 import PageLayout from "../layouts/PageLayout.astro";
 import ProjectComponent from "../components/ProjectComponent.jsx";
 const projectsCollection = await getCollection("projects");
+const projectsSorted = projectsCollection.sort(
+  (a, b) => new Date(b.data.Date).getTime() - new Date(a.data.Date).getTime()
+);
 //"Destructuring" of projectCollection to projects
 interface Projects {
   slug: string;
@@ -17,40 +20,40 @@ interface Projects {
     Type: string;
   };
 }
-const projects: Projects[] = projectsCollection
-  .sort(
-    (a, b) => new Date(b.data.Date).getTime() - new Date(a.data.Date).getTime()
-  )
-  .map(
-    ({
-      slug,
-      data: {
-        Title,
-        Short_description,
-        Cover_path,
-        Cover_path_md,
-        Cover_path_xl,
-        Cover_path_full,
-        Technologies,
-        Type,
+const projects: Projects[] = projectsSorted.map(
+  ({
+    slug,
+    data: {
+      Title,
+      Description,
+      Short_description,
+      Cover_path,
+      Cover_path_md,
+      Cover_path_xl,
+      Cover_path_full,
+      Technologies,
+      Type,
+      Date,
+    },
+  }) => ({
+    slug,
+    data: {
+      Title,
+      Description,
+      Short_description,
+      Cover_path: { src: Cover_path.src, width: Cover_path.width },
+      Cover_path_md: { src: Cover_path_md.src, width: Cover_path_md.width },
+      Cover_path_xl: { src: Cover_path_xl.src, width: Cover_path_xl.width },
+      Cover_path_full: {
+        src: Cover_path_full.src,
+        width: Cover_path_full.width,
       },
-    }) => ({
-      slug,
-      data: {
-        Title,
-        Short_description,
-        Cover_path: { src: Cover_path.src, width: Cover_path.width },
-        Cover_path_md: { src: Cover_path_md.src, width: Cover_path_md.width },
-        Cover_path_xl: { src: Cover_path_xl.src, width: Cover_path_xl.width },
-        Cover_path_full: {
-          src: Cover_path_full.src,
-          width: Cover_path_full.width,
-        },
-        Technologies,
-        Type,
-      },
-    })
-  );
+      Technologies,
+      Type,
+      Date,
+    },
+  })
+);
 ---
 
 <PageLayout

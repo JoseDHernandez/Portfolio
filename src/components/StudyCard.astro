@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import sena from "../assets/logos/logo_sena.webp";
 import ucompensar from "../assets/logos/logo-ucompensar.webp";
 const { Data } = Astro.props;
-const { Image_path, Title, Duration, Where } = Data;
+const { Image_path, Title, Duration, Location, Description } = Data;
 const logos = {
   logo_ucompensar: ucompensar,
   logo_sena: sena,
@@ -12,15 +12,21 @@ const logo: ImageMetadata = logos[Image_path as keyof typeof logos];
 ---
 
 <article class="studyCard">
+  <Image class="studyCard-logo" alt={`${Location} logo`} src={logo} />
   <div>
-    <Image class="studyCard-logo" alt={`${Where} logo`} src={logo} />
     <p>
-      <strong class="studyCard-title">{Title}</strong>
-      <small class="studyCard-duration"><i>{Duration}</i></small>
+      <strong>{Title}</strong>
+      <br />
+      <span class="text-primary">{Location}</span><br />
+      <small>{Duration}</small>
+    </p>
+
+    <p>
+      {Description}
     </p>
   </div>
-  <p class="studyCard-where">{Where}</p>
 </article>
+
 <style lang="scss">
   @use "../styles/components/_studyCard.scss";
 </style>

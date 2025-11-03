@@ -14,18 +14,13 @@ export default function ProjectCard({ slug, data, index }) {
     const Icon = iconMap[tech.toLowerCase()];
     return Icon ? <Icon key={tech + "-" + slug} title={tech} /> : null;
   });
-
+  const isFirst = index == 0;
   return (
     <a
       href={`/proyectos/${slug}/`}
       className="project--card"
       aria-label={`Ir a la página del proyecto: ${data.Title}`}
     >
-      <div className="project--card-title">
-        <strong transition:name={`project-title-${data.Title}`}>
-          {data.Title}
-        </strong>
-      </div>
       <div className="project--card-image-div">
         <picture>
           <source
@@ -37,22 +32,32 @@ export default function ProjectCard({ slug, data, index }) {
           <img
             src={data.Cover_path.src}
             alt={data.Title}
-            loading={index == 0 ? "eager" : "lazy"}
+            loading={isFirst ? "eager" : "lazy"}
             decoding="async"
-            width={index == 0 ? "620" : "600"}
-            fetchPriority={index == 0 ? "high" : "auto"}
+            width={isFirst ? "620" : "600"}
+            fetchPriority={isFirst ? "high" : "auto"}
             className="project--card-image"
             transition:name={`project-${data.Title}`}
           />
         </picture>
       </div>
-
-      <div className="project--card-description">{data.Short_description}</div>
-      <div
-        className="project--card-technologies"
-        transition:name={`project-technologies-${data.Title}`}
-      >
-        {technologies}
+      <div className="project--card-title">
+        <strong transition:name={`project-title-${data.Title}`}>
+          {data.Title}
+        </strong>
+      </div>
+      <div className="project--card-description">
+        {isFirst
+          ? data.Description.split("\n").map((p, index) => (
+              <p key={slug + index}>{p}</p>
+            ))
+          : data.Short_description}
+      </div>
+      <div className="project--card-bottom">
+        <div className="project--card-technologies">{technologies}</div>
+        <div className="project--card-more">
+          <span>Ver m&aacute;s &#8594;</span>
+        </div>
       </div>
     </a>
   );

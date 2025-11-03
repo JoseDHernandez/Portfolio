@@ -3,12 +3,22 @@ import { Icon } from "astro-icon/components";
 const year = new Date().getFullYear();
 ---
 
-<footer class="footer">
+<footer class="footer content-full">
   <div class="footer--content">
-    <p>
-      &copy; {year} José Hernández. CC BY-NC-ND
-      <span aria-hidden="true">😉</span>
-    </p>
+    <div>
+      <p>
+        &copy; {year} José Hernández. CC BY-NC-ND
+        <span aria-hidden="true">😉</span>
+      </p>
+      <blockquote>
+        <small>
+          <q>Cuanto más sabemos, más libres somos</q>
+          <footer>
+            <cite>El cuarteto de nos (Un poco de acci&oacute;n)</cite>
+          </footer>
+        </small>
+      </blockquote>
+    </div>
 
     <div class="footer--social">
       Encuéntrame en:

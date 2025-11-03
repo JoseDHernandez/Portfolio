@@ -1,11 +1,9 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 .workCard {
-  box-shadow: 4px 4px 8px #21153747;
-  padding: 1em;
-  border-radius: 10px;
-  max-width: 500px;
-  margin: auto;
+  border-left: 5px solid $secondary-color;
+  padding: 2em;
+  width: 100%;
   & > ul {
     padding-left: 2em;
   }
@@ -15,8 +13,18 @@
   & > :first-child {
     margin-top: 0px !important;
   }
-  @include breakpoint(lg) {
-    width: 75%;
-    max-width: 920px;
+
+  @include breakpoint(xl) {
+    & > div:first-child {
+      & > h3,
+      & > p {
+        margin-top: 0px;
+        margin-bottom: 5px;
+      }
+    }
+    padding-left: 4em;
+    display: grid;
+    gap: 4em;
+    grid-template-columns: 1fr 2fr;
   }
 }

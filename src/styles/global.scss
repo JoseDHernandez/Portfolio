@@ -89,7 +89,6 @@ textarea,
 select {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  line-height: 1.5;
   text-wrap: pretty;
   overflow-wrap: break-word;
 }
@@ -105,18 +104,28 @@ small {
   font-size: clamp(0.875rem, 1.2vw, 0.9375rem); // 14–15px
 }
 
-/* Espaciado */
+/* Espaciado index*/
 .content {
   padding: 0 10dvw;
   @include breakpoint(lg) {
-    padding: 0 5dvw;
+    padding: 0 83px;
   }
-  @include breakpoint(xl) {
-    padding: 0 10dvw;
+  @include breakpoint(2xl) {
+    padding: 0 166px;
   }
 }
+.content-full {
+  padding: 0 10dvw;
+  @include breakpoint(lg) {
+    padding: 0 129px;
+  }
+  @include breakpoint(2xl) {
+    padding: 0 258px;
+  }
+}
+//Espaciado demás paginas
 .container {
-  @extend .content;
+  @extend .content-full;
   @extend .limit-section;
   min-height: 90dvh;
   padding-bottom: 10dvh;

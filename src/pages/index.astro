@@ -35,7 +35,7 @@ import ProjectCard from "../components/ProjectCard.astro";
         />
       </div>
       <div class="presentation-info">
-        <h1 class="text-center presentation-title">
+        <h1 class="presentation-title">
           <span class="text-white">Jos&eacute;</span>
           <span class="text-secondary">David</span>
           <span class="text-white">Hern&aacute;ndez</span>
@@ -95,19 +95,19 @@ import ProjectCard from "../components/ProjectCard.astro";
     <div class="bg-primary">
       <h2 class="about-me-title text-white text-center">Sobre m&iacute;</h2>
     </div>
-    <div class="content">
-      <div>
-        <Image
-          class="about-me-image"
-          widths={[370, foto_sobre_mi.width]}
-          sizes={`(max-width: 1024px) 370px, ${foto_sobre_mi.width}px`}
-          src={foto_sobre_mi}
-          alt="José David Hernández"
-        />
-      </div>
+    <div class="content-full">
+      <Image
+        class="about-me-image"
+        widths={[370, foto_sobre_mi.width]}
+        sizes={`(max-width: 1024px) 370px, ${foto_sobre_mi.width}px`}
+        src={foto_sobre_mi}
+        alt="José David Hernández"
+      />
       <div class="about-me-text">
         <p>
-          Hola, soy Jos&eacute; Hern&aacute;ndez. Estoy en constante desarrollo <small
+          Hola, soy <span class="text-accent"
+            >Jos&eacute; Hern&aacute;ndez.</span
+          > Estoy en constante desarrollo <small
             ><i>(igual que el software que creo)</i></small
           >. Me apasiona transformar ideas en soluciones interactivas que
           conecten con las personas. Actualmente estudio Ingenier&iacute;a de
@@ -116,20 +116,21 @@ import ProjectCard from "../components/ProjectCard.astro";
         </p>
         <p>
           Tengo experiencia en desarrollo web FullStack, trabajando con
-          tecnolog&iacute;as como HTML, CSS, JavaScript, React, Node.js, PHP y
-          bases de datos relacionales y no relacionales. Fui aprendiz webmaster
-          en la Universidad Libre, donde modernic&eacute; estructuras web con
-          enfoque en accesibilidad y documentaci&oacute;n t&eacute;cnica.
+          tecnolog&iacute;as como <strong
+            >HTML, CSS, JavaScript, React, Node.js, PHP, SQL y MongoDB</strong
+          >. Fui aprendiz webmaster en la Universidad Libre, donde
+          modernic&eacute; estructuras web con enfoque en accesibilidad y
+          documentaci&oacute;n t&eacute;cnica.
         </p>
         <p>
           También he desarrollado proyectos personales como una tienda digital y
-          un juego multijugador web basado en Cards Against Humanity. Cuando no
-          estoy programando, me inspiro escuchando m&uacute;sica, viendo series,
-          leyendo o jugando videojuegos.
+          un juego multijugador web basado en <i>Cards Against Humanity</i>.
+          Cuando no estoy programando, me inspiro escuchando m&uacute;sica,
+          viendo series, leyendo o jugando videojuegos.
         </p>
 
         <aside>
-          <strong>Habilidades blandas</strong>
+          <strong class="about-me-skills-title">Habilidades blandas</strong>
           <ul class="about-me-skills">
             {
               soft_skills
@@ -143,59 +144,49 @@ import ProjectCard from "../components/ProjectCard.astro";
       </div>
     </div>
   </section>
-  <div class="work-studies">
-    <section aria-label="Experiencia laboral" class="work-experience">
-      <div class="content">
-        <h2 class="text-primary text-center">Experiencia Laboral</h2>
-        {work_experience.map((exp) => <WorkExpCard Information={exp.data} />)}
-      </div>
-    </section>
-    <section class="bg-primary studies">
-      <div class="content">
-        <h3 class="text-white text-center">
-          Formaci&oacute;n acad&eacute;mica
-        </h3>
-        <div class="studies-cards">
-          {
-            studies
-              .sort((a, b) => b.data.Position - a.data.Position)
-              .map((study) => <StudyCard Data={study.data} />)
-          }
-        </div>
-        <aside>
-          <a class="button-text-accent" href="/certificados/"
-            >Ir a los certificados</a
-          >
-        </aside>
-      </div>
-    </section>
-  </div>
-  <section class="bg-primary project-section">
-    <div class="content">
-      <h2 class="text-white text-center">Proyectos</h2>
-      <div class="projects-grid">
-        {
-          projects
-            .sort(
-              (a, b) =>
-                new Date(b.data.Date).getTime() -
-                new Date(a.data.Date).getTime()
-            )
-            .slice(0, 10)
-            .map((p) => <ProjectCard data={p.data} slug={p.slug} />)
-        }
-      </div>
-      <a href="/proyectos/" class="button-text-accent certifications-button"
-        >Ir a todos los proyectos</a
-      >
+  <section
+    aria-label="Experiencia laboral"
+    class="work-experience content-full"
+  >
+    <h2 class="text-primary">Experiencia Laboral</h2>
+    {work_experience.map((exp) => <WorkExpCard Information={exp.data} />)}
+  </section>
+  <section class="studies content-full">
+    <h3 class="text-primary">Formaci&oacute;n acad&eacute;mica</h3>
+    <div class="studies-cards">
+      {
+        studies
+          .sort((a, b) => b.data.Position - a.data.Position)
+          .map((study) => <StudyCard Data={study.data} />)
+      }
     </div>
+    <a class="button-text-background-accent" href="/certificados/"
+      >Ir a los certificados</a
+    >
+  </section>
+  <section class="bg-primary project-section content-full">
+    <h2 class="text-white text-center">Proyectos</h2>
+    <div class="projects-grid">
+      {
+        projects
+          .sort(
+            (a, b) =>
+              new Date(b.data.Date).getTime() - new Date(a.data.Date).getTime()
+          )
+          .slice(0, 10)
+          .map((p) => <ProjectCard data={p.data} slug={p.slug} />)
+      }
+    </div>
+    <a href="/proyectos/" class="button-text-accent projects-button"
+      >Ir a todos los proyectos</a
+    >
   </section>
 
   <section class="contact" id="Contacto">
     <div class="bg-primary">
       <h2 class="contact-me-title text-white text-center">Contacto</h2>
     </div>
-    <div class="content">
+    <div class="content-full">
       <div>
         <p>
           <strong>¿Tienes una idea o proyecto en mente?</strong>
@@ -215,20 +206,20 @@ import ProjectCard from "../components/ProjectCard.astro";
           <strong>Otros tipos de contacto:</strong>
           <ul>
             <li>
-              <strong class="text-primary">Correo principal:</strong>
+              <strong class="text-primary">Correo:</strong>
               <a
-                href="mailto:josedhernandez@proton.me"
+                href="mailto:hola@josedhernandez.com"
                 target="_blank"
-                rel="noopener noreferrer">josedhernandez@proton.me</a
+                rel="noopener noreferrer">hola@josedhernandez.com</a
               >
             </li>
             <li>
               <strong class="text-primary">Correo alternativo:</strong>
 
               <a
-                href="mailto:jh265626@gmail.com"
+                href="mailto:josedhernandez@proton.me"
                 target="_blank"
-                rel="noopener noreferrer">jh265626@gmail.com</a
+                rel="noopener noreferrer">josedhernandez@proton.me</a
               >
             </li>
             <li>
@@ -249,14 +240,6 @@ import ProjectCard from "../components/ProjectCard.astro";
             </li>
           </ul>
         </article>
-        <blockquote>
-          <small>
-            <q>Cuanto más sabemos, más libres somos</q>
-            <footer>
-              <cite>El cuarteto de nos (Un poco de acci&oacute;n)</cite>
-            </footer>
-          </small>
-        </blockquote>
       </div>
       <div>
         <form

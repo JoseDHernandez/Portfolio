@@ -1,0 +1,75 @@
+@use "../abstracts/variables" as *;
+.modal {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.795);
+  z-index: 20;
+  padding: 1rem;
+
+  &.open {
+    display: flex;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .modal-img {
+    --x: 50%;
+    --y: 50%;
+    --zoom: 1;
+    max-width: 90%;
+    max-height: 70vh;
+    border-radius: 8px;
+    object-fit: contain;
+    cursor: crosshair;
+    transform-origin: var(--x) var(--y);
+    transform: scale(var(--zoom));
+    transition: transform 0.1s ease-out;
+  }
+
+  .modal-thumbnails {
+    margin-top: 4em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: 90%;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 5px;
+
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: transform 0.2s, opacity 0.2s;
+
+      &:hover,
+      &.active {
+        transform: scale(1.1);
+        opacity: 1;
+        outline: 2px solid #fff;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .modal-img {
+      max-height: 80vh;
+    }
+    .modal-thumbnails img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}

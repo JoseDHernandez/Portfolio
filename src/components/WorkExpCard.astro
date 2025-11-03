@@ -4,16 +4,21 @@ const { Role, Where, Duration, Description, Functions } = Information;
 ---
 
 <article class="workCard">
-  <h3>{Role}</h3>
-  <p>
-    <strong class="text-accent">{Where}</strong> &nbsp;
-    {Duration}
-  </p>
-  <p>{Description}</p>
-  <p>
-    <b class="text-accent">Funciones:</b>
-    <ul>{Functions.map((f: string) => <li>{f}</li>)}</ul>
-  </p>
+  <div>
+    <h3>{Role}</h3>
+    <p>
+      <strong class="text-accent">{Where}</strong>
+      <br />
+      <span>{Duration}</span>
+    </p>
+  </div>
+  <div>
+    <p>{Description}</p>
+    <p>
+      <b class="text-primary">Funciones:</b>
+      <ul>{Functions.map((f: string) => <li>{f}</li>)}</ul>
+    </p>
+  </div>
 </article>
 <style lang="scss">
   @use "../styles/components/_workCard";

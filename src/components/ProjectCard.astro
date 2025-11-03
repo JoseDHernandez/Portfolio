@@ -21,7 +21,6 @@ const { slug, data } = Astro.props;
   href={`/proyectos/${slug}/`}
   class="project-card"
   aria-label={`Ir a la página del proyecto: ${data.Title}`}
-  transition:name={`project-bg-${data.Title}`}
 >
   <div class="project-card-image">
     <Image
@@ -29,14 +28,11 @@ const { slug, data } = Astro.props;
       alt={data.Title}
       widths={[300, 500, data.Cover_path_xl.width]}
       sizes={`(max-width: 768px) 300px, (max-width: 1024px) 500px, ${data.Cover_path_xl.width}px`}
-      transition:name={`project-${data.Title}`}
     />
   </div>
-  <strong transition:name={`project-title-${data.Title}`}>{data.Title}</strong>
-  <small transition:name={`project-desc-${data.Title}`}
-    >{data.Short_description}</small
-  >
-  <span transition:name={`project-technologies-${data.Title}`}>
+  <strong>{data.Title}</strong>
+  <small>{data.Short_description}</small>
+  <span>
     {
       data.Technologies.sort().map((tech: string) => (
         <Icon name={`technologies/${tech}`} title={tech} size={20} />
