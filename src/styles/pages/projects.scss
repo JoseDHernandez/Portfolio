@@ -135,11 +135,24 @@
   display: grid;
   gap: 2em;
   grid-template-columns: 1fr;
+  & > :first-child {
+    & .project--card-description p {
+      margin-top: 0px;
+    }
+    //Ocultar parrafos extra en movil
+    & .project--card-description p:first-child {
+      display: block;
+    }
+    & .project--card-description p {
+      display: none;
+    }
+  }
+
   @include breakpoint(md) {
     grid-template-columns: repeat(2, 1fr);
     & > :first-child {
       grid-column: span 2;
-      grid-template-rows: max-content 2em max-content 2em;
+      grid-template-rows: max-content min-content max-content 2em;
 
       & img {
         height: max-content !important;
@@ -148,6 +161,9 @@
       & .project--card-technologies svg {
         width: 35px;
         height: 35px;
+      }
+      & .project--card-description p {
+        display: block;
       }
     }
   }
