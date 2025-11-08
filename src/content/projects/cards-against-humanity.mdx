@@ -50,7 +50,7 @@ import Imagen11 from "./cards-against-humanity/cards-against-humanity-12.webp";
 
 ## Características
 
-<FeatureCard title="Ingreso de usuario" image={Imagen1} align="left">
+<FeatureCard title="Ingreso de usuario" image={Imagen1}>
   Antes de comenzar a jugar, el usuario debe autenticarse con una dirección de
   correo electrónico y contraseña.
 </FeatureCard>
@@ -60,14 +60,14 @@ import Imagen11 from "./cards-against-humanity/cards-against-humanity-12.webp";
   nuevos jugadores como a aquellos que regresan pero aún no están registrados.
 </FeatureCard>
 
-<FeatureCard title="Lobby de partidas disponibles" image={Imagen3} align="left">
+<FeatureCard title="Lobby de partidas disponibles" image={Imagen3}>
   La pantalla principal muestra todas las salas públicas disponibles, así como
   las creadas por el propio jugador. Además, proporciona un menú para crear
   nuevas partidas o un campo destinado a introducir el código de una partida
   privada.
 </FeatureCard>
 
-<FeatureCard alternative="Lobby en tiempo real" image={Imagen4}  align="left">
+<FeatureCard alternative="Lobby en tiempo real" image={Imagen4}  >
   El lobby se actualiza en tiempo real gracias a Socket.io, mostrando información relevante de cada partida:
 
 - Nombre de la sala
@@ -86,16 +86,12 @@ Además, proporciona un botón para unirte cuando la sala esté disponible.
   el procedimiento.
 </FeatureCard>
 
-<FeatureCard
-  title="Lobby en las partidas (jugador)"
-  image={Imagen6}
-  align="left"
->
+<FeatureCard title="Lobby en las partidas (jugador)" image={Imagen6}>
   Durante la espera, el jugador puede ver a los miembros de la sala en línea y
   conversar en el chat destinado a los jugadores de esa partida.
 </FeatureCard>
 
-<FeatureCard title="Lobby en las partidas (anfitrión)" image={Imagen7}  align="left">
+<FeatureCard title="Lobby en las partidas (anfitrión)" image={Imagen7}  >
   El anfitrión tiene control total de la sala, incluido:
 
 - Expulsar jugadores
@@ -122,7 +118,7 @@ Además, En la parte superior se indica la ronda actual y el nombre de la sala.
   completando.
 </FeatureCard>
 
-<FeatureCard title="Resultado de cada ronda" image={Imagen10}  align="left">
+<FeatureCard title="Resultado de cada ronda" image={Imagen10}  >
   Al finalizar la selección, se muestra un resumen de:
 
 - La frase final

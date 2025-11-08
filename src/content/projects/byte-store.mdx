@@ -1,0 +1,250 @@
+---
+Title: "Byte Store"
+Date: 2025-08-10 13:00:00 -5
+Short_description: "Tienda en línea de computadores portátiles con autenticación y gestión de inventario."
+Description: |
+  Esta e-commerce de computadores portátiles fue desarrollado utilizando React y Next.js para el frontend, con autenticación gestionada a través de Auth.js. 
+
+  Ademas es parte de un proyecto más grande que incluye una aplicación nativa en android y una API RESTful  basada en microservicos.
+
+Cover_path: "./byte-store/byte-store_cover.webp"
+Cover_path_md: "./byte-store/byte-store_cover-md.webp"
+Cover_path_xl: "./byte-store/byte-store_cover-xl.webp"
+Cover_path_full: "./byte-store/byte-store.webp"
+Technologies:
+  - "React"
+  - "Nextjs"
+  - "Github"
+  - "Git"
+  - "Figma"
+  - "Authjs"
+  - "Axios"
+  - "Typescript"
+Type: "Aplicación web"
+License: "CC-BY-NC-SA"
+Github_link: https://github.com/JoseDHernandez/ByteStore
+---
+
+import FeatureCard from "../../components/FeatureCard.astro";
+import HeroProject from "../../components/HeroProject.astro";
+import { Image } from "astro:assets";
+import Imagen from "./byte-store/byte-store.webp";
+import Imagen1 from "./byte-store/byte-store-1.webp";
+import Imagen2 from "./byte-store/byte-store-2.webp";
+import Imagen3 from "./byte-store/byte-store-3.webp";
+import Imagen4 from "./byte-store/byte-store-4.webp";
+import Imagen5 from "./byte-store/byte-store-5.webp";
+import Imagen6 from "./byte-store/byte-store-6.webp";
+import Imagen7 from "./byte-store/byte-store-7.webp";
+import Imagen8 from "./byte-store/byte-store-8.webp";
+import Imagen9 from "./byte-store/byte-store-9.webp";
+import Imagen10 from "./byte-store/byte-store-10.webp";
+import Imagen11 from "./byte-store/byte-store-11.webp";
+import Imagen12 from "./byte-store/byte-store-12.webp";
+import Imagen13 from "./byte-store/byte-store-13.webp";
+import Imagen14 from "./byte-store/byte-store-14.webp";
+import Imagen15 from "./byte-store/byte-store-15.webp";
+import Imagen16 from "./byte-store/byte-store-16.webp";
+import Imagen17 from "./byte-store/byte-store-17.webp";
+import Imagen18 from "./byte-store/byte-store-18.webp";
+import Imagen19 from "./byte-store/byte-store-19.webp";
+import Imagen20 from "./byte-store/byte-store-20.webp";
+import Imagen21 from "./byte-store/byte-store-21.webp";
+import Imagen22 from "./byte-store/byte-store-22.webp";
+import Imagen23 from "./byte-store/byte-store-23.webp";
+
+<HeroProject
+  Title={frontmatter.Title}
+  Description={frontmatter.Description}
+  Technologies={frontmatter.Technologies}
+  Github_link={frontmatter.Github_link}
+  Demo_link={frontmatter?.Demo_link}
+  License={frontmatter.License}
+  Img={Imagen}
+  Release={frontmatter.Date}
+></HeroProject>
+
+## Características
+
+<FeatureCard title="Página de inicio" image={Imagen}>
+  La página de inicio presenta una interfaz basada en tarjetas que muestran los
+  diferentes modelos de computadores portátiles disponibles para la venta.
+
+Inicialmente se presentan 3 productos destacados con una breve descripción, junto a una docena de otros productos
+adicionales, cada uno con su imagen, nombre, precio.
+
+</FeatureCard>
+
+<FeatureCard alternative="Página de inicio - más productos" image={Imagen1}>
+  Los productos adicionales se muestran en una cuadrícula, donde las tarjetas siguen un diseño consistente, mostrando el nombre del producto, su imagen, su calificación en estrellas y el precio.
+
+Este orden de presentación fue pensado para resaltar el precio y la calidad del producto, al utilizar una familia tipográfica para los precios.
+
+</FeatureCard>
+
+<FeatureCard title="Página de productos" image={Imagen2}>
+  En la página de productos, los usuarios pueden explorar una variedad de
+  computadores portátiles disponibles para la venta.
+
+Ademas, los usuarios pueden filtrar los productos por categorías como las marcas de las diferentes características. Por otro lado en el header, se encuentra una barra de búsqueda que permite a los usuarios buscar productos específicos por nombre o características.
+
+</FeatureCard>
+
+<FeatureCard title="Información de un producto" image={Imagen3}>
+  Al seleccionar un producto, los usuarios son dirigidos a una página detallada
+  que proporciona información completa sobre el computador portátil. Donde se
+  muestran inicialmente los datos del producto junto a un selector de la
+  cantidad a comprar y los botones de "Agregar al carrito" y "Comprar". junto a
+  esto, se muestra una breve descripción del producto.
+</FeatureCard>
+
+<FeatureCard alternative="Caracteristicas del equipo" image={Imagen4}>
+Se destaca el uso distinto de colores para los botones de "Agregar al carrito" y "Comprar", en donde el primero utiliza un color secundario para indicar una acción menos prioritaria en comparación con el botón de "Comprar", que utiliza un color primario para resaltar su importancia.
+
+La sección de características del equipo muestra en una seccion principal con datos del modelo, y una sección secundaria que detalla las especificaciones de almacenamiento y procesamiento. Junto a esto, se incluye una sección referente a la pantalla del equipo.
+
+</FeatureCard>
+
+<FeatureCard alternative="Productos similares y reseñas" image={Imagen5}>
+
+En la parte inferior de la página del producto, se presentan productos
+similares que se basan en ciertas características del producto actual. como la marca, el tipo de procesador y la cantidad de RAM. adicionalmente esta recomendacion cuenta con un grado de aleatoriedad para mostrar productos variados.
+
+</FeatureCard>
+
+<FeatureCard title="Reseñas" image={Imagen12}>
+  Como ultimo, se incluye una sección de reseñas de usuarios que han comprado y
+  utilizado el producto, proporcionando opiniones y calificaciones que pueden
+  ayudar a otros compradores en su decisión de compra.
+</FeatureCard>
+
+<FeatureCard title="Ingreso" image={Imagen6}>
+  En la página de ingreso, se presenta un formulario sencillo que permite a los
+  usuarios autenticarse utilizando su correo electrónico y contraseña.
+</FeatureCard>
+
+<FeatureCard title="Registro" image={Imagen7}>
+  Al igual que en la página de ingreso, el formulario de registro permite a los
+  nuevos usuarios crear una cuenta proporcionando sus datos básicos como nombre,
+  correo electrónico, contraseña y una dirección de envío.
+</FeatureCard>
+
+<FeatureCard title="Carrito de compras" image={Imagen8}>
+  En el encabezado de la aplicación, se encuentra un ícono de carrito de compras
+  el cual muestra la cantidad de productos actualmente agregados al carrito. Este carrito de compras mantiene los productos seleccionados por el usuario aun asi no este autenticado, permitiendo una experiencia de compra fluida.
+
+</FeatureCard>
+
+<FeatureCard alternative="carrito de compras con un producto" image={Imagen9}>
+  En el carrito de compras, los usuarios pueden modificar la cantidad de cada
+  producto, eliminar productos no deseados y ver el total acumulado de su articulo. Si el usuario esta autenticado, el carrito de compras meneja un logica de sincronizazcion con el backend, para mantener el estado del carrito actualizado en todo momento.
+
+</FeatureCard>
+
+<FeatureCard title="Página del carrito" image={Imagen10}>
+  En la página del carrito, los usuarios pueden revisar todos los productos que
+  han agregado, junto con sus cantidades individuales y el total general de la
+  compra.
+
+Dado que el proyecto no incluye una pasarela de pagos, al hacer clic en el botón de "Proceder al pago", los usuarios son redirigidos a una página de confirmación que simula la finalización exitosa de la compra.
+
+</FeatureCard>
+
+<FeatureCard title="Opciones de la cuenta" image={Imagen11}>
+  En la sección de opciones de la cuenta, los usuarios pueden acceder a
+  diferentes funcionalidades relacionadas con su perfil. Esto incluye la
+  posibilidad de ver y editar su información personal, ademas de cambiar su
+  contraseña.
+</FeatureCard>
+
+<FeatureCard title="Ordenes" image={Imagen13}>
+  Las ordenes permiten a los usuarios revisar un historial de todas las compras
+  que han realizado en la tienda. Cada orden muestra detalles como la fecha de
+  compra y de entrega,su codigo de identificación, el estado de la orden y el
+  total pagado.
+</FeatureCard>
+
+<FeatureCard title="Orden" image={Imagen14}>
+  en la página de orden o pedido, los usuarios pueden revisar los detalles de
+  una compra ya realizada. Esto incluye información sobre los productos
+  adquiridos, las cantidades, el precio total y el estado del pedido.
+</FeatureCard>
+
+<FeatureCard title="Gestión de productos" image={Imagen15}>
+  La gestión de productos permite a los administradores agregar, editar y
+  eliminar productos del inventario de la tienda. Los articulos son mostrados en
+  una tabla que incluye detalles como el nombre del producto, la marca, el
+  precio y la cantidad disponible en stock.
+
+Si un producto tiene una cantidad de
+stock baja, en la pagina de productos los botones de agregar al carrito y
+comprar se deshabilitan automaticamente para evitar compras de productos
+agotados.
+
+</FeatureCard>
+
+<FeatureCard alternative="Registro de un producto" image={Imagen22}>
+  Al registrar un nuevo producto, los administradores deben proporcionar los
+  datos del producto, incluyendo su nombre, marca, precio, cantidad en stock y
+  una descripción detallada. Ademas, pueden seleccionar las características del
+  producto, como el procesador, la pantalla, el sistema operativo. estas
+  opciones solo permiten seleccionar opciones previamente registradas en el
+  sistema.
+</FeatureCard>
+
+<FeatureCard title="Gestión de procesadores" image={Imagen16}>
+  En el módulo de gestión de procesadores, los administradores pueden agregar,
+  editar y eliminar diferentes tipos de procesadores disponibles para los
+  productos. La disposición de estos son similares a la gestión de productos,
+  presentando una tabla con los nombres de los procesadores y opciones para
+  modificar o eliminar cada uno.
+</FeatureCard>
+
+<FeatureCard title="Gestión de pantallas" image={Imagen17}>
+  La gestión de pantallas permite a los administradores manejar las diferentes
+  opciones de pantallas disponibles para los productos. Al igual que en los
+  módulos anteriores, se presenta una tabla con los nombres de las pantallas y
+  opciones para editar o eliminar cada una.
+</FeatureCard>
+
+<FeatureCard title="Gestión de marcas" image={Imagen18}>
+  La gestión de marcas permite a los administradores agregar, editar y eliminar
+  las diferentes marcas de computadores portátiles disponibles en la tienda.
+
+Del diseño en tarjetas de esta sección, se inspira parte del diseño de la aplicación nativa en android.
+
+</FeatureCard>
+
+<FeatureCard title="Gestión de sistemas operativos" image={Imagen19}>
+  En el módulo de gestión de sistemas operativos, los administradores pueden
+  manejar las diferentes opciones de sistemas operativos disponibles para los
+  artículos. La interfaz presenta una tabla con los nombres de los sistemas
+  operativos y opciones para modificar o eliminar cada uno.
+</FeatureCard>
+
+<FeatureCard title="Gestión de usuarios" image={Imagen20}>
+  Por último, la gestión de usuarios permite a los administradores revisar y
+  manejar las cuentas de los usuarios registrados en la tienda.
+</FeatureCard>
+
+<FeatureCard alternative="Detalles de un usuario" image={Imagen21}>
+  Al seleccionar un usuario, los administradores pueden ver detalles específicos
+  de la cuenta, como su nombre, correo electrónico, dirección de envío y el rol
+  asignado (usuario o administrador). Un administrador también tiene la opción
+  de cambiar el rol del usuario directamente desde esta página.
+</FeatureCard>
+
+<FeatureCard alternative="Registro de un nuevo usuario" image={Imagen23}>
+  Los administradores pueden registrar nuevos usuarios proporcionando su nombre,
+  correo electrónico, contraseña y dirección de envío.
+</FeatureCard>
+
+## Proceso de desarrollo
+
+Este proyecto fue parte de un trabajo universitario enfocado principalmente en el _desarrollo backend_. Sin embargo, fue necesario construir una interfaz frontend funcional para consumir la futura API. Inicialmente consideré usar **React Router** (en su versión framework), pero por tiempo y facilidad opté por **Next.js**, con el que ya tenía experiencia tras desarrollar [Cards Against Humanity](/proyectos/cards-against-humanity/).
+
+El desarrollo comenzó desde cero, diseñando los _wireframes_ y planificando la estructura de carpetas y componentes reutilizables. Durante las primeras dos semanas se implementó la base del frontend utilizando una _API falsa (json-server)_ para simular las respuestas del servidor. Esto permitió avanzar de forma paralela mientras se definía la arquitectura del backend real.
+
+Una vez se tuvo una versión funcional del backend, se integró con el frontend utilizando **Axios** para las solicitudes HTTP y **Auth.js** para la autenticación. La mayor parte del trabajo fue adaptar las llamadas a la API y manejar los estados de autenticación y autorización. Este proyecto me permitió aprender a trabar con **Next.js**, **Auth.js** y **Typescript**, además de reforzar mis conocimientos en **React** y consumo de **APIs RESTful**.
+
+El proyecto se puede considerar incompleto, ya que faltan algunas funcionalidades y mejoras en la interfaz. Sin embargo, sirvió como una valiosa experiencia de aprendizaje en el desarrollo fullstack, al presentarme desafíos tanto en el frontend como en la integración con el backend.

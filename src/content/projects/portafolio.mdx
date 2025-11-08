@@ -54,7 +54,7 @@ import Imagen9 from "./portfolio/portfolio-9.webp";
 
 ## Características
 
-<FeatureCard title="Página de inicio" image={Imagen} align="left">
+<FeatureCard title="Página de inicio" image={Imagen}>
   En la página inicial se presenta un encabezado con mi nombre, una breve
   descripción sobre mí, una fotografía, enlaces a LinkedIn y GitHub, junto con
   un botón para descargar mi CV.
@@ -71,7 +71,7 @@ import Imagen9 from "./portfolio/portfolio-9.webp";
   proyectos.
 </FeatureCard>
 
-<FeatureCard title="Página de proyectos" image={Imagen6}  align="left">
+<FeatureCard title="Página de proyectos" image={Imagen6}  >
 En la página *Proyectos* se lista todos mis proyectos. Cuenta con un buscador
 y filtros por tipo y tecnología.
 
@@ -86,11 +86,7 @@ datos como las imágenes para mejorar el rendimiento.
   breve descripción y los íconos de las tecnologías utilizadas.
 </FeatureCard>
 
-<FeatureCard
-  title="Página individual de un proyecto"
-  image={Imagen3}
-  align="left"
->
+<FeatureCard title="Página individual de un proyecto" image={Imagen3}>
   Al seleccionar un proyecto, se muestra un encabezado con información
   detallada, junto con enlaces al repositorio y/o demo, si están disponibles.
 </FeatureCard>
@@ -106,12 +102,12 @@ datos como las imágenes para mejorar el rendimiento.
   su realización.
 </FeatureCard>
 
-<FeatureCard title="Certificados" image={Imagen8} align="left">
+<FeatureCard title="Certificados" image={Imagen8}>
   La página de certificados presenta mis formaciones y cursos mediante una línea
   del tiempo en orden descendente.
 </FeatureCard>
 
-<FeatureCard title="Visualizador de certificado" image={Imagen9} align="left">
+<FeatureCard alternative="Visualizador de certificado" image={Imagen9}>
   Al hacer clic en *Ver certificado* se abre un modal que muestra la imagen del
   documento, su fecha y enlaces para ver la versión digital o descargarlo.
 </FeatureCard>
