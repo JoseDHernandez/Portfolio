@@ -26,6 +26,7 @@ const projects = defineCollection({
     z.object({
       Title: z.string(),
       Date: z.date(),
+      Update: z.date().optional(),
       Short_description: z.string(),
       Description: z.string(),
       Cover_path: image(),
@@ -37,6 +38,7 @@ const projects = defineCollection({
       License: z.string(),
       Github_link: z.string().url().optional(),
       Demo_link: z.string().url().optional(),
+      Authors: z.string().optional(),
     }),
 });
 //Certificates

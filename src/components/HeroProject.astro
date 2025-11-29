@@ -10,6 +10,7 @@ interface Props {
   Img: ImageMetadata;
   Title: string;
   Release: Date;
+  Update?: Date;
 }
 const {
   Description,
@@ -20,25 +21,43 @@ const {
   Img,
   Title,
   Release,
+  Update,
 } = Astro.props;
 import GetLicense from "./GetLicense";
+
+const getDate = (d: Date) =>
+  new Date(d).toLocaleDateString("es-CO", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "America/Bogota",
+  });
 ---
 
 <section>
   <div class="hero" transition:name={`project-bg-${Title}`}>
-    <Image
-      class="hero--image"
-      loading="eager"
-      src={Img}
-      alt={`Imagen de portada del proyecto ${Title}`}
-      widths={[400, 700, Img.width]}
-      sizes=`(max-width: 480px) 400px, (max-width: 1280px) 700px, ${Img.width}px`
-      transition:name={`project-${Title}`}
-    />
     <div class="hero--information">
       <div transition:name={`project-desc-${Title}`}>
         {Description.split("\n").map((parrafo) => <p>{parrafo}</p>)}
       </div>
+      <p>
+        <strong>Fecha:</strong>
+        {getDate(Release)}
+        {
+          Update && (
+            <span>
+              {" "}
+              -{" " + getDate(Update)}
+              <sup
+                title="Fecha de la ultima actualización"
+                class="hero--annotation"
+              >
+                *
+              </sup>
+            </span>
+          )
+        }
+      </p>
       <div class="hero--buttons">
         {
           Github_link && (
@@ -67,36 +86,40 @@ import GetLicense from "./GetLicense";
           )
         }
       </div>
-      <br />
-      <b class="text-primary">Tecnologías utilizadas</b>
-      <ul transition:name={`project-technologies-${Title}`}>
-        {
-          Technologies.sort().map((tech) => (
-            <li aria-label={`Tecnología: ${tech}`} title={tech}>
-              <Icon name={`technologies/${tech}`} size={30} />
-            </li>
-          ))
-        }
-      </ul>
-      <p>
-        <strong class="text-accent">Fecha:</strong>
-        {
-          new Date(Release).toLocaleDateString("es-CO", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            timeZone: "America/Bogota",
-          })
-        }
-      </p>
     </div>
-  </div><br />
-  <GetLicense
-    License={License}
-    Work_link={Github_link}
-    Title={Title}
-    Year={new Date(Release).getFullYear()}
-  />
+    <Image
+      class="hero--image"
+      loading="eager"
+      src={Img}
+      alt={`Imagen de portada del proyecto ${Title}`}
+      widths={[400, 700, Img.width]}
+      sizes=`(max-width: 480px) 400px, (max-width: 1280px) 700px, ${Img.width}px`
+      transition:name={`project-${Title}`}
+    />
+  </div>
+  <div>
+    <h2 class="text-fluid-4">Infomación adicional</h2>
+    <strong class="text-">Tecnologías utilizadas</strong>
+    <ul class="hero--technologies">
+      {
+        Technologies.sort().map((tech) => (
+          <li aria-label={`Tecnología: ${tech}`} title={tech}>
+            <Icon name={`technologies/${tech}`} size={50} />
+          </li>
+        ))
+      }
+    </ul>
+
+    <p>
+      <strong>Licencia:</strong>
+      <GetLicense
+        License={License}
+        Work_link={Github_link}
+        Title={Title}
+        Year={new Date(Release).getFullYear()}
+      />
+    </p>
+  </div>
 </section>
 
 <style lang="scss">

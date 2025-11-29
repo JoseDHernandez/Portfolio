@@ -152,8 +152,13 @@
     grid-template-columns: repeat(2, 1fr);
     & > :first-child {
       grid-column: span 2;
-      grid-template-rows: max-content min-content max-content 2em;
-
+      grid-template-rows: max-content min-content max-content auto;
+      & img {
+        max-width: 50dvw;
+      }
+      & > :last-child {
+        align-self: end;
+      }
       & img {
         height: max-content !important;
         object-fit: contain;

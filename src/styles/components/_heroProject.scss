@@ -4,7 +4,13 @@
   display: grid;
   gap: 1em;
   grid-template-columns: 1fr;
+  margin-bottom: 2em;
+  &--title {
+    text-align: center;
+  }
+  //imagen
   &--image {
+    order: 1;
     width: 100%;
     height: max-content;
     align-self: center;
@@ -12,21 +18,18 @@
     box-shadow: 0px 13px 38px -9px rgba(0, 0, 0, 0.37);
     border-radius: 10px;
   }
+  //descripción
   &--information {
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 1em 0;
-      display: flex;
-      gap: 5px;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      svg {
-        width: 30px;
-        height: 30px;
-      }
-    }
+    order: 2;
   }
+  &--annotation {
+    display: inline-block;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    color: red;
+    font-weight: 700;
+  }
+  //botones
   &--buttons {
     display: flex;
     flex-wrap: wrap;
@@ -36,9 +39,33 @@
       gap: 0;
     }
   }
-
+  //Tecnologías utilizadas
+  &--technologies {
+    list-style: none;
+    padding: 0;
+    margin: 1em 0;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
   @include breakpoint(lg) {
+    align-items: center;
     grid-template-columns: repeat(2, 1fr);
     gap: 2em;
+    &--image {
+      order: 2;
+    }
+    &--technologies {
+      gap: 1em;
+      svg {
+        width: 50px;
+        height: 50px;
+      }
+    }
   }
 }

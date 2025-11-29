@@ -13,6 +13,8 @@
   align-self: center;
   &-image-div {
     overflow: hidden;
+    display: flex;
+    justify-content: center;
   }
   &-image {
     width: 100%;
