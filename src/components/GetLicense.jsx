@@ -5,7 +5,7 @@ export default function GetLicense({
   Work_link,
   Title,
   Year,
-  Authors = null,
+  Authors,
 }) {
   const repoURL = Work_link ?? "#";
   if (License?.startsWith("CC")) {
@@ -21,13 +21,16 @@ export default function GetLicense({
         >{`${Title}`}</a>
         &nbsp; &copy; {Year} por{" "}
         <a
-          href={Authors != null ? repoURL : profileURL}
+          href={Authors != undefined ? repoURL : profileURL}
           rel="noopener noreferrer"
         >
           {Authors ?? `José Hernández`}
         </a>{" "}
         bajo la licencia{" "}
-        <a href={`https://creativecommons.org/licenses/${licenseCode}/4.0/`}>
+        <a
+          href={`https://creativecommons.org/licenses/${licenseCode}/4.0/`}
+          target="_blank"
+        >
           {licenseName}
         </a>
       </span>

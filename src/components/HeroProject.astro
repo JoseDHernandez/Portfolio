@@ -11,6 +11,7 @@ interface Props {
   Title: string;
   Release: Date;
   Update?: Date;
+  Authors?: string;
 }
 const {
   Description,
@@ -22,6 +23,7 @@ const {
   Title,
   Release,
   Update,
+  Authors,
 } = Astro.props;
 import GetLicense from "./GetLicense";
 
@@ -88,12 +90,15 @@ const getDate = (d: Date) =>
       </div>
     </div>
     <Image
+      fetchpriority="high"
       class="hero--image"
       loading="eager"
       src={Img}
       alt={`Imagen de portada del proyecto ${Title}`}
       widths={[400, 700, Img.width]}
-      sizes=`(max-width: 480px) 400px, (max-width: 1280px) 700px, ${Img.width}px`
+      sizes=`(max-width: 480px) 400px,
+         (max-width: 1280px) 700px,
+         800px`
       transition:name={`project-${Title}`}
     />
   </div>
@@ -117,6 +122,7 @@ const getDate = (d: Date) =>
         Work_link={Github_link}
         Title={Title}
         Year={new Date(Release).getFullYear()}
+        Authors={Authors}
       />
     </p>
   </div>

@@ -1,0 +1,199 @@
+---
+Title: "Byte Store API"
+Date: 2025-08-31 13:00:00 -5
+Update: 2025-11-23 13:00:00 -5
+Short_description: "API RESTful basada en microservicios para una e-commerce de computadores portátiles."
+Description: |
+  Esta API RESTful, desarrollada con Node.js y NestJS, sirve como backend para los clientes web y android de la linea Byte store. Implementa una arquitectura basada en microservicios. 
+
+  La API maneja operaciones CRUD para productos, usuarios, pedidos y más, utiliza MongoDB y MySQL para el almacenamiento de datos. 
+
+  Además, incorpora autenticación JWT para asegurar las rutas y proteger la información sensible.
+
+Cover_path: "./byte-store-api/byte-store-api_cover.webp"
+Cover_path_md: "./byte-store-api/byte-store-api_cover-md.webp"
+Cover_path_xl: "./byte-store-api/byte-store-api_cover-xl.webp"
+Cover_path_full: "./byte-store-api/byte-store-api.webp"
+Technologies:
+  - "Docker"
+  - "Nodejs"
+  - "Express"
+  - "Nestjs"
+  - "Github"
+  - "Git"
+  - "Mongodb"
+  - "Mysql"
+  - "Javascript"
+  - "Typescript"
+Type: "Aplicación de servidor"
+License: "CC-BY-NC-SA"
+Github_link: https://github.com/JoseDHernandez/ByteStore-API
+Authors: "José Hernández, Anderson Lozada, Daniel Leiton"
+---
+
+import FeatureCard from "../../components/FeatureCard.astro";
+import HeroProject from "../../components/HeroProject.astro";
+import { Image } from "astro:assets";
+import Imagen from "./byte-store-api/byte-store-api.webp";
+import Imagen1 from "./byte-store-api/byte-store-api-1.webp";
+import Imagen2 from "./byte-store-api/byte-store-api-2.webp";
+import Imagen3 from "./byte-store-api/byte-store-api-3.webp";
+import Imagen4 from "./byte-store-api/byte-store-api-4.webp";
+import Imagen5 from "./byte-store-api/byte-store-api-5.webp";
+import Imagen6 from "./byte-store-api/byte-store-api-6.webp";
+import Imagen7 from "./byte-store-api/byte-store-api-7.webp";
+import Imagen8 from "./byte-store-api/byte-store-api-8.webp";
+import Imagen9 from "./byte-store-api/byte-store-api-9.webp";
+import Imagen10 from "./byte-store-api/byte-store-api-10.webp";
+
+<HeroProject
+  Title={frontmatter.Title}
+  Description={frontmatter.Description}
+  Technologies={frontmatter.Technologies}
+  Github_link={frontmatter.Github_link}
+  Demo_link={frontmatter?.Demo_link}
+  License={frontmatter.License}
+  Img={Imagen}
+  Release={frontmatter.Date}
+  Update={frontmatter.Update}
+  Authors={frontmatter.Authors}
+></HeroProject>
+
+## Características
+
+<FeatureCard title="Uso de docker" image={Imagen9}>
+  La API está contenida en un contenedor **Docker**, lo que facilita su despliegue
+  comunicación con otros servicios y microservicios en un entorno aislado y
+  consistente.
+
+En este contenedor se ejecutan los cinco servicios principales de la _API_:
+
+- Productos
+- Usuarios
+- Ordenes
+- Comentarios
+- Carrito de compras
+
+Además, se incluyen contenedores para las bases de datos **MySQL** y **MongoDB** para el servicio de carritos. Por último, se utliza **Nginx** como servidor proxy inverso para gestionar las solicitudes entrantes y distribuirlas a los servicios correspondientes.
+
+</FeatureCard>
+
+<FeatureCard title="Servicio de usuarios" image={Imagen1}>
+  El serivicio de usuarios maneja la creación de tokens **JWT** para la
+  autenticación y autorización. Esto permite proteger las rutas y peticiones de la API en todos los servicios. Además, gestiona las solicitudes el registro, inicio de sesión y gestión de perfiles de usuario. 
+  
+  *Nota.* En la siguiente imagen se muestra un ejemplo de la respuesta al registrar un nuevo usuario.
+
+</FeatureCard>
+
+<FeatureCard alternative="Inicio de sesión" image={Imagen2}>
+  Los usuarios pueden iniciar sesión proporcionando su correo electrónico y contraseña. Al autenticarse correctamente, reciben un token de autenticación que deben incluir en las cabeceras de las solicitudes subsecuentes para acceder a rutas protegidas, ya que todos los servicios de la API requieren autenticación en los endpoints protegidos.
+
+En la respuesta se incluye la mayoría de la información del usuario, excepto la contraseña. El rol se indica de manera textual y en mayúsculas para facilitar su interpretación en los clientes. Basado en el rol y el id del usuario se genera el token de autenticación.
+
+</FeatureCard>
+
+<FeatureCard title="Servicio de productos" image={Imagen3}>
+  En el servicio de productos se implementan operaciones CRUD para gestionar el
+  catálogo de productos. Los administradores pueden crear, actualizar y eliminar
+  productos, mientras que los usuarios pueden consultar la lista de productos
+  disponibles y sus detalles. Además, se incluyen funcionalidades para filtrar y
+  buscar productos según diferentes criterios, como categoría, precio y marca.
+</FeatureCard>
+
+<FeatureCard alternative="Estructura de un producto" image={Imagen4}>
+  Al obtener un producto específico, la respuesta incluye detalles como el ID,
+  nombre, descripción, precio, categoría, marca, especificaciones técnicas. Las especificaciones de procesador, sistema, pantalla y marca se configuraron como subcategorías para alienarse con el modelo relacional de la base de datos MySQL.
+
+</FeatureCard>
+
+#### Paginación y búsqueda
+
+<FeatureCard alternative="Paginación" image={Imagen7}>
+  En la mayoría de servicios se implementó paginación para manejar los
+  resultados de las peticiones de manera eficiente. Los clientes pueden
+  especificar el número de página y la cantidad de elementos por página mediante
+  parámetros en la URL.
+
+Esta característica es especialmente útil para listas
+largas, ya que permite reducir la carga en el servidor y mejorar la
+experiencia del usuario al mostrar solo una porción de los datos a la vez.
+
+</FeatureCard>
+
+<FeatureCard alternative="Búsqueda" image={Imagen8}>
+  Para el servicio de productos se implementó una funcionalidad de búsqueda que permite a los usuarios encontrar productos específicos mediante palabras clave. Los clientes pueden enviar consultas de búsqueda como parámetros en la URL, y la API devuelve una lista de productos que coinciden con los términos proporcionados.
+
+La búsqueda se realiza en campos relevantes como el nombre, marca, datos del procesador y pantalla del producto. Adicionalmente se cuenta con opciones de ordenamiento por precio y popularidad para refinar los resultados.
+
+</FeatureCard>
+
+#### Productos similares
+
+<FeatureCard alternative="Productos similares" image={Imagen10}>
+  Adicionalmente, se implementó una funcionalidad para recomendar productos
+  similares en la página de detalles de cada producto. Esta característica ayuda
+  a los usuarios a descubrir otros productos que podrían interesarles basándose
+  en las características del producto que están viendo. La recomendación se basa
+  en atributos como la categoría, marca, tipo de procesador y cantidad de RAM.
+</FeatureCard>
+
+#### Subcategorías
+
+<FeatureCard
+  alternative="Subcategorias de los productos - procesadores"
+  image={Imagen5}
+>
+  Como se mencionó anteriormente, las especificaciones técnicas de los productos
+  se configuraron como subcategorías. Esto permite obtener los datos
+  individuales de cada especificación, facilitando la gestión y actualización de
+  la información.
+</FeatureCard>
+
+<FeatureCard
+  alternative="Obtener una subcategoria especifica de una pantalla"
+  image={Imagen6}
+/>
+
+## Proceso de desarrollo
+
+Este proyecto fue desarrollado por un equipo de tres personas: José Hernández, Anderson Lozada y Daniel Leiton. Como proyecto académico para la asignatura de Desarrollo Backend. Inicialmente se propuso utilizar una _arquitectura basada en eventos_ con **Kafka**, pero debido a limitaciones de tiempo y experiencia, se optó por una _arquitectura de microservicios_ utilizando **NestJS** y **Express**.
+
+Inicialmente nos basamos en los modelos de datos utilizados en la API temporal (json-server) del [proyecto frontend](/proyectos/byte-store) para mantener la coherencia entre ambos proyectos. Sin embargo, a medida que avanzamos en el desarrollo, realizamos ajustes y mejoras en los modelos para optimizar el rendimiento y la escalabilidad de la API.
+
+En el desarrollo yo fui el líder del equipo, encargado de coordinar las tareas y asegurar que se cumplieran los plazos establecidos. Además, participé activamente en la implementación de varios servicios, incluyendo el servicio de usuarios y productos, junto con la configuración de **Docker** y **Nginx**. Anderson Lozada se encargó del servicio de órdenes y el servicio de comentarios, mientras que Daniel Leiton desarrolló el servicio de carrito de compras.
+
+Como reflexión final, este proyecto nos permitió adquirir experiencia práctica en el desarrollo de **APIs RESTful** utilizando una arquitectura de microservicios. A pesar de los desafíos iniciales, como no planificar el uso de _API KEYS_ o las dificultades en el desarrollo de los servicios de los compañeros.
+
+La mayoría de servicios fueron documentados en los `readme.md` de cada carpeta del servicio en el repositorio de GitHub, detallando los endpoints disponibles, los parámetros requeridos y ejemplos de solicitudes y respuestas. Pero los servicios de comentarios, órdenes y carrito no fueron documentados correctamente por falta de tiempo de los compañeros.
+
+En general, este proyecto fue una experiencia valiosa que nos preparó para futuros desafíos en el desarrollo backend y la gestión de proyectos en equipo. También me permitió tener presente conceptos que no había utilizado antes, como la implementación de contenedores con **Docker**, las arquitecturas de _microservicos_ y _EDA_, junto con ideas sobre la escalabilidad, almacenamiento temporal (cache) y balanceo de carga.
+
+## Instalación y uso
+
+1. Clona el repositorio desde GitHub:
+
+   ```bash
+   git clone https://github.com/JoseDHernandez/ByteStore-API.git
+   ```
+
+2. Crear una red de Docker:
+   ```bash
+   docker network create app_network
+   ```
+3. Construir y ejecutar los contenedores utilizando Docker Compose:
+
+   ```bash
+   docker compose -f docker-compose.dev.yml build --no-cache
+   docker compose -f docker-compose.dev.yml up -d
+   ```
+
+4. Accede a la API a través de `http://localhost:3000` (o el puerto configurado en `docker-compose.dev.yml`).
+
+5. Para detener y eliminar los contenedores, utiliza:
+
+   ```bash
+   docker compose -f docker-compose.dev.yml down -v
+   ```
+
+**_Nota._** Para las peticiones que requieren autenticación, se debe incluir en la cabecera de la solicitud el token JWT obtenido al iniciar sesión o registrar un nuevo usuario, en la llave `Authorization`.

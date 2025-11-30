@@ -6,6 +6,31 @@ interface Props {
   alternative?: string;
 }
 const { title, image, alternative } = Astro.props;
+// Calcular anchos óptimos basados en el ancho natural de la imagen
+const naturalWidth = image?.width ?? 1200;
+// Tu CSS limita el ancho visual a 960px, por eso capamos todas las imágenes a 960.
+// Para capturas móviles usamos un tope de 720.
+const isMobileCapture = naturalWidth <= 800;
+const maxWidth = Math.min(naturalWidth, isMobileCapture ? 720 : 960);
+
+// Breakpoints (en px) basados en tu SASS: sm:480, md:768, lg:1024, xl:1280, 2xl:1536
+const bp = { sm: 480, md: 768, lg: 1024, xl: 1280, "2xl": 1536 };
+
+// Candidate widths alineados a tus límites (ya no solicitamos >960)
+const candidateWidths = [320, 480, 640, 720, 768, 960];
+let widths = candidateWidths.filter((w) => w <= maxWidth);
+
+// Asegurar el ancho máximo en la lista y ordenar/unique
+widths = Array.from(new Set([...widths, maxWidth])).sort((a, b) => a - b);
+
+// Sizes responsivo - reflejando tus breakpoints y el máximo visual (maxWidth)
+const sizes = `
+  (max-width: ${bp.sm}px) 100vw,
+  (max-width: ${bp.md}px) 90vw,
+  (max-width: ${bp.lg}px) 70vw,
+  (max-width: ${bp.xl}px) 60vw,
+  960px
+`;
 ---
 
 <figure class="feature-card">
@@ -14,11 +39,13 @@ const { title, image, alternative } = Astro.props;
     <slot />
   </figcaption>
   <Image
+    fetchpriority="low"
     src={image}
     alt={alternative ? alternative : title}
-    widths={[400, 700, image.width]}
-    sizes={`(max-width:500px) 400px, (max-width:1024) 700px, ${image.width}px`}
+    widths={widths}
+    sizes={sizes}
     tabindex="0"
+    data-fullsrc={image.src}
   />
 </figure>
 <style lang="scss">

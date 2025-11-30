@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { ReactComponent as CloseIcon } from "../icons/close.svg";
+import { ReactComponent as ArrowIcon } from "../icons/arrow-right.svg";
 import "../styles/components/_galleryModal.scss";
 export default function GalleryModal() {
   const [open, setOpen] = useState(false);
@@ -80,12 +81,11 @@ export default function GalleryModal() {
   useEffect(() => {
     if (!imgRef.current || images.length === 0) return;
     const source = images[currentIndex];
-    Array.from(imgRef.current.attributes).forEach((a) =>
-      imgRef.current.removeAttribute(a.name)
-    );
-    Array.from(source.attributes).forEach((a) =>
-      imgRef.current.setAttribute(a.name, a.value)
-    );
+    const full = source.getAttribute("data-fullsrc") || source.src;
+
+    imgRef.current.setAttribute("src", full);
+    imgRef.current.setAttribute("alt", source.alt);
+
     imgRef.current.className = "modal-img";
   }, [currentIndex, images]);
 
@@ -177,6 +177,51 @@ export default function GalleryModal() {
     };
   }, [zoomLevel]);
 
+  // carrucel
+  useEffect(() => {
+    const container = thumbsRef.current;
+    if (!container) return;
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    const start = (e) => {
+      isDown = true;
+      startX = e.pageX || e.touches?.[0]?.pageX;
+      scrollLeft = container.scrollLeft;
+    };
+
+    const move = (e) => {
+      if (!isDown) return;
+      const x = e.pageX || e.touches?.[0]?.pageX;
+      const walk = (x - startX) * 1.5;
+      container.scrollLeft = scrollLeft - walk;
+    };
+
+    const end = () => (isDown = false);
+
+    container.addEventListener("mousedown", start);
+    container.addEventListener("mousemove", move);
+    container.addEventListener("mouseup", end);
+    container.addEventListener("mouseleave", end);
+
+    container.addEventListener("touchstart", start, { passive: true });
+    container.addEventListener("touchmove", move, { passive: false });
+    container.addEventListener("touchend", end);
+
+    return () => {
+      container.removeEventListener("mousedown", start);
+      container.removeEventListener("mousemove", move);
+      container.removeEventListener("mouseup", end);
+      container.removeEventListener("mouseleave", end);
+
+      container.removeEventListener("touchstart", start);
+      container.removeEventListener("touchmove", move);
+      container.removeEventListener("touchend", end);
+    };
+  }, []);
+
   // ============================
   // Movimiento del cursor (PC)
   // ============================
@@ -186,6 +231,16 @@ export default function GalleryModal() {
     const y = ((e.clientY - rect.top) / rect.height) * 100;
     e.currentTarget.style.setProperty("--x", `${x}%`);
     e.currentTarget.style.setProperty("--y", `${y}%`);
+  };
+  const scrollThumbs = (direction) => {
+    if (!thumbsRef.current) return;
+    const container = thumbsRef.current;
+    const scrollAmount = container.clientWidth / 1.5;
+
+    container.scrollBy({
+      left: direction * scrollAmount,
+      behavior: "smooth",
+    });
   };
 
   // ============================
@@ -209,6 +264,7 @@ export default function GalleryModal() {
       </button>
 
       <img
+        loading="lazy"
         className="modal-img"
         alt=""
         ref={imgRef}
@@ -223,16 +279,35 @@ export default function GalleryModal() {
         }}
       />
 
-      <div className="modal-thumbnails" role="list" ref={thumbsRef}>
-        {images.map((img, i) => (
-          <img
-            key={i}
-            src={img.currentSrc || img.src}
-            alt={img.alt}
-            className={i === currentIndex ? "active" : ""}
-            onClick={() => setCurrentIndex(i)}
-          />
-        ))}
+      <div className="thumbs-wrapper">
+        <button
+          className="thumbs-nav  button-icon-primary left"
+          onClick={() => scrollThumbs(-1)}
+          aria-label="Anterior miniatura"
+        >
+          <ArrowIcon />
+        </button>
+
+        <div className="modal-thumbnails" role="list" ref={thumbsRef}>
+          {images.map((img, i) => (
+            <img
+              loading="lazy"
+              key={i}
+              src={img.dataset.fullsrc || img.src}
+              alt={img.alt}
+              className={i === currentIndex ? "active" : ""}
+              onClick={() => setCurrentIndex(i)}
+            />
+          ))}
+        </div>
+
+        <button
+          className="thumbs-nav  button-icon-primary right"
+          onClick={() => scrollThumbs(1)}
+          aria-label="Siguiente miniatura"
+        >
+          <ArrowIcon />
+        </button>
       </div>
     </div>
   );

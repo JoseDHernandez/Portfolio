@@ -153,9 +153,6 @@
     & > :first-child {
       grid-column: span 2;
       grid-template-rows: max-content min-content max-content auto;
-      & img {
-        max-width: 50dvw;
-      }
       & > :last-child {
         align-self: end;
       }
@@ -172,10 +169,32 @@
       }
     }
   }
+  @include breakpoint(xl) {
+    & > :first-child {
+      padding: 2em;
+      grid-template-columns: 1fr 1.2fr;
+      //titulo
+      & > :nth-child(2) {
+        align-self: center;
+        text-align: center;
+      }
+      //imagen
+      & > :nth-child(1) {
+        grid-column: 2/3;
+        grid-row: 1/3;
+      }
+      //tecnologías y ver más
+      & > :last-child {
+        grid-column: 1/3;
+      }
+    }
+  }
   @include breakpoint(2xl) {
     grid-template-columns: repeat(3, 1fr);
     gap: 3em;
     & > :first-child {
+      grid-column: span 2;
+      grid-template-columns: 1fr;
       grid-row: span 2;
       padding: 2em;
       & strong {
@@ -185,6 +204,20 @@
       & img {
         min-height: 350px;
         max-height: 620px;
+      }
+      //titulo
+      & > :nth-child(2) {
+        align-self: initial;
+        text-align: initial;
+      }
+
+      & > :nth-child(1) {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      & > :last-child {
+        grid-column: auto;
       }
     }
   }

@@ -2,7 +2,7 @@
 interface ProjectData {
   Title: string;
   Short_description: string;
-  Cover_path_xl: ImageMetadata;
+  Cover_path: ImageMetadata;
   Technologies: string[];
 }
 
@@ -23,12 +23,7 @@ const { slug, data } = Astro.props;
   aria-label={`Ir a la página del proyecto: ${data.Title}`}
 >
   <div class="project-card-image">
-    <Image
-      src={data.Cover_path_xl}
-      alt={data.Title}
-      widths={[300, 500, data.Cover_path_xl.width]}
-      sizes={`(max-width: 768px) 300px, (max-width: 1024px) 500px, ${data.Cover_path_xl.width}px`}
-    />
+    <Image src={data.Cover_path} alt={data.Title} width={300} />
   </div>
   <strong>{data.Title}</strong>
   <small>{data.Short_description}</small>
