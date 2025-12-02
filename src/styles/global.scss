@@ -2,6 +2,21 @@
 @use "./abstracts/mixins" as *;
 @use "./components/buttons";
 @use "sass:color";
+:root {
+  color-scheme: light;
+  forced-color-adjust: none;
+  @include theme($theme-light);
+  transition: background-color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
+}
+.dark-theme {
+  color-scheme: dark;
+  @include theme($theme-dark);
+}
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
 /* Box sizing y normalización base */
 *,
 *::before,
@@ -10,10 +25,9 @@
   position: relative;
   min-width: 0;
 }
-
 /* Utilitarias */
 .bg-primary {
-  background-color: $primary-color;
+  background-color: var(--bg-primary);
 }
 
 .text-center {
@@ -25,25 +39,24 @@
 }
 
 .text-primary {
-  color: $primary-color;
+  color: var(--primary);
 }
 .text-accent {
-  color: $accent-color;
+  color: var(--accent);
 }
 .text-secondary {
-  color: $secondary-color;
+  color: var(--secondary);
 }
 
 /* Body */
 body {
+  @include theme($theme-light);
   min-height: 100dvh;
   margin: 0;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  background-color: #fff;
-  color: #111;
 }
 
 /* Encabezados */
@@ -62,7 +75,7 @@ h6 {
 
 /* Tipografía fluida */
 .text-fluid-1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem); // 40–56px
+  font-size: clamp(2.25rem, 5vw, 3.5rem); // 40–56px
 }
 
 .text-fluid-2 {
@@ -107,7 +120,9 @@ select {
   text-wrap: pretty;
   overflow-wrap: break-word;
 }
-
+a {
+  color: var(--primary);
+}
 p,
 a,
 pre,
@@ -152,23 +167,24 @@ small {
 section {
   padding-block: 1em;
 }
+textarea,
 input[type="text"],
 input[type="number"],
 input[type="email"] {
-  color: $labels-color;
+  color: var(--text);
   width: 100%;
   transition: border-color 0.3s ease, box-shadow 0.3s ease,
     background-color 0.3s ease;
 
   &:focus {
     outline: none;
-    border-color: $accent-color;
+    border-color: var(--secondary);
     box-shadow: 0 0 0 4px rgba($primary-color, 0.2);
     border-radius: 5px;
   }
 
   &::placeholder {
-    color: color.adjust($labels-color, $lightness: 30%);
+    color: color.adjust(#808080, $lightness: 30%);
   }
 
   &:disabled {
@@ -181,7 +197,7 @@ input[type="checkbox"],
 input[type="radio"],
 input[type="range"],
 progress {
-  accent-color: $accent-color;
+  accent-color: var(--secondary);
 }
 details {
   border-radius: 5px;
@@ -192,7 +208,7 @@ details {
     display: flex;
     align-items: center;
     cursor: pointer;
-    color: $primary-color;
+    color: var(--primary);
     list-style: none;
     position: relative;
     padding-right: 1.5em;
@@ -268,7 +284,7 @@ table {
   border-collapse: collapse;
   margin: 1em 0;
   font-size: 1rem;
-  background-color: #fff;
+  background-color: var(--bg);
   border: 1px solid rgba($primary-color, 0.2);
 }
 
@@ -287,12 +303,12 @@ td {
 }
 
 th {
-  color: $primary-color;
+  color: var(--text);
   font-weight: 600;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #ebebeb;
+  background-color: #ffffff17;
 }
 
 .table-responsive {

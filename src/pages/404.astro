@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import PageLayout from "../layouts/PageLayout.astro";
 ---
 
@@ -11,6 +12,79 @@ import PageLayout from "../layouts/PageLayout.astro";
     </p>
     <a href="/" class="button-text-background-accent">Volver al inicio</a>
   </section>
+  <div
+    style="padding: 2rem; display: grid; gap: 2rem; max-width: 900px; margin: auto;"
+  >
+    <!-- TEXT BUTTONS -->
+    <section>
+      <h2>Text Buttons</h2>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <button class="button-text-primary">Primary</button>
+        <button class="button-text-accent">Accent</button>
+        <button class="button-text-secondary">Secondary</button>
+
+        <button class="button-text-background-primary">Bg Primary</button>
+        <button class="button-text-background-accent">Bg Accent</button>
+        <button class="button-text-background-secondary">Bg Secondary</button>
+      </div>
+    </section>
+
+    <!-- ICON BUTTONS -->
+    <section>
+      <h2>Icon Buttons</h2>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <button class="button-icon-primary"><Icon name="github_v" /></button>
+        <button class="button-icon-accent"><Icon name="github_v" /></button>
+        <button class="button-icon-secondary"><Icon name="github_v" /></button>
+
+        <button class="button-icon-background-primary"
+          ><Icon name="github_v" /></button
+        >
+        <button class="button-icon-background-accent"
+          ><Icon name="github_v" /></button
+        >
+        <button class="button-icon-background-secondary"
+          ><Icon name="github_v" /></button
+        >
+      </div>
+    </section>
+
+    <!-- TEXT + ICON -->
+    <section>
+      <h2>Text + Icon Buttons</h2>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <button class="button-text-icon-primary"
+          ><Icon name="github_v" /> Primary</button
+        >
+        <button class="button-text-icon-accent"
+          ><Icon name="github_v" /> Accent</button
+        >
+        <button class="button-text-icon-secondary"
+          ><Icon name="github_v" /> Secondary</button
+        >
+
+        <button class="button-text-icon-background-primary"
+          ><Icon name="github_v" /> Bg Primary</button
+        >
+        <button class="button-text-icon-background-accent"
+          ><Icon name="github_v" /> Bg Accent</button
+        >
+        <button class="button-text-icon-background-secondary"
+          ><Icon name="github_v" /> Bg Secondary</button
+        >
+      </div>
+    </section>
+
+    <!-- BORDER VARIANTS -->
+    <section>
+      <h2>Border Variants</h2>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <button class="button-text-icon-border-primary">Primary</button>
+        <button class="button-text-icon-border-accent">Accent</button>
+        <button class="button-text-icon-border-secondary">Secondary</button>
+      </div>
+    </section>
+  </div>
 </PageLayout>
 <style lang="scss">
   @use "../styles/pages/errorpage.scss";

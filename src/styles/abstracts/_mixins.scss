@@ -8,7 +8,7 @@
   justify-items: center;
   width: 45px;
   height: 45px;
-  & > svg {
+  & svg {
     width: $size;
     height: $size;
   }
@@ -18,24 +18,23 @@
 }
 @mixin button-text-icon($bg, $color) {
   @extend .button;
-  @extend .button-text;
   background-color: $bg;
   color: $color;
   padding: 5px 10px;
-  svg {
+  & svg {
     margin-left: 5px;
     padding: 4px;
     width: 30px !important;
     height: 30px !important;
     g {
-      stroke: $color;
+      stroke: $color !important;
       path {
         stroke: $color !important;
         fill: none;
       }
     }
     path {
-      fill: $color;
+      fill: $color !important;
     }
   }
   @include hover-elevate($bg, $color);
@@ -65,4 +64,18 @@
       color: $text-hover;
     }
   }
+}
+//tema
+@mixin theme($t) {
+  --primary: #{map.get($t, primary)};
+  --primary-button: #{map.get($t, primary-button)};
+  --secondary: #{map.get($t, secondary)};
+  --accent: #{map.get($t, accent)};
+  --bg: #{map.get($t, bg)};
+  --text: #{map.get($t, text)};
+  --bg-primary: #{map.get($t, bg-primary)};
+  --shadow: #{map.get($t, shadow)};
+  --bg-card: #{map.get($t, bg-card)};
+  background-color: var(--bg);
+  color: var(--text);
 }

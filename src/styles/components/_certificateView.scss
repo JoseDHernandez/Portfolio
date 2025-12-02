@@ -6,13 +6,15 @@
     margin: auto;
   }
   &--dialog {
-    z-index: 1;
+    background-color: var(--bg);
+    z-index: 2;
     position: fixed;
     border: none;
     top: 0%;
     height: 100dvh;
     width: 100dvw;
     &--content {
+      color: var(--text);
       padding: 1em;
       max-width: 1024px;
       margin: auto;

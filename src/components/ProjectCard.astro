@@ -29,9 +29,16 @@ const { slug, data } = Astro.props;
   <small>{data.Short_description}</small>
   <span>
     {
-      data.Technologies.sort().map((tech: string) => (
-        <Icon name={`technologies/${tech}`} title={tech} size={20} />
-      ))
+      data.Technologies.filter((e) =>
+        data.Technologies.includes("Github") == true &&
+        data.Technologies.length > 7
+          ? e != "Git"
+          : e != null
+      )
+        .sort()
+        .map((tech: string) => (
+          <Icon name={`technologies/${tech}`} title={tech} size={20} />
+        ))
     }
   </span>
 </a>

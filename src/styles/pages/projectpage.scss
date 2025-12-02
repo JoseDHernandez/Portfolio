@@ -3,13 +3,13 @@
 .project-page-mdx {
   & h2 {
     margin-top: 4dvh;
-    color: $primary-color;
+    color: var(--primary);
   }
   & h3 {
-    color: $accent-color;
+    color: var(--secondary);
   }
   & h4 {
-    color: $labels-color;
+    color: var(--text);
     @include breakpoint(md) {
       margin-left: 2dvw;
     }
@@ -28,7 +28,7 @@
       margin-bottom: 4dvw;
     }
     & > li::marker {
-      color: $accent-color;
+      color: var(--secondary);
       font-weight: bold;
       font-size: clamp(1.25rem, 2.5vw, 2rem); // 20–32px
     }

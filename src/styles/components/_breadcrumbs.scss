@@ -1,7 +1,7 @@
 @use "../abstracts/variables" as *;
 @use "astro-breadcrumbs/breadcrumbs.scss" with (
-  $color-hover-link: $primary-color,
-  $color-is-current: $accent-color,
+  $color-hover-link: var(--secondary),
+  $color-is-current: var(--primary),
   $overflow-wrap-horizontal-spacing: 5px
 );
 .c-breadcrumbs {

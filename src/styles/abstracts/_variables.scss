@@ -4,6 +4,33 @@ $secondary-color: #ffbc50; //color de acento
 $accent-color: #7d699a; //color secundario
 $bg-white: #fbeaff;
 $labels-color: #2f2f2f;
+// Tema claro
+$theme-light: (
+  primary: #4d2b97,
+  primary-button: #3c2178,
+  accent: #ffbc50,
+  secondary: #7d699a,
+  bg: #fff,
+  text: #2f2f2f,
+  bg-primary: #4d2b97,
+  shadow: rgba(0, 0, 0, 0.37),
+  bg-card: #fff,
+);
+
+// Tema oscuro generado en tu misma paleta
+
+$theme-dark: (
+  primary: #bca9ff,
+  primary-button: #9d82f0,
+  accent: #ffd48c,
+  secondary: #6d5a8a,
+  bg: #1f1f1f,
+  text: #efeaff,
+  bg-primary: #1f1f1f,
+  shadow: rgba(0, 0, 0, 0.25),
+  bg-card: #2a2a2a,
+);
+
 $limit-size: 2000px;
 $breakpoints: (
   sm: 480px,

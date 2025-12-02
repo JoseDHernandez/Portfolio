@@ -2,11 +2,12 @@
 @use "../abstracts/mixins" as *;
 .certificate-card {
   &--year {
+    z-index: 1;
     position: absolute;
     top: 40%;
     left: -25px;
     & > div {
-      background-color: #fff;
+      background-color: var(--bg);
       padding: 10px 8px;
     }
     @include breakpoint(lg) {
@@ -15,7 +16,7 @@
   }
   &--info {
     margin-left: 2em;
-    background-color: #fff;
+    background-color: var(--bg-card);
     border-radius: 10px;
     padding: 1em;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

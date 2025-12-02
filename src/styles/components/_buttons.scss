@@ -11,108 +11,89 @@
   justify-content: center;
   align-items: center;
   max-width: max-content;
-}
-.button-text {
-  @extend .button;
-  padding: 0.2rem 0.8rem;
   font-weight: 700;
   font-size: 20px;
 }
 
-.button-text-primary {
-  @extend .button-text;
-  background-color: #fff;
-  color: $primary-color-button;
-  @include hover-elevate(#fff, $primary-color-button);
-}
-.button-text-accent {
-  @extend .button-text;
-  background-color: #fff;
-  color: $accent-color;
-  @include hover-elevate(#fff, $accent-color);
-}
-.button-text-background-accent {
-  @extend .button-text;
-  background-color: $accent-color;
-  color: #fff;
-  @include hover-elevate($accent-color, #fff);
-}
-.button-icon-accent {
-  @include button-icon(40px, $accent-color);
-  background-color: #fff;
-  @include hover-elevate(#fff, $accent-color);
-}
-.button-icon-background-accent {
-  @include button-icon(40px, #fff);
-  background-color: $accent-color;
-  @include hover-elevate($accent-color, #fff);
-}
-.button-icon-background-primary {
-  @include button-icon(40px, #fff);
-  background-color: $primary-color;
-  @include hover-elevate($primary-color, #fff);
-}
-.button-text-background-primary {
-  @extend .button-text;
-  background-color: $primary-color;
-  color: #fff;
-  @include hover-elevate($primary-color-button, #fff);
-}
-.button-icon-primary {
-  @include button-icon(40px, $primary-color-button);
-  background-color: #fff;
-  @include hover-elevate(#fff, $primary-color);
-}
+//botones con texto e icono con fondo
+.button-text-icon-background-secondary,
 .button-text-background-secondary {
-  @extend .button-text;
-  background-color: $secondary-color;
-  color: #fff;
-  @include hover-elevate($secondary-color, #fff);
+  padding: 0.2rem 0.8rem;
+  @include button-text-icon(var(--accent), $labels-color);
+}
+.button-text-icon-background-primary,
+.button-text-background-primary {
+  padding: 0.2rem 0.8rem;
+  @include button-text-icon(var(--primary), #fff);
+}
+.button-text-icon-background-accent,
+.button-text-background-accent {
+  padding: 0.2rem 0.8rem;
+  @include button-text-icon(var(--secondary), #fff);
+}
+
+//botones con icono
+.button-icon-accent {
+  @include button-icon(40px, var(--secondary));
+  background-color: var(--bg-card);
+  @include hover-elevate(var(--bg-card), var(--secondary));
 }
 .button-icon-secondary {
-  @include button-icon(40px, $secondary-color);
-  background-color: #fff;
-  @include hover-elevate(#fff, $secondary-color);
+  @include button-icon(40px, var(--accent));
+  background-color: var(--bg-card);
+  @include hover-elevate(var(--bg-card), var(--accent));
 }
+.button-icon-primary {
+  @include button-icon(40px, var(--primary));
+  background-color: var(--bg-card);
+  @include hover-elevate(var(--bg-card), var(--primary));
+}
+//botones con icono y fondo
 .button-icon-background-secondary {
   @include button-icon(40px, $labels-color);
   background-color: $secondary-color;
-  @include hover-elevate($secondary-color, $labels-color);
+  @include hover-elevate(var(--accent), $labels-color);
 }
+.button-icon-background-primary {
+  @include button-icon(40px, var(--bg-card));
+  background-color: var(--primary);
+  @include hover-elevate(var(--primary), var(--bg-card));
+}
+.button-icon-background-accent {
+  @include button-icon(40px, var(--bg-card));
+  background-color: var(--secondary);
+  @include hover-elevate(var(--secondary), var(--bg-card));
+}
+// botones con texto e icono
+.button-text-icon-secondary,
 .button-text-secondary {
-  @extend .button-text;
-  background-color: #fff;
-  color: $secondary-color;
-  @include hover-elevate(#fff, $secondary-color);
+  padding: 0.2rem 0.8rem;
+  @include button-text-icon(var(--bg-card), var(--accent));
 }
-.button-text-icon-secondary {
-  @include button-text-icon(#fff, $secondary-color);
+.button-text-icon-accent,
+.button-text-accent {
+  padding: 0.2rem 0.8rem;
+  @include button-text-icon(var(--bg-card), var(--secondary));
 }
-.button-text-icon-accent {
-  @include button-text-icon(#fff, $accent-color);
-}
-.button-text-icon-primary {
-  @include button-text-icon(#fff, $primary-color);
-}
-.button-text-icon-background-secondary {
-  @include button-text-icon($secondary-color, $labels-color);
-}
-.button-text-icon-background-primary {
-  @include button-text-icon($primary-color, #fff);
-}
-.button-text-icon-background-accent {
-  @include button-text-icon($accent-color, #fff);
+.button-text-icon-primary,
+.button-text-primary {
+  padding: 0.2rem 0.8rem;
+  @include button-text-icon(var(--bg-card), var(--primary));
 }
 
+//botones con borde
 .button-text-icon-border-secondary {
   @extend .button-text-icon-secondary;
-  border: 2px $secondary-color solid;
+  border: 2px var(--accent) solid;
+  padding: 0.2rem 0.8rem;
 }
 .button-text-icon-border-primary {
   @extend .button-text-icon-primary;
-  border: 2px $primary-color solid;
+  border: 2px var(--primary) solid;
+  padding: 0.2rem 0.8rem;
 }
 .button-text-icon-border-accent {
   @extend .button-text-icon-accent;
-  border: 2px $accent-color solid;
+  border: 2px var(--secondary) solid;
+  padding: 0.2rem 0.8rem;
 }

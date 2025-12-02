@@ -15,3 +15,27 @@
     height: 35px;
   }
 }
+#theme-toggle {
+  z-index: 1;
+  background-color: var(--bg-card);
+  border: 0px transparent;
+  border-radius: 5px;
+  position: fixed;
+  left: 2dvw;
+  bottom: 2dvw;
+  padding: 0;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px var(--shadow);
+  & > svg {
+    rotate: -90deg;
+    width: 30px;
+    height: 30px;
+  }
+  &:hover {
+    transform: translateY(-2px);
+  }
+}

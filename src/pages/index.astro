@@ -28,8 +28,8 @@ import ProjectCard from "../components/ProjectCard.astro";
           src={foto_principal}
           class="presentation-image"
           alt="José Hernández"
-          widths={[240, 360, 500, foto_principal.width]}
-          sizes=`(max-width: 480px) 240px, (max-width: 768px) 360px, (max-width: 1024px) 500px, ${foto_principal.width}px`
+          widths={[240, 360, foto_principal.width]}
+          sizes=`(max-width: 480px) 240px, (max-width: 768px) 360px,  500px`
           quality="max"
           priority
         />
@@ -37,9 +37,9 @@ import ProjectCard from "../components/ProjectCard.astro";
       <div class="presentation-info">
         <h1 class="presentation-title">
           <span class="text-white">Jos&eacute;</span>
-          <span class="text-secondary">David</span>
+          <span class="text-accent">David</span>
           <span class="text-white">Hern&aacute;ndez</span>
-          <span class="text-secondary">Hort&uacute;a</span>
+          <span class="text-accent">Hort&uacute;a</span>
         </h1>
 
         <p class="presentation-description text-white">
@@ -105,7 +105,7 @@ import ProjectCard from "../components/ProjectCard.astro";
       />
       <div class="about-me-text">
         <p>
-          Hola, soy <span class="text-accent"
+          Hola, soy <span class="text-secondary"
             >Jos&eacute; Hern&aacute;ndez.</span
           > Estoy en constante desarrollo <small
             ><i>(igual que el software que creo)</i></small
@@ -252,6 +252,7 @@ import ProjectCard from "../components/ProjectCard.astro";
             <input
               type="text"
               name="name"
+              id="name"
               placeholder="Ingrese su nombre o el de compañía"
               maxlength="50"
               minlength="3"
@@ -263,6 +264,7 @@ import ProjectCard from "../components/ProjectCard.astro";
             <input
               type="email"
               name="email"
+              id="email"
               placeholder="Ingrese su dirección de correo electrónico"
               maxlength="300"
               minlength="5"
@@ -272,6 +274,7 @@ import ProjectCard from "../components/ProjectCard.astro";
           <div>
             <label for="title">Asunto</label>
             <input
+              id="title"
               type="text"
               name="title"
               placeholder="Ingrese el asunto del mensaje"
@@ -283,6 +286,7 @@ import ProjectCard from "../components/ProjectCard.astro";
           <div>
             <label for="message">Mensaje</label>
             <textarea
+              id="message"
               name="message"
               placeholder="Ingrese su nombre o el de compañía"
               maxlength="3000"

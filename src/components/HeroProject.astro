@@ -107,11 +107,17 @@ const getDate = (d: Date) =>
     <strong class="text-">Tecnologías utilizadas</strong>
     <ul class="hero--technologies">
       {
-        Technologies.sort().map((tech) => (
-          <li aria-label={`Tecnología: ${tech}`} title={tech}>
-            <Icon name={`technologies/${tech}`} size={50} />
-          </li>
-        ))
+        Technologies.filter((e) =>
+          Technologies.includes("Github") == true && Technologies.length > 7
+            ? e != "Git"
+            : e != null
+        )
+          .sort()
+          .map((tech) => (
+            <li aria-label={`Tecnología: ${tech}`} title={tech}>
+              <Icon name={`technologies/${tech}`} size={50} />
+            </li>
+          ))
       }
     </ul>
 

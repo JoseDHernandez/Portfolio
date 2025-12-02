@@ -10,10 +10,16 @@ for (const path in svgIcons) {
 }
 
 export default function ProjectCard({ slug, data, index }) {
-  const technologies = data.Technologies.sort().map((tech) => {
-    const Icon = iconMap[tech.toLowerCase()];
-    return Icon ? <Icon key={tech + "-" + slug} title={tech} /> : null;
-  });
+  const technologies = data.Technologies.filter((e) =>
+    data.Technologies.includes("Github") == true && data.Technologies.length > 7
+      ? e != "Git"
+      : e != null
+  )
+    .sort()
+    .map((tech) => {
+      const Icon = iconMap[tech.toLowerCase()];
+      return Icon ? <Icon key={tech + "-" + slug} title={tech} /> : null;
+    });
   const isFirst = index == 0;
   return (
     <a
