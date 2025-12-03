@@ -1,33 +1,26 @@
 ---
-Title: "Byte Store API"
+Title: "Byte Store (Android)"
 Date: 2025-10-18 13:00:00 -5
 Update: 2025-11-23 13:00:00 -5
-Short_description: "API RESTful basada en microservicios para una e-commerce de computadores portátiles."
+Short_description: "Aplicación e-commerce para android con arquitectura MVVM"
 Description: |
-  Esta API RESTful, desarrollada con Node.js y NestJS, sirve como backend para los clientes web y android de la linea Byte store. Implementa una arquitectura basada en microservicios. 
+  Esta es una aplicación de comercio electrónico desarrollada para dispositivos Android utilizando la arquitectura MVVM (Model-View-ViewModel). 
 
-  La API maneja operaciones CRUD para productos, usuarios, pedidos y más, utiliza MongoDB y MySQL para el almacenamiento de datos. 
-
-  Además, incorpora autenticación JWT para asegurar las rutas y proteger la información sensible.
+  La aplicación permite a los usuarios navegar por productos, agregar artículos al carrito de compras y gestionarlos. Con una interfaz y funcionalidades enfocadas en la experiencia del usuario.
 
 Cover_path: "./byte-store-android/byte-store-android_cover.webp"
 Cover_path_md: "./byte-store-android/byte-store-android_cover-md.webp"
 Cover_path_xl: "./byte-store-android/byte-store-android_cover-xl.webp"
 Cover_path_full: "./byte-store-android/byte-store-android.webp"
 Technologies:
-  - "Docker"
-  - "Nodejs"
-  - "Express"
-  - "Nestjs"
-  - "Github"
+  - "Kotlin"
+  - "Androidstudio"
+  - "Figma"
   - "Git"
-  - "Mongodb"
-  - "Mysql"
-  - "Javascript"
-  - "Typescript"
-Type: "Aplicación de servidor"
+  - "Github"
+Type: "Aplicación móvil"
 License: "CC-BY-NC-SA"
-Github_link: https://github.com/JoseDHernandez/ByteStore-android
+Github_link: https://github.com/JoseDHernandez/ByteStore-Android
 Authors: "José Hernández, Anderson Lozada, Daniel Leiton"
 ---
 
@@ -98,161 +91,237 @@ import Imagen31 from "./byte-store-android/byte-store-android-31.webp";
   ></iframe>
 </div>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen1}>
-  Texto
+<FeatureCard title="Inicio" image={Imagen1}>
+  Al iniciar la aplicación, esta presenta una pantalla de bienvenida que muestra dos botones de opción: "Iniciar sesión" y "Registrarse". Estos botones permiten a los usuarios acceder a sus cuentas existentes o crear una nueva cuenta para utilizar la aplicación. También pueden acceder a la aplicación sin necesidad de iniciar sesión.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen2}>
-  Texto
+<FeatureCard alternative="Servicio de usuarios" image={Imagen2}>
+  En la pantalla de inicio de sesión, los usuarios pueden ingresar sus credenciales, como el correo electrónico y la contraseña, para acceder a su cuenta. Si un usuario no tiene una cuenta, puede optar por registrarse proporcionando la información necesaria.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen3}>
-  Texto
+<FeatureCard alternative="Servicio de usuarios" image={Imagen3}>
+  La pantalla de registro permite a los nuevos usuarios crear una cuenta proporcionando detalles como su nombre, correo electrónico y contraseña. Una vez registrados, los usuarios pueden acceder a las todas funcionalidades de la aplicación dependiendo de su rol (usuario o administrador).
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen4}>
-  Texto
+### Opciones de navegación
+
+<FeatureCard alternative="Productos" image={Imagen4}>
+  En la parte inferior de la pantalla, se encuentra una barra de navegación que permite a los usuarios acceder rápidamente a diferentes secciones de la aplicación. Las opciones disponibles en la barra de navegación incluyen:
+
+- **Productos:** Permite a los usuarios explorar y ver la lista de productos disponibles en la tienda.
+- **Ordenes:** Muestra el historial de pedidos realizados por el usuario, permitiéndole revisar detalles de compras anteriores.
+- **Carrito:** Muestra los productos que el usuario ha agregado a su carrito de compras, permitiéndole revisar y gestionar los artículos antes de proceder al pago.
+- **Opciones:** Proporciona acceso a configuraciones y opciones adicionales de la aplicación, como ajustes de cuenta, cerrar sesión y gestión de la tienda (para administradores).
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen5}>
-  Texto
+<FeatureCard alternative="Opciones del administrador" image={Imagen5}>
+  En las opciones del menú de navegación, los administradores tienen acceso a funcionalidades adicionales para gestionar la tienda.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen6}>
-  Texto
+<FeatureCard alternative="Opciones del cliente" image={Imagen6}>
+  Los clientes pueden acceder a opciones relacionadas con su cuenta. Estas opciones se presentan en un *bottom sheet* que se despliega desde la parte inferior de la pantalla al seleccionar la opción "Opciones" en la barra de navegación.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen7}>
-  Texto
+<FeatureCard title="Productos" image={Imagen7}>
+  Los productos se presentan en una cuadrícula visualmente atractiva, mostrando imágenes de alta calidad, nombres y precios. Los usuarios pueden desplazarse por la lista de productos y seleccionar cualquiera para obtener más detalles.
+
+Se pueden realizar búsquedas específicas utilizando la barra de búsqueda ubicada en la parte superior de la pantalla. Al realizar una búsqueda se le permitirá al usuario restablecer la búsqueda para ver todos los productos nuevamente.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen8}>
-  Texto
+#### Filtros de búsqueda
+
+<FeatureCard alternative="Filtros" image={Imagen8}>
+  Adicionalmente, los usuarios pueden aplicar filtros para refinar los resultados de búsqueda según las diferentes marcas disponibles u ordenar los productos con diferentes criterios, como precio ascendente o descendente.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen9}>
-  Texto
+#### Búsqueda por voz
+
+<FeatureCard alternative="Búsqueda por voz" image={Imagen9}>
+  En la barra de búsqueda, los usuarios tienen la opción de utilizar la función de búsqueda por voz. Al seleccionar el ícono de micrófono, esto presentara una interfaz que permite a los usuarios hablar y buscar productos utilizando comandos de voz.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen10}>
-  Texto
+<FeatureCard alternative="Resultado de una búsqueda por voz" image={Imagen10} />
+
+#### Detalles del producto
+
+<FeatureCard alternative="Detalles de un producto" image={Imagen11}>
+ Al seleccionar un producto de la lista, los usuarios son dirigidos a una pantalla de detalles del producto. Esta pantalla proporciona información completa sobre el producto seleccionado, donde se muestra una imagen ampliada del producto, su nombre, precio, calificaciones, descripción detallada y opciones para agregarlo al carrito de compras.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen11}>
-  Texto
+<FeatureCard alternative="Detalles de un producto - características " image={Imagen12}>
+  Además de la información básica del producto, la pantalla de detalles también incluye una sección de características que destaca las especificaciones y atributos clave del producto, ayudando a los usuarios a tomar decisiones informadas antes de realizar una compra.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen12}>
-  Texto
+<FeatureCard alternative="Detalles de un producto - productos recomendados" image={Imagen13}>
+  Al final de la pantalla de detalles del producto, se presenta una sección de productos recomendados. Esta sección sugiere productos relacionados o complementarios que podrían interesar al usuario, basándose en el producto que están visualizando actualmente. 
+  
+  Esta característica es propia del [backend](/proyectos/byte-store-api#productos-similares) y se sincroniza con la cache del cliente para mejorar el rendimiento, esto permite recomendar productos agregados recientemente.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen13}>
-  Texto
+<FeatureCard title="Carrito de compras" image={Imagen14}>
+  El carrito de compras permite a los usuarios revisar y gestionar los productos que han seleccionado para comprar. En esta pantalla, los usuarios pueden ver una lista de los productos agregados al carrito, junto con sus cantidades y precios individuales.
+
+Los usuarios tienen la opción de modificar las cantidades de los productos, eliminar artículos del carrito al deslizarlos hacia la izquierda, y pueden proceder al pago para completar la compra.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen14}>
-  Texto
+<FeatureCard title="Confirmar orden" image={Imagen15}>
+  Al confirmar una orden, los usuarios son dirigidos a una pantalla donde pueden revisar los detalles de su compra antes de finalizarla. Esta pantalla muestran las opciones de entrega disponibles, métodos de pago y un resumen del pedido.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen15}>
-  Texto
+<FeatureCard alternative="Geolocalización" image={Imagen19}>
+  Si el usuario selecciona la opción de entrega a domicilio, se le presenta una
+  opción para cambiar la dirección de entrega. Al seleccionar esta opción, se
+  obtendrá la ubicación actual del usuario utilizando servicios de
+  geolocalización.
+</FeatureCard>
+
+### Gestión de perfil
+
+#### Opciones de perfil
+
+<FeatureCard alternative="Detalles del perfil" image={Imagen16}>
+  Como se comentó anteriormente, los usuarios pueden acceder a las opciones de su perfil desde el menú de navegación. En esta sección, los usuarios pueden ver y gestionar la información de su cuenta, incluyendo detalles personales  y configuraciones de la cuenta.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen16}>
-  Texto
+#### Cambiar contraseña y actualizar datos
+
+<FeatureCard alternative="Cambiar contraseña" image={Imagen17}>
+  En la aplicación los usuarios tienen la opción de cambiar su contraseña para mejorar la seguridad de su cuenta. Al seleccionar esta opción, se les presenta una pantalla donde pueden establecer una nueva contraseña.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen17}>
-  Texto
+<FeatureCard alternative="Actualizar datos" image={Imagen18}>
+  Los usuarios también pueden actualizar su información personal, como nombre, correo electrónico y dirección de entrega. Al seleccionar esta opción, se les presenta un formulario donde pueden modificar y guardar los cambios en su perfil.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen18}>
-  Texto
+### Gestión de la tienda (administradores)
+
+<FeatureCard alternative="Panel de administración" image={Imagen20}>
+  En el panel de administración, se presentan los acessos rápidos a las diferentes secciones de gestión de la tienda, como:
+
+- Productos
+- Órdenes
+- Usuarios
+- Comentarios
+
+Además de los accesos a las subcategorías de los productos:
+
+- Procesadores
+- Gráficos
+- Marcas
+- Sistemas operativos
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen19}>
-  Texto
+#### Gestión de productos
+
+<FeatureCard alternative="Listado de productos" image={Imagen21}>
+  Al gestionar los productos, los administradores pueden ver una lista completa de todos los productos disponibles en la tienda. Esta lista muestra información básica sobre cada producto, como su nombre, precio, modelo, marca y cantidad en stock.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen20}>
-  Texto
+<FeatureCard alternative="Registrar un nuevo producto" image={Imagen22}>
+  En el listado de productos se dispone de un botón flotante que permite a los administradores agregar nuevos productos a la tienda. Al seleccionar este botón, se les presenta un formulario donde pueden ingresar los detalles del nuevo producto.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen21}>
-  Texto
+<FeatureCard alternative="Información de un producto" image={Imagen23}>
+  Al seleccionar un producto de la lista, los administradores son dirigidos a una pantalla de detalles del producto. Esta pantalla proporciona información completa sobre el producto seleccionado es similar a la del cliente, cambiando las opciones de compra por opciones de gestión del producto, como modificar o eliminar el producto.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen22}>
-  Texto
+<FeatureCard
+  alternative="Información de un producto - detalles"
+  image={Imagen24}
+/>
+
+<FeatureCard alternative="Modificar un producto" image={Imagen25}>
+  Si el administrador desea actualizar la información de un producto, puede seleccionar la opción de modificar. Esto presenta un formulario prellenado con los detalles actuales del producto, permitiendo al administrador realizar cambios y guardar las actualizaciones.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen23}>
-  Texto
+<FeatureCard alternative="Eliminar un producto" image={Imagen26}>
+  Al seleccionar la opción de eliminar un producto, se presenta una confirmación para asegurarse de que el administrador desea proceder con la eliminación. Una vez confirmado, el producto se elimina de la tienda y ya no estará disponible para los clientes.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen24}>
-  Texto
+#### Gestión de usuarios
+
+<FeatureCard alternative="Listado de usuarios" image={Imagen27}>
+  En la sección de gestión de usuarios, los administradores pueden ver una lista completa de todos los usuarios registrados en la aplicación. Esta lista muestra información básica sobre cada usuario, como su nombre, correo electrónico y rol (si es un administrador, se muestra una etiqueta con el rol).
+
+Se pueden buscar usuarios específicos utilizando la barra de búsqueda ubicada en la parte superior de la pantalla y junto a esta se encuentra el botón para registrar un nuevo usuario.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen25}>
-  Texto
+<FeatureCard alternative="Registrar un nuevo usuario" image={Imagen28}>
+  Al seleccionar el botón de agregar usuario, se presenta un formulario donde los administradores pueden ingresar los detalles del nuevo usuario.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen26}>
-  Texto
+<FeatureCard alternative="Datos del usuario" image={Imagen29}>
+  Al seleccionar un usuario de la lista, los administradores son dirigidos a una pantalla de detalles del usuario. Esta pantalla proporciona información completa sobre el usuario seleccionado, junto con opciones para modificar o eliminar el usuario.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen27}>
-  Texto
+<FeatureCard alternative="Modificar usuario" image={Imagen30}>
+  En la edición de un usuario, los administradores pueden actualizar la información del usuario seleccionado. Esto presenta un formulario prellenado con los detalles actuales del usuario, permitiendo al administrador realizar cambios y guardar las actualizaciones.
+
+**_Nota._** Los administradores no pueden modificar cuentas de otros administrador y tampoco cambiar la contraseña de otros usuarios.
 
 </FeatureCard>
 
-<FeatureCard title="Servicio de usuarios" image={Imagen28}>
-  Texto
-
-</FeatureCard>
-
-<FeatureCard title="Servicio de usuarios" image={Imagen29}>
-  Texto
-
-</FeatureCard>
-
-<FeatureCard title="Servicio de usuarios" image={Imagen30}>
-  Texto
-
-</FeatureCard>
-
-<FeatureCard title="Servicio de usuarios" image={Imagen31}>
-  Texto
+<FeatureCard alternative="Eliminar usuario" image={Imagen31}>
+  Al eliminar un usuario, se presenta una confirmación para asegurarse de que el administrador desea proceder con la eliminación. Una vez confirmado, el usuario se elimina de la aplicación y ya no podrá acceder a su cuenta.
 
 </FeatureCard>
 
 ## Proceso de desarrollo
 
-Este proyecto fue desarrollado por un equipo de tres personas: José Hernández, Anderson Lozada y Daniel Leiton.
+Es la primer aplicación móvil que he desarrollado utilizando Android Studio y Kotlin. Durante el desarrollo de esta aplicación, he aprendido a implementar la arquitectura **MVVM (Model-View-ViewModel)** para separar las responsabilidades y mejorar la mantenibilidad del código. Además, sobre el manejo de datos locales con _data preferences_ y _providers_ para el almacenamiento en caché de datos, del cual aprendí a optimizar el rendimiento de la aplicación y mejorar la experiencia del usuario.
+
+Esta aplicación fue desarrollada en equipo con mis compañeros Anderson Lozada, Daniel Leiton y Diego Lemus, quienes se encargaron de:
+
+- **Anderson Lozada:** Diseño de la interfaz de usuario utilizando Figma e implementación de la geolozalización, junto con el sistema de órdenes y comentarios.
+- **Daniel Leiton:** Implementación del carrito de compras con **Rom** y la actualización de datos del perfil de usuario.
+- **Diego Lemus:** Documentación técnica y creación del manual de usuario.
+
+Por mi parte me encargué de la mayor parte del desarrollo de la aplicación, incluyendo la implementación de la autenticación de usuarios, gestión de productos, y la integración con el backend con **Retrofit** para la comunicación con la [API RESTful](/proyectos/byte-store-api). Además de encargarme del diseño de la interfaz de usuario basándome la [versión web](/proyectos/byte-store) y la experiencia del usuario (UI/UX) para asegurar que la aplicación sea intuitiva y fácil de usar.
+
+También fui responsable de la configuración del proyecto en **Android Studio**, la gestión del control de versiones, y la coordinación del equipo para asegurar que todos los aspectos del desarrollo se alinearan con los objetivos del proyecto. Este proyecto me permitió adquirir experiencia práctica en el **desarrollo de aplicaciones móviles**, trabajar en equipo y aplicar buenas prácticas de desarrollo de software como el uso de _arquitecturas limpias_ y _patrones de diseño_.
+
+## Instalación
+
+1. Clona el repositorio desde GitHub:
+
+   ```bash
+   git clone https://github.com/JoseDHernandez/ByteStore-Android
+   ```
+
+2. Abre Android Studio y selecciona "Open an existing project". Navega hasta la carpeta donde clonaste el repositorio y selecciónala.
+3. Espera a que Android Studio sincronice el proyecto y descargue las dependencias necesarias.
+4. Tener instalada la [API de Byte Store](/proyectos/byte-store-api)
+5. Conecta un dispositivo Android o configura un emulador.
+6. Compila y ejecuta la aplicación desde Android Studio.
+
+Se puede configurar la URL del backend en el archivo `ApiClient.kt` ubicado en `app/src/main/java/com/example/bytestore/core/ApiClient.kt`. Cambia la constante `BASE_URL` para apuntar a la dirección correcta de la API.
+
+```kotlin
+  private const val BASE_URL = "http://10.0.2.2:3000"
+```

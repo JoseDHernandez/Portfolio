@@ -1,8 +1,8 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 .footer {
-  background-color: $primary-color;
-  color: white;
+  background-color: var(--primary);
+  color: var(--bg-card);
   &--content {
     padding: 2em 0px;
     display: flex;

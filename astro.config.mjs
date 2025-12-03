@@ -18,7 +18,21 @@ export default defineConfig({
     }),
     mdx(),
     sitemap(),
-    icon(),
+    icon({
+      svgoOptions: {
+        multipass: true,
+        plugins: [
+          {
+            name: "prefixIds",
+            params: {
+              overrides: {
+                prefixIds: false,
+              },
+            },
+          },
+        ],
+      },
+    }),
     react(),
     aiRobotsTxt(),
   ],
@@ -26,6 +40,7 @@ export default defineConfig({
   vite: {
     plugins: [svgr()],
   },
+
   env: {
     schema: {
       URL_PROFILE: envField.string({ context: "server", access: "public" }),
