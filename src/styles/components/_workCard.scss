@@ -5,8 +5,8 @@
   border-left: 5px solid var(--accent);
   padding: 2em;
   width: 100%;
-  & > ul {
-    padding-left: 2em;
+  & ul {
+    padding-left: 16px;
   }
   & li::marker {
     color: var(--accent);
@@ -16,6 +16,9 @@
   }
 
   @include breakpoint(xl) {
+    & > ul {
+      padding-left: 2em;
+    }
     & > div:first-child {
       & > h3,
       & > p {
