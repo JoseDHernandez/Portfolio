@@ -42,6 +42,7 @@ export default defineConfig({
     playformCompress({
       Image: false,
       SVG: false,
+      JavaScript: false,
     }),
     compressor(),
   ],
