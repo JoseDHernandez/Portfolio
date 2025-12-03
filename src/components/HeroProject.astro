@@ -45,20 +45,7 @@ const getDate = (d: Date) =>
       <p>
         <strong>Fecha:</strong>
         {getDate(Release)}
-        {
-          Update && (
-            <span>
-              {" "}
-              -{" " + getDate(Update)}
-              <sup
-                title="Fecha de la ultima actualización"
-                class="hero--annotation"
-              >
-                *
-              </sup>
-            </span>
-          )
-        }
+        {Update && <span> -{" " + getDate(Update)}</span>}
       </p>
       <div class="hero--buttons">
         {

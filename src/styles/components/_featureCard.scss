@@ -1,6 +1,7 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
 .feature-card {
+  margin: 0px;
   margin-bottom: 2em;
   & figure {
     margin: 0;

@@ -18,7 +18,6 @@ Technologies:
   - "Git"
   - "Astro"
   - "Markdown"
-  - "Penpot"
   - "Figma"
   - "Sass"
 Type: "Aplicación web"
@@ -40,6 +39,9 @@ import Imagen6 from "./portfolio/portfolio-6.webp";
 import Imagen7 from "./portfolio/portfolio-7.webp";
 import Imagen8 from "./portfolio/portfolio-8.webp";
 import Imagen9 from "./portfolio/portfolio-9.webp";
+import Imagen10 from "./portfolio/portfolio-10.webp";
+import Imagen11 from "./portfolio/portfolio-11.webp";
+import Imagen12 from "./portfolio/portfolio-12.webp";
 
 <HeroProject
   Title={frontmatter.Title}
@@ -65,8 +67,15 @@ import Imagen9 from "./portfolio/portfolio-9.webp";
   soy y destaco algunas de mis habilidades blandas.
 </FeatureCard>
 
+<FeatureCard alternative="Experiencia" image={Imagen10}>
+  En la sección de experiencia se listan mis trabajos anteriores en orden
+  descendente, mostrando el cargo, la empresa, el período y una breve
+  descripción de las responsabilidades y logros obtenidos. Además de contar un
+  una sección para mi experiencia académica.
+</FeatureCard>
+
 <FeatureCard alternative="Proyectos recientes" image={Imagen2}>
-  En la sección de proyectos se visualizan los 10 proyectos más recientes en una
+  En la sección de proyectos se visualizan los 12 proyectos más recientes en una
   grilla. Debajo se encuentra un enlace que dirige a la página completa de
   proyectos.
 </FeatureCard>
@@ -76,7 +85,7 @@ En la página *Proyectos* se lista todos mis proyectos. Cuenta con un buscador
 y filtros por tipo y tecnología.
 
 Es un componente dinámico desarrollado en
-_React_. Ademas, Como el portafolio está construido con _Astro_, optimicé tanto los
+**React**. Ademas, Como el portafolio está construido con **Astro**, optimicé tanto los
 datos como las imágenes para mejorar el rendimiento.
 
 </FeatureCard>
@@ -102,6 +111,18 @@ datos como las imágenes para mejorar el rendimiento.
   su realización.
 </FeatureCard>
 
+<FeatureCard alternative="Galería de imágenes" image={Imagen11}>
+  Al seleccionar una imagen de la página del proyecto, se abre un modal que
+  permite visualizarla en mayor tamaño y desplazarse entre las demás imágenes
+  del proyecto.
+</FeatureCard>
+
+<FeatureCard alternative="Modo oscuro" image={Imagen12}>
+  El portafolio cuenta con un modo oscuro que se puede activar desde un botón
+  ubicado en la esquina inferior izquierda. Además, detecta automáticamente el
+  tema preferido del sistema operativo.
+</FeatureCard>
+
 <FeatureCard title="Certificados" image={Imagen8}>
   La página de certificados presenta mis formaciones y cursos mediante una línea
   del tiempo en orden descendente.
@@ -114,13 +135,13 @@ datos como las imágenes para mejorar el rendimiento.
 
 ## Proceso de desarrollo
 
-La necesidad de crear mi portafolio surgió al sentir que GitHub, aunque útil, limitaba la forma en que podía presentar mis proyectos y darle un enfoque más personal. Comencé estructurando la información con base en principios de _arquitectura de la información_, una habilidad que había aprendido recientemente, y la acompañé del uso de _wireframes_ y _mockups_.
+La necesidad de crear mi portafolio surgió al sentir que GitHub, aunque útil, limitaba la forma en que podía presentar mis proyectos y darle un enfoque más personal. Comencé estructurando la información con base en principios de **arquitectura de la información**, una habilidad que había aprendido recientemente, y la acompañé del uso de **wireframes** y **mockups**.
 
-Durante este proceso, aprendí a utilizar _Figma_ y también experimenté con _Penpot_, una herramienta similar. En Penpot creé un <a target="_blank" rel="noreferrer noopener" href="https://design.penpot.app/#/view?file-id=df10150d-301f-805e-8005-f801c0991306&page-id=df10150d-301f-805e-8005-f801c0991307&section=interactions&index=0&share-id=53ae55ce-c456-815d-8006-6e8873129d24">mockup inicial</a>, para definir las versiones móvil y escritorio del diseño. Aunque más adelante me sentí más cómodo utilizando _Figma_.
+Durante este proceso, aprendí a utilizar **Figma** y también experimenté con **Penpot**, una herramienta similar. En Penpot creé un mockup inicial el cual después refine en **Figma** , para definir las versiones móvil y escritorio del diseño. Aunque más adelante me sentí más cómodo utilizando **Figma**.
 
-Con los mockups definidos, investigué qué tecnologías podría usar para desarrollar el sitio. Consideré _Next.js_, _Angular_ y _Astro_. Finalmente elegí _Astro_ por su simplicidad, rapidez y facilidad para integrar componentes de _React_, una tecnología con la que ya me sentía familiarizado.
+Con los mockups definidos, investigué qué tecnologías podría usar para desarrollar el sitio. Consideré **Next.js**, **Angular** y **Astro**. Finalmente elegí **Astro** por su simplicidad, rapidez y facilidad para integrar componentes de **React**, una tecnología con la que ya me sentía familiarizado.
 
-En paralelo, mientras finalizaba el quinto semestre de Ingeniería de Software, aprendí sobre _SASS_, que decidí incorporar como preprocesador CSS en el proyecto. Una vez terminado el semestre, comencé la codificación del portafolio, primero con un proyecto de práctica: [fanpage del Cuarteto de Nos](/proyectos/fanpage-cuarteto-de-nos/), con el que inicié mi aprendizaje en Astro.
+En paralelo, mientras finalizaba el quinto semestre de Ingeniería de Software, aprendí sobre **SASS**, que decidí incorporar como preprocesador CSS en el proyecto. Una vez terminado el semestre, comencé la codificación del portafolio, primero con un proyecto de práctica: [fanpage del Cuarteto de Nos](/proyectos/fanpage-cuarteto-de-nos/), con el que inicié mi aprendizaje en Astro.
 
 Con la fanpage finalizada, retomé el desarrollo del portafolio. A medida que avanzaba, ajusté algunos elementos visuales y de color respecto a lo previsto en el mockup. A diferencia de proyectos anteriores en los que no usé diseño previo, el uso de mockups permitió reducir el tiempo de diseño y centrarme más en la implementación y en resolver problemas.
 
