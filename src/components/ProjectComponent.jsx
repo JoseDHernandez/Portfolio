@@ -141,23 +141,21 @@ export default function ProjectSection({ projects }) {
             </select>
           </div>
 
-          <div>
-            <p>Tecnologías:</p>
-            <div className="project--filters-panel-technologies">
-              {allTechnologies.map((tech) => (
-                <div key={tech}>
-                  <input
-                    type="checkbox"
-                    value={tech}
-                    checked={techFilter.includes(tech)}
-                    onChange={() => handleTechChange(tech)}
-                    name={`tech-${tech}`}
-                    id={`tech-${tech}`}
-                  />
-                  <label htmlFor={`tech-${tech}`}>{tech}</label>
-                </div>
-              ))}
-            </div>
+          <p>Tecnologías:</p>
+          <div className="project--filters-panel-technologies">
+            {allTechnologies.map((tech) => (
+              <div key={tech}>
+                <input
+                  type="checkbox"
+                  value={tech}
+                  checked={techFilter.includes(tech)}
+                  onChange={() => handleTechChange(tech)}
+                  name={`tech-${tech}`}
+                  id={`tech-${tech}`}
+                />
+                <label htmlFor={`tech-${tech}`}>{tech}</label>
+              </div>
+            ))}
           </div>
 
           <div className="project--filters-actions">

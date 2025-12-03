@@ -9,6 +9,10 @@ import aiRobotsTxt from "astro-ai-robots-txt";
 import netlify from "@astrojs/netlify";
 import favicons from "astro-favicons";
 
+import playformCompress from "@playform/compress";
+
+import compressor from "astro-compressor";
+
 export default defineConfig({
   site: "https://josedhernandez.com",
   integrations: [
@@ -35,6 +39,11 @@ export default defineConfig({
     }),
     react(),
     aiRobotsTxt(),
+    playformCompress({
+      Image: false,
+      SVG: false,
+    }),
+    compressor(),
   ],
 
   vite: {
