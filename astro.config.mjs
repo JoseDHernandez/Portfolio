@@ -8,7 +8,6 @@ import react from "@astrojs/react";
 import aiRobotsTxt from "astro-ai-robots-txt";
 import netlify from "@astrojs/netlify";
 import favicons from "astro-favicons";
-
 import compressor from "astro-compressor";
 
 export default defineConfig({
@@ -37,11 +36,6 @@ export default defineConfig({
     }),
     react(),
     aiRobotsTxt(),
-    (await import("@playform/compress")).default({
-      Image: false,
-      JavaScript: false,
-      SVG: false,
-    }),
     compressor(),
   ],
 
